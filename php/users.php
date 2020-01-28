@@ -1,10 +1,12 @@
-<?php declare(strict_types=1);
+<?php 
+	declare(strict_types=1);
+	echo "users.php included";
 
 //	renvoir l'id de l'utilisateur à qui appartient un mail
 	function getUserIdFromMail(string $mail) : int {
 		$sql = "SELECT id FROM users WHERE email=:mail";
 		$id = -1;
-		if($stmt = $pdo->prepare($sql)){
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
 			$stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
 			if($stmt->execute()){
 				$rowcount = $stmt->rowcount();
@@ -27,7 +29,7 @@
 	function getUserFromId(int $id) :array {
 		$sql = "SELECT name, nickname, email, hash_pass FROM users WHERE id = :id";
 		$user = array();
-		if($stmt = $pdo->prepare($sql)){
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 			if($stmt->execute()){
 				$rowcount = $stmt->rowcount();
@@ -49,14 +51,16 @@
 
 //	suppression d'un utilisateur de la bdd
 	function delUser(int $id){
-		$sql = "DELETE FROM users WHERE id=:id";
+		echo "<br>del1";
+		$sql = "DELETE FROM users WHERE id = :id";
 
-		if($stmt = $pdo->prepare($sql)){
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+			echo "<br>del2";
 			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 			if($stmt->execute()){
 				echo "Done";
 			}else{
-				echo "Something went wrong. Please try again later.";
+				throw new Exception("Something went wrong. Please try again later.");
 			}
 		}
 	}
@@ -64,25 +68,30 @@
 // ajout d'un utilisateur a la bdd
 	function addUser(string $name, string $nick, string $mail, string $pass){
 		
-		$sql = "INSERT INTO users (name, nickname, email, hass_pass) VALUES (:name, :nick, :mail, :hash)";
+		$sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
+		
+		echo "<br>add0:";
+		echo isset($GLOBALS['pdo']) ? 'true' : 'false';
 		
 //		s'execute seulement si le pdo accepte la synthaxe de la requete
-		if($stmt = $pdo->prepare($sql)){
-//			lie les paramettres de la requette avec les variables correspondantes
-			$stmt->bindParam(":name", $name, PDO::PARAM_STR);
-			$stmt->bindParam(":nick", $nick, PDO::PARAM_STR);
-			$stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-			$stmt->bindParam(":hash", $hash, PDO::PARAM_STR);
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
 			
-//			hash le mdp de l'utilisateur avant de l'entrer dans la bdd
+			echo "<br>add1";
+	//		lie les paramettres de la requette avec les variables correspondantes
+			$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+			$stmt->bindParam(':nick', $nick, PDO::PARAM_STR);
+			$stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
+			$stmt->bindParam(':hash', $hash, PDO::PARAM_STR);
+
+	//		hash le mdp de l'utilisateur avant de l'entrer dans la bdd
 			$hash = password_hash($pass, PASSWORD_DEFAULT);
-			
-//			ecrit done si la bdd accepte la requete
-//			ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
+
+	//		ecrit done si la bdd accepte la requete
+	//		ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
 			if($stmt->execute()){
 				echo "Done";
 			}else{
-				echo "Something went wrong. Please try again later.";
+				throw new Exception("Something went wrong. Please try again later.");
 			}
 		}
 	}
@@ -117,13 +126,16 @@
 			if($nb >= 1){
 				$sql .=", ";
 			}
-			$sql .="hass_pass = :hash";
+			$sql .="hash_pass = :hash";
 		}
 
-		$sql .="WHERE id=:id ";
+		$sql .=" WHERE id=:id";
+		echo "<br>mod0";
 
-		if($stmt = $pdo->prepare($sql)){
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+			echo "<br>mod1";
 //			lie les paramettres de la requette avec les variables correspondantes si elles ont ete passe en paramettres
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 			if(strlen($name) != 0){$stmt->bindParam(":name", $name, PDO::PARAM_STR);}
 			if(strlen($nick) != 0){$stmt->bindParam(":nick", $nick, PDO::PARAM_STR);}
 			if(strlen($mail) != 0){$stmt->bindParam(":mail", $mail, PDO::PARAM_STR);}
@@ -131,8 +143,6 @@
 				$stmt->bindParam(":hash", $hash, PDO::PARAM_STR);
 				$hash = password_hash($pass, PASSWORD_DEFAULT);
 			}
-			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
-			
 			if($stmt->execute()){
 				echo "Done";
 			}else{
