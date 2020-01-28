@@ -10,9 +10,6 @@
 	try{
 		$GLOBALS['pdo'] = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
 		$GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "bdd connected <br>";
 	} catch(PDOException $e){
 		die("ERROR: Could not connect. " . $e->getMessage());
 	}
-	
-?>
