@@ -1,6 +1,25 @@
 <?php 
 	declare(strict_types=1);
 
+	function isCredentialsValid(string $mail, string $pass){
+		sql = "SELECT hash_pass FROM users WHERE ig = :id";
+		if($stmt = $pdo->prepare($sql)){
+			$id = getUserIdFromMail($mail);
+			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+			if($stmt->execute()){
+				if($stmt->rowCount() == 1){
+					if($row = $stmt->fetch()){
+						$hashed_passwd = $row["hash_pass"];
+						if(password_verify($mdp, $hashed_passwd)){
+							return True;
+						}
+					}
+					return False;
+				}
+			}
+		}
+	}
+
 //	renvoir l'id de l'utilisateur à qui appartient un mail
 	function getUserIdFromMail(string $mail){
 		$sql = "SELECT id FROM users WHERE email=:mail";
@@ -70,17 +89,17 @@
 //		s'execute seulement si le pdo accepte la synthaxe de la requete
 		if($stmt = $GLOBALS['pdo']->prepare($sql)){
 
-	//		lie les paramettres de la requette avec les variables correspondantes
+//			lie les paramettres de la requette avec les variables correspondantes
 			$stmt->bindParam(':name', $name, PDO::PARAM_STR);
 			$stmt->bindParam(':nick', $nick, PDO::PARAM_STR);
 			$stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
 			$stmt->bindParam(':hash', $hash, PDO::PARAM_STR);
 
-	//		hash le mdp de l'utilisateur avant de l'entrer dans la bdd
+//			hash le mdp de l'utilisateur avant de l'entrer dans la bdd
 			$hash = password_hash($pass, PASSWORD_DEFAULT);
 
-	//		ecrit done si la bdd accepte la requete
-	//		ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
+//			ecrit done si la bdd accepte la requete
+//			ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
 			if($stmt->execute()){
 				echo "Done";
 			}else{
