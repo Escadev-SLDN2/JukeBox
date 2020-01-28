@@ -1,6 +1,6 @@
 <?php
-		require_once "connectBDD.php";
-		include "users.php";
+		require_once "../connectBDD.php";
+		include "../users.php";
 
 //		tests des ajouts
 
