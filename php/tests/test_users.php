@@ -1,4 +1,8 @@
 <?php
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+
 		require_once "../connectBDD.php";
 		include "../users.php";
 
@@ -21,14 +25,20 @@
 //		modUser(19, "", "bla5", "", "azea");
 
 //		tests de getUserIdFromMail()
-	
-//		echo getUserIdFromMail("test2localhost");
+
+//		try{echo getUserIdFromMail("test2localhost");} catch(Exception $e){echo($e->getMessage());}
 //		try{echo getUserIdFromMail("");} catch(Exception $e){echo($e->getMessage());}
 
 //		tests de getUserFromId()
 	
-//		print_r(getUserFromId(18));
+//		try{echo getUserFromId(18);} catch(Exception $e){echo($e->getMessage());}
 //		try{echo getUserFromId(-1);} catch(Exception $e){echo($e->getMessage());}
 	
+//		tests de isPasswdValid()
+
+//		echo (isPasswdValid(18,"azerty2") ? "true" : "false")."<br>";
+//		echo (isPasswdValid(18,"azerty3") ? "true" : "false")."<br>";
+//		echo (isPasswdValid(-1,"azerty3") ? "true" : "false")."<br>";
+
 		unset($GLOBALS['pdo']);
 ?>

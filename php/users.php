@@ -1,23 +1,22 @@
 <?php 
 	declare(strict_types=1);
 
-	function isCredentialsValid(string $mail, string $pass){
-		sql = "SELECT hash_pass FROM users WHERE ig = :id";
-		if($stmt = $pdo->prepare($sql)){
-			$id = getUserIdFromMail($mail);
+	function isPasswdValid(int $id, string $pass){
+		$sql = "SELECT hash_pass FROM users WHERE id = :id";
+		if($stmt = $GLOBALS['pdo']->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 			if($stmt->execute()){
 				if($stmt->rowCount() == 1){
 					if($row = $stmt->fetch()){
 						$hashed_passwd = $row["hash_pass"];
-						if(password_verify($mdp, $hashed_passwd)){
+						if(password_verify($pass, $hashed_passwd)){
 							return True;
 						}
 					}
-					return False;
 				}
 			}
 		}
+		return False;
 	}
 
 //	renvoir l'id de l'utilisateur à qui appartient un mail
@@ -30,7 +29,7 @@
 				$rowcount = $stmt->rowcount();
 				if($rowcount == 1){				
 					foreach($stmt as $row){
-						$id = $row[id];
+						$id = $row['id'];
 					}
 					return $id;
 				}else if($rowcount == 0){
