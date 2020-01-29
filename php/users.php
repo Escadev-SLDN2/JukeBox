@@ -1,6 +1,6 @@
 <?php 
 	declare(strict_types=1);
-	include "connectBDD.php";
+	include "connect_bdd.php";
 
 	function isPasswdValid(int $id, string $pass){
 		$pdo =& Bdd::connect();
