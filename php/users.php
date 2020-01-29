@@ -1,9 +1,11 @@
 <?php 
 	declare(strict_types=1);
+	include "connectBDD.php";
 
 	function isPasswdValid(int $id, string $pass){
+		$pdo =& Bdd::connect();
 		$sql = "SELECT hash_pass FROM users WHERE id = :id";
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 			if($stmt->execute()){
 				if($stmt->rowCount() == 1){
@@ -21,9 +23,10 @@
 
 //	renvoir l'id de l'utilisateur à qui appartient un mail
 	function getUserIdFromMail(string $mail){
+		$pdo =& Bdd::connect();
 		$sql = "SELECT id FROM users WHERE email=:mail";
 		$id = -1;
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 			$stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
 			if($stmt->execute()){
 				$rowcount = $stmt->rowcount();
@@ -44,9 +47,10 @@
 	}
 
 	function getUserFromId(int $id){
-		$sql = "SELECT name, nickname, email, hash_pass FROM users WHERE id = :id";
+		$pdo =& Bdd::connect();
+		$sql = "SELECT name, nickname, email FROM users WHERE id = :id";
 		$user = array();
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 			if($stmt->execute()){
 				$rowcount = $stmt->rowcount();
@@ -55,7 +59,6 @@
 						$user['name'] = $row['name'];
 						$user['nick'] = $row['nickname'];
 						$user['mail'] = $row['email'];
-						$user['hash'] = $row['hash_pass'];
 					}
 				}else if($rowcount == 0){
 					throw new Exception('No User with this id');
@@ -69,8 +72,9 @@
 
 //	suppression d'un utilisateur de la bdd
 	function delUser(int $id){
+		$pdo =& Bdd::connect();
 		$sql = "DELETE FROM users WHERE id = :id";
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 			if($stmt->execute()){
 				echo "Done";
@@ -82,11 +86,11 @@
 
 // ajout d'un utilisateur a la bdd
 	function addUser(string $name, string $nick, string $mail, string $pass){
-		
+		$pdo =& Bdd::connect();
 		$sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
 		
 //		s'execute seulement si le pdo accepte la synthaxe de la requete
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 
 //			lie les paramettres de la requette avec les variables correspondantes
 			$stmt->bindParam(':name', $name, PDO::PARAM_STR);
@@ -110,6 +114,7 @@
 //	modifie la ligne d'un utilisateur dans la bdd
 //	ne modifie que les champs necessaires
 	function modUser(int $id, string $name="", string $nick="", string $mail="", string $pass=""){
+		$pdo =& Bdd::connect();
 		$sql = "UPDATE users SET ";
 		$nb = 0;
 
@@ -143,7 +148,7 @@
 		$sql .=" WHERE id=:id";
 
 
-		if($stmt = $GLOBALS['pdo']->prepare($sql)){
+		if($stmt = $pdo->prepare($sql)){
 //			lie les paramettres de la requette avec les variables correspondantes si elles ont ete passe en paramettres
 			if(strlen($name) != 0){$stmt->bindParam(":name", $name, PDO::PARAM_STR);}
 			if(strlen($nick) != 0){$stmt->bindParam(":nick", $nick, PDO::PARAM_STR);}
