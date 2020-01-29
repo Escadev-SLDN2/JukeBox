@@ -29,7 +29,6 @@
 
 //	tests de getUserFromId()
 
-
 	try{print_r (getUserFromId(18)); echo "<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
 //	try{print_r (getUserFromId()); echo "<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
 
