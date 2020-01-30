@@ -2,6 +2,11 @@
 	include "users.php";
 	session_start();
 
+	function changeConnectedUserRole(string $role){
+		changeUserRole($_SESSION['id'], $role);
+		$_SESSION['role'] = $role;
+	}
+
 //	verifie les credentials du user,
 //	si elles sont valides, met ses donnes dans $_SESSION et renvoi une string vide,
 //	sinon renvoi une string correspondant à l'erreur
@@ -19,7 +24,9 @@
 			$id = getUserIdFromMail($mail);
 			if (isPasswdValid($id, $pass)){
 				$user = getUserFromId($id);
+				$_SESSION['id']   = $user['id'];
 				$_SESSION['user'] = $user['nick'];
+				$_SESSION['role'] = $user['role'];
 				$_SESSION['loggedIn'] = True;
 				return "";
 			}else{
