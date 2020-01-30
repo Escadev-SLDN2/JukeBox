@@ -24,18 +24,18 @@
 
 //	tests de getUserIdFromMail()
 
-	try{echo (getUserIdFromMail("test2localhost"))."<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
-//	try{echo (getUserIdFromMail(""))."<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
+	try{echo (getUserIdFromMail("test2localhost"))."<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
+//	try{echo (getUserIdFromMail(""))."<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
 
 //	tests de getUserFromId()
 
-	try{print_r (getUserFromId(18)); echo "<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
-//	try{print_r (getUserFromId()); echo "<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
+	try{print_r (getUserFromId(18)); echo "<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
+//	try{print_r (getUserFromId()); echo "<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
 
 //	tests de isPasswdValid()
-	echo (isPasswdValid(18,"azerty2") ? "true" : "false")."<br>";
-//	echo (isPasswdValid(18,"azerty3") ? "true" : "false")."<br>";
-//	echo (isPasswdValid(-1,"azerty3") ? "true" : "false")."<br>";
+	echo (isPasswdValid(18,"azerty2") ? "true" : "false")."<br>\n";
+//	echo (isPasswdValid(18,"azerty3") ? "true" : "false")."<br>\n";
+//	echo (isPasswdValid(-1,"azerty3") ? "true" : "false")."<br>\n";
 
 	Bdd::disconnect();
 ?>

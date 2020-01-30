@@ -4,15 +4,15 @@
 	error_reporting(E_ALL);
 	include "../connect_user.php";
 
-	echo (isUserConnected() ? "true" : "false")."<br>";
-	echo (connectUser("test2localhost", "azerty2"))."<br>";
-	echo (isUserConnected() ? "true" : "false")."<br>";
-	disconnectUser();
-	echo (isUserConnected() ? "true" : "false")."<br>";
-	echo (connectUser("test2localhost", "azerty"))."<br>";
-	echo (isUserConnected() ? "true" : "false")."<br>";
-	echo (connectUser("testlocalhost", "azerty"))."<br>";
-	echo (isUserConnected() ? "true" : "false")."<br>";
-	echo (connectUser("", ""))."<br>";
-	echo (isUserConnected() ? "true" : "false")."<br>";
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
+	echo "action :connection ".(connectUser("test2localhost", "azerty2"))."<br>\n";
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
+	echo "action :disconnection<br>\n"; disconnectUser();
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
+	echo "action :connection ".(connectUser("test2localhost", "azerty"))."<br>\n";
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
+	echo "action :connection ".(connectUser("testlocalhost", "azerty"))."<br>\n";
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
+	echo "action :connection ".(connectUser("", ""))."<br>\n";
+	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
 ?>
