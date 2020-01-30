@@ -1,0 +1,18 @@
+label{
+	text-align: center;
+    background-color: #A9000C;
+	border-radius: 2px;
+	border-color: #221F1F;
+	color: white;
+	border: none;
+	
+}
+.bouton{
+    background-color: #A9000C !important;
+	border-radius: 2px;
+	color: white !important;
+}
+.dropdown{
+    background-color:#CDCDCD !important;
+    border-radius: 2px;
+}
