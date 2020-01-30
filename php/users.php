@@ -2,6 +2,8 @@
 	declare(strict_types=1);
 	include "connect_bdd.php";
 
+//	verifie si un user a le role SU
+//	renvoi un booleen 
 	function isSUserSet(){
 		$id = getSUserId();
 		if ($id == -1){
@@ -10,6 +12,7 @@
 		return True;
 	}
 
+//	renvoi l'id du user qui a pour role SU
 	function getSUserId(){
 		$pdo =& Bdd::connect();
 		$sql = "SELECT id FROM users WHERE role = 'SU'";
@@ -103,7 +106,7 @@
 		}
 	}
 
-//	suppression d'un utilisateur de la bdd
+//	suppression un utilisateur de la bdd
 	function delUser(int $id){
 		$pdo =& Bdd::connect();
 		$sql = "DELETE FROM users WHERE id = :id";
@@ -117,7 +120,7 @@
 		}
 	}
 
-// ajout d'un utilisateur a la bdd
+// ajoute un utilisateur a la bdd
 	function addUser(string $name, string $nick, string $mail, string $pass){
 		$pdo =& Bdd::connect();
 		$sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
