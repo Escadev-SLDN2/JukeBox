@@ -2,6 +2,7 @@
 	include "users.php";
 	session_start();
 
+//	change le role du user connecte dans $_SESSION et dans la bdd
 	function changeConnectedUserRole(string $role){
 		changeUserRole($_SESSION['id'], $role);
 		$_SESSION['role'] = $role;
