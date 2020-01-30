@@ -4,13 +4,15 @@
 	error_reporting(E_ALL);
 	include "../connect_user.php";
 
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
-	echo "action :connection".(connectUser("test2localhost", "azerty2"))."<br>\n";
-	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{changeConnectedUserRole("SU"); echo "action :set role SU<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{changeConnectedUserRole("NULL"); echo "action :set role NULL<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	echo (isUserConnected() ? "true" : "false")."<br>";
+	echo (connectUser("test2localhost", "azerty2"))."<br>";
+	echo (isUserConnected() ? "true" : "false")."<br>";
 	disconnectUser();
+	echo (isUserConnected() ? "true" : "false")."<br>";
+	echo (connectUser("test2localhost", "azerty"))."<br>";
+	echo (isUserConnected() ? "true" : "false")."<br>";
+	echo (connectUser("testlocalhost", "azerty"))."<br>";
+	echo (isUserConnected() ? "true" : "false")."<br>";
+	echo (connectUser("", ""))."<br>";
+	echo (isUserConnected() ? "true" : "false")."<br>";
 ?>
