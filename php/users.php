@@ -2,24 +2,34 @@
 	declare(strict_types=1);
 	include "connect_bdd.php";
 
-	function changeUserRole(int $id, string $role){
-		modUser($id, "", "", "", "", $role);
+	function isSUserSet(){
+		$id = getSUserId();
+		if ($id == -1){
+			return False;
+		}
+		return True;
 	}
 
-	function isSUserSet(){
+	function getSUserId(){
 		$pdo =& Bdd::connect();
 		$sql = "SELECT id FROM users WHERE role = 'SU'";
 		if($stmt = $pdo->query($sql)){
 				if($stmt->rowCount() == 1){
-					return True;
+					if($row = $stmt->fetch()){
+						return $row['id'];
+					}else{
+						throw new Exception('$stmt->fetch() error');
+					}
 				}else if ($stmt->rowCount() > 1){
 					throw new Exception('Multiples SU exists');
+				}else if ($stmt->rowCount() == 0){
+					return -1;	
 				}
-			return False;
 		}else{
 			throw new Exception('$pdo->query($sql) error');
 		}
 	}
+
 
 //	revoi un booleen correspondant a la validite du couple (id, pass)
 	function isPasswdValid(int $id, string $pass){
@@ -76,7 +86,7 @@
 			if($stmt->execute()){
 				$rowcount = $stmt->rowcount();
 				if($rowcount == 1){				
-					foreach($stmt as $row){
+					if($row = $stmt->fetch()){
 						$user['id']	  = $id;
 						$user['name'] = $row['name'];
 						$user['nick'] = $row['nickname'];
@@ -132,6 +142,10 @@
 				throw new Exception("Something went wrong. Please try again later.");
 			}
 		}
+	}
+
+	function changeUserRole(int $id, string $role){
+		modUser($id, "", "", "", "", $role);
 	}
 
 //	modifie la ligne d'un utilisateur dans la bdd
