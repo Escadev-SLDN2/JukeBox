@@ -74,3 +74,65 @@ body {
     border-style: solid;
     background-color: black;
 }
+
+
+.modal-header {
+    background-color: #221F1F;
+    
+}
+
+.signinLabel {
+    background-color: #A9000C ;
+    border: 1px black solid;
+
+    
+}
+
+.modal-body {
+    background-color: #cdcbcb !important;
+    padding-left: 35px;
+}
+
+.form-control {
+    border: 1px black solid;
+}
+
+.btnvalid, .btnreturn {
+    border: 1px black solid;
+    border-radius: 2em;
+    min-width: 25em;
+}
+.btnvalid {
+    background-color: #A9000C;
+    color: white;
+    
+}
+.btnvalid:hover {
+    background-color: white !important;
+    color: black;
+}
+.btnreturn:hover {
+    background-color: #A9000C;
+    color: #CDCDCD !important;
+}
+label{
+    text-align: center;
+    background-color: #A9000C;
+    border-radius: 2px;
+    border-color: #221F1F;
+    color: white;
+    border: none;
+    
+}
+.bouton{
+    background-color: #A9000C !important;
+    border-radius: 2px;
+    color: white !important;
+}
+.dropdown{
+    background-color:#CDCDCD !important;
+    border-radius: 2px;
+}
+.dropdown-menu {
+    min-width: 30em;
+}

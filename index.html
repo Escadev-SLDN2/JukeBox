@@ -11,40 +11,100 @@
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        
         <header>
             <div class="container-fluid bg-dark py-3">
                 <div class="row">
                     <div class=" col-md-3 offset-1 text-white mt-3 ml-auto">
                         <h1>
-                        <img src="assets/img/titre-escabox.png" alt="ESCABOX">
+                            <img src="assets/img/titre-escabox.png" alt="ESCABOX">
                         </h1>
                     </div>
-                    <div class="col-md-2 offset-6 pr-2">
-                        <div class="button mb-1">
-                            <button type="button" class="btn btn-primary ml-5">INSCRIPTION</button>
-                        </div>
-
-                        <button type="button" class="btn btn-primary dropdown ml-5" data-toggle="dropdown">CONNEXION</button>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <section class="container-fluid">
-                                    <div class="row">
-                                            <div class="form-group"> 
-                                                <br>     
-                                                <label class="connectLabel">Mail</label>
-                                                <input class="connectInput" type="text" name="Mail" id="email"placeholder="dupont.87400@mail.com"required/>
-                                            </div>
-                                            <div class="form-group">       
-                                                <label class="connectLabel">Mdp</label>
-                                                <input class="connectInput" type="password" name="Nom" id="nom"placeholder="motdepasse87"required/>                                              
-                                            </div>
+                    <div class="col-md-1 offset-7 pr-2">
+                        <div class="mb-1">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >INSCRIPTION</button>                            
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title text-light">Inscription</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            
+                                            <form action="form.php" method="POST">                                                
                                                 
-                                            <div class="row"> 
-                                                <input class="col-md-12 offset-6 buttonv"type="submit" value="Valider"> 
-                                            <div>                                                 
-                                        </div>                                   
-                                </section>                                    
-                            </ul>                 
+                                                <div class="row-md-1">                                   
+                                                    <div class="form-group row rounded-circle">
+                                                        <label class="signinLabel text-light col-sm-2 col-form-label" for="str-name">Nom</label>                                       
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" placeholder="ex: Sophie Dupont" id="str-name" name="str_name" required />                                       
+                                                            </div>
+                                                        </div> 
+                                                        <br> 
+                                                        <div class="form-group row ">
+                                                            <label class="signinLabel text-light col-sm-2 col-form-label" for="str-pseudo">Pseudo</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" placeholder="geantvert123" id="str-pseudo" name="str_pseudo" required />
+                                                            </div>
+                                                        </div> 
+                                                        <br>
+                                                        <div class="form-group row ">
+                                                            <label class="signinLabel text-light col-sm-2 col-form-label" for="str-email">Email</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="email" class="form-control" placeholder="ex: sophie@dupont.com" id="str-email" name="str_email" required />
+                                                            </div>
+                                                        </div>                                                       
+                                                        <br> 
+                                                        <div class="form-group row ">
+                                                            <label class="signinLabel text-light col-sm-2 col-form-label" for="str-pswd">MdP</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="password" class="form-control" placeholder="mot123de456passe" id="str-pswd" name="str_pswd" required />
+                                                            </div>
+                                                        </div>
+                                                        <br>                                                                                            
+                                                    </div>
+                                                    <div class="form-group row b">
+                                                        <div class="col-md-6 btn_close">
+                                                            <button type="button" id="close" name="close" class="btn btn-primary btnreturn" data-dismiss="modal">Retour</button>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        <div class="col-md-6 btn_submit">
+                                                            <button type="submit" id="submit" name="submit" class="btn btn-primary btnvalid">S'inscrire</button>
+                                                        </div>                                                    
+                                                    </div>
+                                                    
+                                                    
+                                                </form>               
+                                            </div>                                                                              
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary dropdown" data-toggle="dropdown">CONNEXION</button>
+                        <form class="dropdown-menu dropdown-menu-right">
+                            <div class="container-fluid">
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-3 col-form-label">Email</label>
+                                    <div class="col-9">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword3" class="col-3 col-form-label">Password</label>
+                                    <div class="col-9">
+                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn col-4 offset-4 bouton">Valider</button>
+                            </div>                        
+                        </form>                 
                     </div>
                 </div>
             </div>
@@ -54,40 +114,40 @@
                 </a>
             </div>
         </header>
-
-    <main>
         
-        <section class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 embed-responsive embed-responsive-16by9">
-                    <section class="player-yt">
-                    <iframe width="100%" height="350PX" src="https://www.youtube.com/embed/HRs2XPC2hYg?controls=0" frameborder="0" autoplay;
-                    encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>
-                    </section>
+        <main>
+            
+            <section class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 embed-responsive embed-responsive-16by9">
+                        <section class="player-yt">
+                            <iframe width="100%" height="350PX" src="https://www.youtube.com/embed/HRs2XPC2hYg?controls=0" frameborder="0" autoplay;
+                            encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>
+                        </section>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 offset-md-2 playlist">
-                    <div class="row">
-                        <div class="col-md-12 tittle2">
-                            Playlist en cours 
-                        </div>
-<div id="playlist-vid"></div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 playlist">
+                        <div class="row">
+                            <div class="col-md-12 tittle2">
+                                Playlist en cours 
+                            </div>
+                            <div id="playlist-vid"></div>
                             <div class="col-md-12 ">
-                            
-                            ICI EST LA PLAYLIST
+                                
+                                ICI EST LA PLAYLIST
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
         </section>
-
-
+        
+        
         
     </main>
-
+    
     
     
     
@@ -96,6 +156,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+</body>
 </html>
+
 
