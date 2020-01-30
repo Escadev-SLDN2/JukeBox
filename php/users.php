@@ -106,7 +106,7 @@
 		}
 	}
 
-//	suppression un utilisateur de la bdd
+//	supprime un utilisateur de la bdd
 	function delUser(int $id){
 		$pdo =& Bdd::connect();
 		$sql = "DELETE FROM users WHERE id = :id";
