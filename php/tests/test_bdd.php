@@ -3,7 +3,7 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-	include "../connectBDD.php";
+	include "../connect_bdd.php";
 
 //	echo (isset($pdo) ? "true" : "false")."<br>";
 //	$pdo =& Bdd::connect();
