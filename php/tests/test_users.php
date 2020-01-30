@@ -33,10 +33,9 @@
 //	try{print_r (getUserFromId()); echo "<br>";} catch(Exception $e){echo($e->getMessage())."<br>";}
 
 //	tests de isPasswdValid()
-
 	echo (isPasswdValid(18,"azerty2") ? "true" : "false")."<br>";
 //	echo (isPasswdValid(18,"azerty3") ? "true" : "false")."<br>";
 //	echo (isPasswdValid(-1,"azerty3") ? "true" : "false")."<br>";
 
-	Bdd::disconnect($pdo);
+	Bdd::disconnect();
 ?>
