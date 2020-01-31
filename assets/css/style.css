@@ -65,7 +65,7 @@ body {
     background-color: #A9000C;
     border-radius: 2px;
     border-color: #221F1F;
-    color: white;
+    
     border: none;
 }
 
@@ -104,35 +104,23 @@ body {
 }
 .btnvalid {
     background-color: #A9000C;
-    color: white;
     
+    
+}
+
+.btnreturn:hover {
+    background-color: #A9000C;
+    color: #cdcbcb !important;
+}
+
+.dropdown-menu {
+    min-width: 30em;
+}
+
+.text-light {
+    color: white !;
 }
 .btnvalid:hover {
     background-color: white !important;
-    color: black;
-}
-.btnreturn:hover {
-    background-color: #A9000C;
-    color: #CDCDCD !important;
-}
-label{
-    text-align: center;
-    background-color: #A9000C;
-    border-radius: 2px;
-    border-color: #221F1F;
-    color: white;
-    border: none;
-    
-}
-.bouton{
-    background-color: #A9000C !important;
-    border-radius: 2px;
-    color: white !important;
-}
-.dropdown{
-    background-color:#CDCDCD !important;
-    border-radius: 2px;
-}
-.dropdown-menu {
-    min-width: 30em;
+    color: black !important;
 }
