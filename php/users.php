@@ -138,9 +138,7 @@
 
 //			ecrit done si la bdd accepte la requete
 //			ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
-			if($stmt->execute()){
-				echo "Done";
-			}else{
+			if(!($stmt->execute())){
 				throw new Exception("Something went wrong. Please try again later.");
 			}
 		}
