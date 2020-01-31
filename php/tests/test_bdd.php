@@ -5,6 +5,7 @@
 
 	include "../connect_bdd.php";
 
+
 /*	Le but ici est de tester si la connection et la deconnection avec la bdd fonctionnne
 
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";	
