@@ -111,9 +111,7 @@
 		$sql = "DELETE FROM users WHERE id = :id";
 		if($stmt = $pdo->prepare($sql)){
 			$stmt->bindParam(":id", $id, PDO::PARAM_STR);
-			if($stmt->execute()){
-				echo "Done";
-			}else{
+			if(!($stmt->execute())){
 				throw new Exception("Something went wrong. Please try again later.");
 			}
 		}
