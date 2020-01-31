@@ -4,8 +4,10 @@
 
 //	change le role du user connecte dans $_SESSION et dans la bdd
 	function changeConnectedUserRole(string $role){
-		changeUserRole($_SESSION['id'], $role);
-		$_SESSION['role'] = $role;
+		if (isset($_SESSION['id'])){
+			changeUserRole($_SESSION['id'], $role);
+			$_SESSION['role'] = $role;
+		}
 	}
 
 //	verifie les credentials du user,
@@ -53,4 +55,5 @@
 //	deconnecte le user
 	function disconnectUser(){
 		$_SESSION['loggedIn'] = False;
+		$_SESSION['id'] = null;
 	}

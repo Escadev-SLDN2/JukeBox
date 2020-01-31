@@ -2,16 +2,6 @@
 	declare(strict_types=1);
 	include "connect_bdd.php";
 
-//	verifie si un user a le role SU
-//	renvoi un booleen 
-	function isSUserSet(){
-		$id = getSUserId();
-		if ($id == -1){
-			return False;
-		}
-		return True;
-	}
-
 //	renvoi l'id du user qui a pour role SU
 	function getSUserId(){
 		$pdo =& Bdd::connect();
@@ -33,6 +23,15 @@
 		}
 	}
 
+//	verifie si un user a le role SU
+//	renvoi un booleen 
+	function isSUserSet(){
+		$id = getSUserId();
+		if ($id == -1){
+			return False;
+		}
+		return True;
+	}
 
 //	revoi un booleen correspondant a la validite du couple (id, pass)
 	function isPasswdValid(int $id, string $pass){
@@ -101,7 +100,7 @@
 				}
 				return $user;
 			}else{
-				echo "Something went wrong. Please try again later.";
+				throw new Exception('$stmt->execute() error');
 			}
 		}
 	}
