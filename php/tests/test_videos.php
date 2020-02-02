@@ -16,7 +16,7 @@
 	remplacez 15 par un id existant dans votre bdd et vérifiez le contenu de votre bdd pour confirmer le fonctionnement
 */
 
-    //delvideos(15);
+    delvideos(1);
 
 /*	Tests des modification d'une video
 

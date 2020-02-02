@@ -32,7 +32,7 @@
             $sql .="id_yt = :id_yt";
             $nb = $nb+1;
         }
-        if(intlen($user_id) != 0){
+        if(strlen($user_id) != 0){
             if($nb >= 1){
                 $sql .=", ";
             }
