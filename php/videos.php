@@ -54,10 +54,10 @@
             if($users_id != -1){$stmt->bindParam(":users_id", $users_id, PDO::PARAM_STR);}
             
             if(!($stmt->execute())){
-            throw new Exception('Stmt->execute() error');
+                throw new Exception('Stmt->execute() error');
             }
         }else{
-        throw new Exception('$pdo->prepare($sql) error'); 
+            throw new Exception('$pdo->prepare($sql) error'); 
         }
     }
     
