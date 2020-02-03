@@ -33,7 +33,7 @@
             $nb = $nb+1;
         }
         //ici on n'utilise pas le strlen parce que il calcule la longeur d'une chaine de cara.
-        
+
         if( $user_id != -1){
             if($nb >= 1){ 
                 $sql .=", ";
@@ -51,7 +51,7 @@
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
             if(strlen($id_yt) != 0){$stmt->bindParam(":id_yt", $id_yt, PDO::PARAM_STR);}
-            if(strlen($users_id) != 0){$stmt->bindParam(":users_id", $users_id, PDO::PARAM_STR);}
+            if($users_id != -1){$stmt->bindParam(":users_id", $users_id, PDO::PARAM_STR);}
             
             if(!($stmt->execute())){
             throw new Exception('Stmt->execute() error');
