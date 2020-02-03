@@ -22,7 +22,7 @@
     }
     
     //modifier la video dans la BDD
-    function modifvideos(int $id,string $id_yt, int $user_id){
+    function modifvideos(int $id,string $id_yt, int $user_id=-1){
         $pdo = & Bdd :: connect();
         $sql = "UPDATE videos SET";
         $nb = 0;
@@ -32,8 +32,10 @@
             $sql .="id_yt = :id_yt";
             $nb = $nb+1;
         }
-        if(strlen($user_id) != 0){
-            if($nb >= 1){
+        //ici on n'utilise pas le strlen parce que il calcule la longeur d'une chaine de cara.
+        
+        if( $user_id != -1){
+            if($nb >= 1){ 
                 $sql .=", ";
             }
                 
