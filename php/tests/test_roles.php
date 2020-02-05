@@ -24,14 +24,15 @@
 		Enleve le role "SU" au user connecte actuellement. 
 */
 
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
 	echo "action :connection".(connectUser("test2localhost", "azerty2"))."<br>\n";
 	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{changeConnectedUserRole("SU"); echo "action :set role SU<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{echo "is SU :".((isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{changeConnectedUserRole("NULL"); echo "action :set role NULL<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{$_SESSION['user']->changeUserRole("SU"); echo "action :set role SU<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{$_SESSION['user']->changeUserRole("NULL"); echo "action :set role NULL<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	disconnectUser();
 
 	Bdd::disconnect();

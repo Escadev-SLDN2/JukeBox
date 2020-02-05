@@ -16,6 +16,10 @@
 	Remplacez "test2localhost" et "azerty2" par n'importe quel couple (mail, password) qui n'est pas present dans votre table users pour tester le refut de connexion par la fonction.
 
 */
+	if(User::getUserIdFromMail("test2localhost")==-1){
+		User::addUser("blabla", "bla", "test2localhost", "azerty2");
+	}
+
 
 	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
 	echo "action :connection ".(connectUser("test2localhost", "azerty2"))."<br>\n";
