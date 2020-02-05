@@ -1,14 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
   <head>
+    
     <!-- Ici se trouvent les métadonnées pour le navigateur -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Ici se trouvent les métadonnées pour le moteur de recherche (et le navigateur) -->
-    <title>Layout</title>
+    <title>Escabox</title>
     <meta name="description" content="Ce petit paragraphe sera affiché dans les SERP, juste sous le titre des pages.">
 
     <!-- Ici se trouvent les liens vers les fichiers favicons -->
@@ -26,82 +27,309 @@
         
   </head>
 
+
   <body>
 
+    <!-- Header -->
     <header>
-      <div class="container-fluid">
+      <div class="container-fluid bg-secondary mb-5">
         <div class="row">
-          <div class="col-3">logo</div>
 
-          <div class="col-4 text-left">Excabox</div>
+          <!-- Logo -->
+          <div class="col-2 text-light d-flex align-items-center justify-content-center">
+            Logo
+          </div>
 
-          <button>inscription</button>  
-          <button>connexion</button>
+          <!-- Titre -->
+          <div class="col-7 text-light d-flex align-items-center">
+            Escabox
+          </div>
+
+          <!-- Inscription et Connexion
+          Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
+          <div class="col py-2 text-right">
+
+            <div class="row mb-1">
+              <div class="col">
+                <button>Inscription</button>
+              </div>
+            </div>  
+
+            <div class="row">
+              <div class="col">
+                <button>Connexion</button>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </header>
 
+
+    <!-- Contenu page_super_admin -->
     <main>
+
+
+      <!-- Conteneur Visionneuse, Vote et Ajout de musique-->
       <section>
-        <div class="container">
+        <div class="container mb-3">
           <div class="row">
-            <div class="col-sm-6">youtube</div>
 
-              <div class="col text-right">
-                <button>+</button>  vote  <button>-</button>
-                <div class="col">
-                  <div class="row">
+            <!-- Conteneur Visionneuse (Visiteur) -->
+            <div class="col-sm-8 mb-2">
+              <div class="container">
+                <div class="row">
+                  <div class="col bg-secondary text-light">
+                    Visionneuse
                   </div>
-              
-                <button>ajouter</button>
-
+                </div>
               </div>
             </div>
+              
+            <!-- Conteneur Vote et Ajout de musique (Connecté) -->
+            <div class="col">
+            
+              <!-- Vote -->
+              <div class="container mb-2">
+
+                <!--Header Vote -->
+                <div class="row">
+                  <div class="col-12 bg-dark text-light">
+                    Vote
+                  </div>
+                </div>
+
+                <!-- Contenu Vote -->
+                <div class="row">
+                  <div class="col-12 bg-secondary py-4 d-flex align-items-center justify-content-around">
+                    <button>+</button> [-1] <button>-</button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Ajout -->
+              <div class="container">
+
+                <!--Header Ajout -->
+                <div class="row">
+                  <div class="col-12 bg-dark text-light">
+                    Ajout de musique
+                  </div>
+                </div>
+
+                <!-- Contenu Ajout -->
+                <div class="row">
+                  <div class="col-12 bg-secondary py-4 d-flex align-items-center justify-content-around">
+                    Fonctionnalité URL et mots-clef
+                  </div>
+                </div>
+
+              </div>
+              
+            </div>
           </div>
+
         </div>
       </section>
+      
 
+      <!-- Les quatres options (Admin) -->
       <section>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-1 text-left">
-            
+        <div class="container mb-3">
+        
+          <div class="row d-flex align-items-center">
+            <!-- [Thomas] Nous pouvons aussi utiliser "d-flex align-items-center justify-content-between"
+            mais les colonnes bootstrap seront peut-être plus maniables si l'on veut rapprocher
+            "Choix de l'utilisateur" et "Donner le rôle admin". Sans parler du responsive. -->
+            <div class="col-sm-2 mb-2">
+              <button>Passer la vidéo</button>
             </div>
 
-          <button>Passer</button>  <button>Choix de playlist</button>  <button>Choisir un utilisateur connecté</button>  <button>Changer de super utilisateur</button>
+            <div class="offset-sm-1 col-sm-2 mb-2">
+              <button>Choix de la Playlist</button>
+            </div>
 
+            <div class="offset-sm-1 col-sm-2 border border-dark mb-2">
+              Choix de l'utilisateur
+            </div>
+
+            <div class="offset-sm-1 col mb-2">
+              <button>Donner le rôle admin</button>
+            </div>
+
+          </div>
+          
+        </div>
+      </section>
+      
+
+      <!-- Choix de la playlist / CdlP (Admin) -->
+
+      <!-- [Thomas] N'ayant pas réussi à faire fonctionné padding-x (px),
+      j'ai doublé les conteneurs afin de respecter les paddings
+      des premiers conteneurs (visionneuse/vote/ajout/les quatres fonctions).
+      L'"astuce" est répété pour le carousel des vidéos en cours et Table_gestion_admin -->
+
+      <section>
+        <div class="container mb-3">
+          <div class="row">
+            <div class="col">
+
+              <div class="container">
+
+                <!-- Header CdlP -->
+                <header>
+                  <div class="row">
+                    <div class="col bg-dark text-light">
+                      Choix de la playlist
+                    </div>
+                  </div>
+                </header>
+
+                <!-- Contenu CdlP -->
+                <div class="row pt-1 pb-3 bg-secondary">
+                  <div class="col-12">
+                    Tags Tag tag
+                  </div>
+                </div>
+          
+                <!-- Footer CdlP -->
+                <footer>
+                  <div class="row py-1 bg-secondary border-top border-dark">
+
+                    <div class="col-sm-10 d-flex justify-content-end align-items-center">
+                      x musique(s) sélectionnée(s)
+                    </div>
+
+                    <div class="col text-center">
+                      <button>Valider</button>
+                    </div>
+
+                  </div>
+                </footer>
+
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
       
+
+      <!-- Carousel vidéo (Visiteur) -->
       <section>
-        <div class="container">
-        
-          <header>
-            <div class="row">
-              <div class="col">choix de playlist</div>
-            </div>
-          </header>
-          
+        <div class="container mb-3">
           <div class="row">
             <div class="col">
-              Tags tags tag
-            </div>
-          </div>  
 
-          <footer>
-            <div class="row">
-              <div class="col text-right bg-dark">
-                2 musique(s) sélectionée(s) <button>valider</button>
+              <div class="container">
+
+                <!-- Header Carousel -->
+                <header>
+                  <div class="row">
+                    <div class="col bg-dark text-light">
+                      Vidéo/Playlist en cours
+                    </div>
+                  </div>
+                </header>
+        
+                <!-- Contenu Carousel -->
+                <div class="row text-center">
+
+                  <!-- Left -->
+                  <div class="col-sm-1 bg-secondary">
+                    L
+                  </div>
+
+                  <div class="col bg-danger">
+                    Vid1
+                  </div>
+
+                  <div class="col bg-success">
+                    Vid2
+                  </div>
+
+                  <div class="col bg-warning">
+                    Vid3
+                  </div>
+
+                  <div class="col bg-info">
+                    Vid4
+                  </div>
+
+                  <!-- Right -->
+                  <div class="col-sm-1 bg-secondary">
+                    R
+                  </div>
+
+                </div>
+          
               </div>
+
             </div>
-          </footer>
+          </div>
+        </div>
       </section>
+      
 
+      <!-- Gestion des vidéos et playlist (Admin) -->
+      <section>
+        <div class="container mb-3">
+          <div class="row">
+            <div class="col">
+
+              <div class="container bg-secondary">
+
+                <!-- Header Gestion_playlist -->
+                <header>
+                  <div class="row">
+                      <div class="col-12 bg-dark text-light">
+                          Tableau_gestion_admin
+                      </div>
+                  </div>
+              </header>
+
+                <!-- Contenu Gestion_playlist -->
+                <div class="row">
+                  <div class="col-12 py-4">
+                    [Tableau de gestion]
+                  </div>
+                </div>
+          
+                <!-- Footer Gestion_playlist -->
+                <footer>
+                  <div class="row border-top border-dark">
+                      <div class="col-12">
+                          Controles_admin
+                      </div>
+                  </div>
+              </footer>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Footer -->
+    <footer>
+      <div class="container-fluid bg-secondary">
+        <div class="row">
+          <div class="col">
+            Footer
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Ici se trouvent les liens vers les fichiers javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
