@@ -25,7 +25,7 @@
 	$pdo =& Bdd::connect();
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 	echo "action : SELECT id, name, nickname FROM users<br>\n";
-	foreach ($pdo->query("SELECT id, name, nickname FROM users") as $row){ print_r($row); echo "<br>\n";}
+	$pdo->query("SELECT id, name, nickname FROM users");
 	Bdd::disconnect($pdo);
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 
