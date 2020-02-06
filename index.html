@@ -36,13 +36,13 @@
         <div class="row">
 
           <!-- Logo -->
-          <div class="col-2 text-light d-flex align-items-center justify-content-center">
-            Logo
-          </div>
+          <div class="col-2 text-light d-block align-items-start justify-content-center">            
+            <img src="assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">            
+          </div> 
 
           <!-- Titre -->
-          <div class="col-7 text-light d-flex align-items-center">
-            Escabox
+          <div class="col-sm-7 text-light d-flex align-items-center">            
+            <img src="assets/img/titre-escabox.png" alt="ESCABOX">            
           </div>
 
           <!-- Inscription et Connexion
@@ -51,7 +51,55 @@
 
             <div class="row mb-1">
               <div class="col">
-                <button>Inscription</button>
+                <button type="button" class="btn btn-primary ml-5" data-toggle="modal" data-target="#myModal" >
+                  Inscription
+              </button>
+             <!--POPUP-->
+              <div id="myModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <!--Header du POPUP-->
+                    <div class="modal-header">
+                      <h5 class="modal-title">Inscription</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!--body du POPUP-->                      
+                    <div class="modal-body">                        
+                      <form class="form" action="form.php" method="POST" role="form" autocomplete="off">
+                        <div class="container">
+                          <div class="form-group row justify-content-between">
+                              <label for="inputName">Nom :*</label>
+                              <input type="text" class="form-control col-sm-9" id="inputName" placeholder="full name" required>
+                          </div>
+                          <div class="form-group row justify-content-between">
+                              <label for="inputEmail">Email :*</label>
+                              <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" required>
+                          </div>
+                          <div class="form-group row justify-content-between">
+                              <label for="inputPassword">Mot de passe :*</label>
+                              <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="password" title="At least 6 characters with letters and numbers" required>
+                          </div>
+                          <div class="form-group row justify-content-between">
+                              <label for="inputConfirm">Confirmer :*</label>
+                              <input type="password" class="form-control col-sm-9" id="inputConfirm" placeholder="password (again)" required>
+                          </div>                    
+                          <!--Bouton s'inscrire-->
+                          <div class="form-group d-flex justify-content-around">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                  Retour
+                              </button>
+                              <button type="submit" class="btn btn-success">
+                                  S'inscrire
+                              </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>  
 
