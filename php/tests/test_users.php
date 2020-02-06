@@ -4,7 +4,7 @@
 	error_reporting(E_ALL);
 	include "../users.php";
 	$pdo =& Bdd::connect();
-	$pdo->query("DELETE FROM users");
+	$pdo->query("DELETE FROM users WHERE nickname='tt0' OR nickname='tt1' OR nickname='tt2'");
 
 /*	Tests des ajouts
 	try{$user0 = User::add("test0", "tt0", "test0@localhost", "test");} catch(Exception $e){echo($e->getMessage())."<br>\n";}
