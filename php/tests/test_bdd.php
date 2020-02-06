@@ -29,4 +29,13 @@
 	Bdd::disconnect($pdo);
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 
+/* 
+	la page devrait afficher :
+
+		is pdo set :false
+		is pdo set :true
+		action : SELECT id, name, nickname FROM users
+		is pdo set :false	
+*/
+
 ?>

@@ -10,6 +10,7 @@
 		public $mail;
 		public $role;
 
+//		contructeur d'user
 		function __construct(int $_id, string $_name, string $_nick, string $_mail, $_role){
 			$this->id = $_id;
 			$this->name = $_name;
@@ -18,7 +19,7 @@
 			$this->role = $_role;
 		}
 
-//		Ajout/suppression/modification s'un user 	
+//		Ajout/suppression/modification d'un user 	
 
 //		supprime un utilisateur de la bdd
 		function delete(){
@@ -268,6 +269,7 @@
 				throw $e;
 			}
 		}
+		
 //		verifie si les donnes necessaires sont presentes dans $_SESSION
 //		renvoi un booleen
 		static function isConnected(){
