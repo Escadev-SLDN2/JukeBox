@@ -1,0 +1,44 @@
+body {
+    background-color: #587276;
+    font-family: sans-serif;
+}
+
+.bg-dark{
+   background-color: #221f1f!important;
+}
+
+.bg-secondary {
+    background-color: #cdcbcb!important;
+}
+
+.text-light {
+    color: #cdcbcb;
+}
+
+/* Suggestion : attribuer class btn-secondary et btn-danger en fonction des différents boutons  */
+
+
+/*
+
+.btn-secondary {
+    color: #000000;
+    background-color: #cdcbcb;
+    border-color: #cdcbcb;
+}
+
+.btn-danger {
+    color: #cdcbcb;
+    background-color: #a9000c;
+    border-color: #a9000c;
+}
+
+.btn-secondary:hover , .btn-secondary:focus {
+    background-color: #a9000c;
+    border-color: #a9000c;
+    box-shadow: none;
+}
+
+*/
+
+
+
