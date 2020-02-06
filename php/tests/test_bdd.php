@@ -1,9 +1,9 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
+	ini_set('display_errors', '1');
+	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
 
-	include "../connect_bdd.php";
+	include "../bdd.php";
 
 
 /*	Le but ici est de tester si la connection et la deconnection avec la bdd fonctionnne
@@ -25,8 +25,17 @@
 	$pdo =& Bdd::connect();
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 	echo "action : SELECT id, name, nickname FROM users<br>\n";
-	foreach ($pdo->query("SELECT id, name, nickname FROM users") as $row){ print_r($row); echo "<br>\n";}
+	$pdo->query("SELECT id, name, nickname FROM users");
 	Bdd::disconnect($pdo);
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
+
+/* 
+	la page devrait afficher :
+
+		is pdo set :false
+		is pdo set :true
+		action : SELECT id, name, nickname FROM users
+		is pdo set :false	
+*/
 
 ?>
