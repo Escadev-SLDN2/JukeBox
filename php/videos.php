@@ -1,8 +1,15 @@
 <?php  
-    include "connect_bdd.php";
+    // Affichage des erreurs détaillées :
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    // Récupération des données 
+    require_once "bdd.php";
+
     //ajout d'une video à la BDD
     function addvideos(string $id_yt, int $user_id){
-        $pdo = & Bdd :: connect();
+        $pdo = & Bdd::connect();
         $sql = "INSERT INTO videos (id_yt, user_id) VALUES (:id_yt, :user_id)";
 
         // s'exécute seulement si le pdo accepte la synthaxe de la requete
@@ -22,8 +29,8 @@
     }
     
     //modifier la video dans la BDD
-    function modifvideos(int $id,string $id_yt, int $user_id=-1){
-        $pdo = & Bdd :: connect();
+  /*  function modifvideos(int $id,string $id_yt, int $user_id=-1){
+        $pdo = & Bdd::connect();
         $sql = "UPDATE videos SET";
         $nb = 0;
         
@@ -75,6 +82,6 @@
 				throw new Exception("Something went wrong. Please try again later.");
 			}
         }
-    }
+    }*/
 
     ?>
