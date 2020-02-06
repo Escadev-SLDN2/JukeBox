@@ -1,5 +1,6 @@
 <?php 
 	declare(strict_types=1);
+	ini_set('session.auto_start', '1');
 	require_once "connect_bdd.php";
 
 	class User {
@@ -20,7 +21,7 @@
 //		Ajout/suppression/modification s'un user 	
 
 //		supprime un utilisateur de la bdd
-		function delUser(){
+		function delete(){
 			$pdo =& Bdd::connect();
 			$sql = "DELETE FROM users WHERE id = :id";
 			if($stmt = $pdo->prepare($sql)){
@@ -32,13 +33,13 @@
 		}
 
 //		ne modifie que le role d'un user
-		function changeUserRole(string $role){
-			self::modUser( "", "", "", "", $role);
+		function changeRole(string $role){
+			$this->modify( "", "", "", "", $role);
 		}	
 
 //		modifie la ligne d'un utilisateur dans la bdd
 //		ne modifie que les champs necessaires
-		function modUser(string $name="", string $nick="", string $mail="", string $pass="", string $role=""){
+		function modify(string $name="", string $nick="", string $mail="", string $pass="", string $role=""){
 			$pdo =& Bdd::connect();
 			$sql = "UPDATE users SET ";
 			$nb = 0;
@@ -109,12 +110,12 @@
 		}
 
 //		ajoute un utilisateur a la bdd
-		static function addUser(string $name, string $nick, string $mail, string $pass){
+		static function add(string $name, string $nick, string $mail, string $pass){
 			$pdo =& Bdd::connect();
 			$sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
 
 	//		s'execute seulement si le pdo accepte la synthaxe de la requete et si le mail n'est pas deja present dans la bdd
-			$idFromMail=self::getUserIdFromMail($mail);
+			$idFromMail=self::getIdFromMail($mail);
 			if(($idFromMail==-1)and($stmt = $pdo->prepare($sql))){
 
 	//			lie les paramettres de la requette avec les variables correspondantes
@@ -129,7 +130,7 @@
 	//			ecrit done si la bdd accepte la requete
 	//			ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
 				if($stmt->execute()){
-					return self::getUserFromId(self::getUserIdFromMail($mail));
+					return self::getFromId(self::getIdFromMail($mail));
 				}else{
 					throw new Exception("Something went wrong. Please try again later.");
 				}
@@ -139,7 +140,7 @@
 		}
 
 //		renvoi l'id de l'utilisateur a qui appartient le mail
-		static function getUserIdFromMail(string $mail){
+		static function getIdFromMail(string $mail){
 			$pdo =& Bdd::connect();
 			$sql = "SELECT id FROM users WHERE email=:mail";
 			$id = -1;
@@ -151,12 +152,10 @@
 						foreach($stmt as $row){
 							$id = (int)$row['id'];
 						}
-						return $id;
-					}else if($rowcount == 0){
-						return -1;
-					}else{
+					}else if($rowcount > 0){
 						throw new Exception("Multiple User with this email (shouldn't be happening)");
 					}
+					return $id;
 				}else{
 					throw new Exception('Stmt->execute() error');
 				}
@@ -164,7 +163,7 @@
 		}
 
 //		renvoi les donnes de l'user identifie par l'id
-		static function getUserFromId(int $id){
+		static function getFromId(int $id){
 			$pdo  =& Bdd::connect();
 			$sql  = "SELECT name, nickname, email, role FROM users WHERE id = :id";
 			if($stmt = $pdo->prepare($sql)){
@@ -188,7 +187,7 @@
 //		Gestion des roles	
 
 //		renvoi l'id du user qui a pour role SU	
-		static function getSUserId(){
+		static function getSUId(){
 			$pdo =& Bdd::connect();
 			$sql = "SELECT id FROM users WHERE role = 'SU'";
 			if($stmt = $pdo->query($sql)){
@@ -210,8 +209,8 @@
 
 //		verifie si un user a le role SU
 //		renvoi un booleen 
-		static function isSUserSet(){
-			$id = self::getSUserId();
+		static function isSUSet(){
+			$id = self::getSUId();
 			if ($id == -1){
 				return false;
 			}
@@ -238,6 +237,50 @@
 				}
 			}
 			return false;
+		}
+
+//		verifie les credentials du user,
+//		si elles sont valides, met ses donnes dans $_SESSION et renvoi une string vide,
+//		sinon leve une exception
+		static function connect(string $mail, string $pass){
+			$id = -1;
+			$user = array();
+			try{
+				if(empty($mail)){
+					throw new Exception("Please enter your email.");
+				} 
+
+				if(empty($pass)){
+					throw new Exception("Please enter your password.");
+				}
+				$id = self::getIdFromMail($mail);
+				if (self::isPasswdValid($id, $pass)){
+					$user = self::getFromId($id);
+					$_SESSION['user'] = $user;
+					$_SESSION['loggedIn'] = true;
+				}else{
+					throw new Exception("Invalid Password");
+				}
+
+			}catch(Exception $e){
+				$_SESSION['loggedIn'] = false;
+				$_SESSION['user'] = null;
+				throw $e;
+			}
+		}
+//		verifie si les donnes necessaires sont presentes dans $_SESSION
+//		renvoi un booleen
+		static function isConnected(){
+			if( (isset($_SESSION["user"]) && (isset($_SESSION["loggedIn"])) && $_SESSION["loggedIn"]) === true){
+				return true;
+			}
+			return false;
+		}
+
+//		deconnecte le user
+		static function disconnect(){
+			$_SESSION['loggedIn'] = false;
+			$_SESSION['user'] = null;
 		}
 
 	}

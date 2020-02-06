@@ -1,8 +1,14 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
+	ini_set('display_errors', '1');
+	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
-	include "../connect_user.php";
+	require_once "../users.php";
+	
+	if(User::getIdFromMail("test2localhost")==-1){
+		$user=User::add("blabla", "bla", "test2localhost", "azerty2");
+	}else{
+		$user=User::getFromId(User::getIdFromMail("test2localhost"));	
+	}
 
 /*	Le but ici est de tester la gestion des roles
 
@@ -24,16 +30,17 @@
 		Enleve le role "SU" au user connecte actuellement. 
 */
 
-	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
-	echo "action :connection".(connectUser("test2localhost", "azerty2"))."<br>\n";
-	echo "is connected :".(isUserConnected() ? "true" : "false")."<br>\n";
-	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{$_SESSION['user']->changeUserRole("SU"); echo "action :set role SU<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{$_SESSION['user']->changeUserRole("NULL"); echo "action :set role NULL<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{echo "is SU :".((User::isSUserSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	disconnectUser();
-
+	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	echo "is connected :".(User::isConnected() ? "true" : "false")."<br>\n";
+	echo "action :connection ";
+	try{(User::connect("test2localhost", "azerty2")); echo"<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	echo "is connected :".(User::isConnected() ? "true" : "false")."<br>\n";
+	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{$_SESSION['user']->changeRole("SU"); echo "action :set role SU<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{$_SESSION['user']->changeRole("NULL"); echo "action :set role NULL<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	User::disconnect();
+	$user->delete();
 	Bdd::disconnect();
 ?>
