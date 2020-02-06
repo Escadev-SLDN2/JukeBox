@@ -15,6 +15,33 @@ body {
     color: #cdcbcb;
 }
 
+
+.connectLabel{
+    text-align: center;
+    background-color: #A9000C;
+    border-radius: 2px;
+    border: 1px solid black;
+    color: white;
+}
+.connectpannel{
+    background-color: #CDCDCD;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.buttonv{
+    text-align: center;
+    background-color: #A9000C;
+    border-radius: 2px;
+    border: 1px solid black;
+    color: white;
+   
+}
+.connectInput{
+    border: 1px solid black;
+    border-radius: 2px;
+
+}
+
 /* Suggestion : attribuer class btn-secondary et btn-danger en fonction des différents boutons  */
 
 
