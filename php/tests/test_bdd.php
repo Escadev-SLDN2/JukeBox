@@ -3,7 +3,7 @@
 	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
 
-	include "../connect_bdd.php";
+	include "../bdd.php";
 
 
 /*	Le but ici est de tester si la connection et la deconnection avec la bdd fonctionnne

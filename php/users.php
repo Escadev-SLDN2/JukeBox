@@ -1,7 +1,7 @@
 <?php 
 	declare(strict_types=1);
 	ini_set('session.auto_start', '1');
-	require_once "connect_bdd.php";
+	require_once "bdd.php";
 
 	class User {
 		public $id;
