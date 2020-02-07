@@ -69,7 +69,7 @@ body {
     background-color: #cdcbcb;
 }
 
-.btn-secondary:hover , .btn-secondary:focus {
+.btn-secondary:hover {
     background-color: #a9000c;
     border-color: #a9000c;
     box-shadow: none;
@@ -77,6 +77,6 @@ body {
     color: #cdcbcb;
 }
 
-
-
-
+.form-control , .modial-dialog{
+    border: 1px black solid;
+}
