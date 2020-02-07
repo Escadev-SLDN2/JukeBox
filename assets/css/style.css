@@ -42,30 +42,41 @@ body {
 
 }
 
+.buttonSignup:hover {
+    background-color: #cdcbcb !important;
+}
+
 /* Suggestion : attribuer class btn-secondary et btn-danger en fonction des différents boutons  */
 
 
-/*
+
 
 .btn-secondary {
     color: #000000;
     background-color: #cdcbcb;
-    border-color: #cdcbcb;
+    border: 1px solid #a9000c;
 }
 
 .btn-danger {
     color: #cdcbcb;
     background-color: #a9000c;
-    border-color: #a9000c;
+    border: 1px solid #221f1f;
+    
+}
+
+.btn-danger:hover , .btn-danger:focus{
+    color: black;
+    background-color: #cdcbcb;
 }
 
 .btn-secondary:hover , .btn-secondary:focus {
     background-color: #a9000c;
     border-color: #a9000c;
     box-shadow: none;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
 }
 
-*/
 
 
 
