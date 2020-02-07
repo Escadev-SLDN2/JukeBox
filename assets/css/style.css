@@ -20,24 +20,24 @@ body {
     text-align: center;
     background-color: #A9000C;
     border-radius: 2px;
-    border: 1px solid black;
-    color: white;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
 }
 .connectpannel{
     background-color: #CDCDCD;
-    border: 1px solid black;
+    border: 1px solid #221f1f;
     border-radius: 2px;
 }
 .buttonv{
     text-align: center;
     background-color: #A9000C;
     border-radius: 2px;
-    border: 1px solid black;
-    color: white;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
    
 }
 .connectInput{
-    border: 1px solid black;
+    border: 1px solid #221f1f;
     border-radius: 2px;
 
 }
