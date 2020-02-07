@@ -67,7 +67,7 @@
                     </div>
                     <!--body du POPUP-->                      
                     <div class="modal-body">                        
-                      <form class="form" action="form.php" method="POST" role="form" autocomplete="off">
+                      <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
                         <div class="container">
                           <div class="form-group row justify-content-between">
                               <label for="inputName">Nom :*</label>
@@ -111,7 +111,7 @@
                   </button>
                   <ul class="dropdown-menu connectpannel mt-2 " aria-labelledby="dropdownMenu1">
                     <li>
-                      <form>
+                      <form method="POST" action="php/connexion.php">
                         <div class="container-fluid">
                           <div class="row">
                             <div class=" mr-3 ml-2 mt-3 ">
@@ -121,7 +121,7 @@
                                     <label class="connectLabel pl-3 pr-3" for="nom">Mail </label>
                                   </div>
                                   <div class="col-9 col-xs-9">
-                                    <input class="connectInput w-100" type="text" name="Nom" id="nom"placeholder="dupont.87400@mail.com"required/>
+                                    <input class="connectInput w-100" type="text" name="nom" id="nom" placeholder="dupont.87400@mail.com" required/>
                                   </div>
                                 </div>
                               </div>
@@ -131,12 +131,12 @@
                                       <label class="connectLabel pl-3 pr-3" for="mdp">Mdp </label>
                                     </div>
                                     <div class="col-9 col-xs-9">                            
-                                      <input class="connectInput w-100" type="password" name="Nom" id="mdp"placeholder="motdepasse87"required/> 
+                                      <input class="connectInput w-100" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
                                     </div>           
                                   </div>                                  
                                 </div>
                                 <div class="row"> 
-                                  <input class="col-11 ml-3 mr-3 pb-0 form-group buttonv"type="submit" value="Valider"> 
+                                  <input class="col-11 ml-3 mr-3 pb-0 form-group buttonv" type="submit" value="Valider"> 
                                 </div> 
                               </div>
                             </div>
