@@ -59,8 +59,8 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                       <!--Header du POPUP-->
-                    <div class="modal-header">
-                      <h5 class="modal-title">Inscription</h5>
+                    <div class="modal-header bg-dark">
+                      <h5 class="modal-title text-light">Inscription</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -71,19 +71,19 @@
                         <div class="container">
                           <div class="form-group row justify-content-between">
                               <label for="inputName">Nom :*</label>
-                              <input type="text" class="form-control col-sm-9" id="inputName" placeholder="full name" required>
+                              <input type="text" class="form-control col-sm-9" id="inputName" placeholder="full name" name="name" required>
                           </div>
                           <div class="form-group row justify-content-between">
                               <label for="inputEmail">Email :*</label>
-                              <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" required>
+                              <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" name="email" required>
                           </div>
                           <div class="form-group row justify-content-between">
                               <label for="inputPassword">Mot de passe :*</label>
-                              <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="password" title="At least 6 characters with letters and numbers" required>
+                              <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="password" name="password" required>
                           </div>
                           <div class="form-group row justify-content-between">
                               <label for="inputConfirm">Confirmer :*</label>
-                              <input type="password" class="form-control col-sm-9" id="inputConfirm" placeholder="password (again)" required>
+                              <input type="password" class="form-control col-sm-9" id="inputConfirm" placeholder="password (again)" name="confirmPassword" required>
                           </div>                    
                           <!--Bouton s'inscrire-->
                           <div class="form-group d-flex justify-content-around">
