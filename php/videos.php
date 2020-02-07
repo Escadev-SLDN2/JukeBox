@@ -7,22 +7,7 @@
 
     // Récupération des données 
     require_once "bdd.php";
-
-    //création de class video
-    class  Video{
-        public $id;
-        public $id_yt;
-        public $user_id;
-    }
-
-    /*		constructeur videos
-		function __construct(int $_id, string $_id_yt,int $_user_id){
-			$this->id = $_id;
-            $this->id_yt = $_id_yt;
-            $this->user_id = $_user_id;
-
-		}
-     */
+    
     //ajout d'une video à la BDD
     function addvideos(string $id_yt, int $user_id){
         $pdo = & Bdd::connect();
@@ -47,7 +32,7 @@
     //modifier la video dans la BDD
     function modifvideos(int $id,string $id_yt, int $user_id=-1){
         $pdo = & Bdd::connect();
-        $sql = "UPDATE videos SET";
+        $sql = "UPDATE videos SET ";
         $nb = 0;
         
         if(strlen($id_yt) != 0){
@@ -62,7 +47,7 @@
                 $sql .=", ";
             }
                 
-            $sql .="users_id= :user_id";
+            $sql .="user_id= :user_id";
             $nb = $nb+1;
         }
         
@@ -74,7 +59,7 @@
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
             if(strlen($id_yt) != 0){$stmt->bindParam(":id_yt", $id_yt, PDO::PARAM_STR);}
-            if($users_id != -1){$stmt->bindParam(":users_id", $users_id, PDO::PARAM_STR);}
+            if($user_id != -1){$stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);}
             
             if(!($stmt->execute())){
                 throw new Exception('Stmt->execute() error');
@@ -92,7 +77,7 @@
 
         if($stmt = $pdo->prepare($sql)){
 
-            $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
             if(!($stmt->execute())){
 				throw new Exception("Something went wrong. Please try again later.");
