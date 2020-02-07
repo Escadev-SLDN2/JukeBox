@@ -41,7 +41,7 @@ body {
 }
 
 /* Adding music section */
-.container.adding_music_container label {
+.adding_music_container label {
     color: #cdcbcb;
 background-color:#a9000c;
 }
