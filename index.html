@@ -169,9 +169,26 @@
 
                 <!-- Contenu Ajout -->
                 <div class="row">
-                  <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                    Fonctionnalité URL et mots-clef
-                  </div>
+                    <div class="col bg-secondary py-2 d-flex align-items-center justify-content-around">
+                        <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+                            <div class="container adding_music_container mt-3">
+                                <div class="form-group row justify-content-between">
+                                    <label class=" p-1 pr-5" for="musicUrl">URL :</label>
+                                    <input type="url" class="form-control col-sm-8" id="musicUrl" placeholder="https://" required>
+                                </div>
+                                <div class="form-group row justify-content-between">
+                                    <label class=" p-1 mt-3 h-50" for="keyWords">Mots-clés :</label>
+                                    <textarea type="email" class="form-control col-sm-8" id="keyWords" placeholder="ex: rock" required></textarea>
+                                </div>
+                                                                                        
+                                <div class="form-group row">                            
+                                    <button type="submit" class="btn btn-danger col-sm-12">
+                                        Ajouter
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
               </div>
