@@ -81,3 +81,7 @@ body {
   color: #cdcbcb;
   background-color: #a9000c;
 }
+
+.close {
+  text-shadow: none;
+}
