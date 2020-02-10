@@ -39,15 +39,6 @@
 	try{print_r (User::getFromId($user1->id)); echo "<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	try{print_r (User::getFromId($user2->id)); echo "<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
 
-/*	Tests de getUserIdFromMail()
-
-	try{echo (User::getIdFromMail("test@test"))."<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
-		Affiche l'id du user possedant ce mail s'il y en a un, sinon affiche le message d'erreur.	
-*/
-
-	try{echo (User::getIdFromMail("test@test"))."<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
-	try{echo (User::getIdFromMail($user1->mail))."<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
-
 /*	Tests de isPasswdValid()
 
 	echo (User::isPasswdValid($user1->id,"azerty") ? "true" : "false")."<br>\n";
@@ -55,8 +46,8 @@
 		
 */
 
-	echo (User::isPasswdValid($user1->id,"azerty") ? "true" : "false")."<br>\n";
-	echo (User::isPasswdValid($user1->id,"test") ? "true" : "false")."<br>\n";
+	echo (User::isPasswdValid($user1->mail,"azerty") ? "true" : "false")."<br>\n";
+	echo (User::isPasswdValid($user1->mail,"test") ? "true" : "false")."<br>\n";
 
 
 	

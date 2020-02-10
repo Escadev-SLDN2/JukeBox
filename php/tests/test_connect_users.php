@@ -13,10 +13,10 @@
 		Connecte un user si le id et le passwd est valide. Sinon affiche l'erreur.
 		
 */
-	if(User::getIdFromMail("test2localhost")==-1){
-		$user=User::add("blabla", "bla", "test2localhost", "azerty2");
+	if(User::isMailUsed("test2localhost")){
+        $user=User::getFromMail("test2localhost");	
 	}else{
-		$user=User::getFromId(User::getIdFromMail("test2localhost"));	
+		$user=User::add("blabla", "bla", "test2localhost", "azerty2");
 	}
 
 
