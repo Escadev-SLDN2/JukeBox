@@ -25,10 +25,9 @@
 	 d'une video
 
 	*/
-	
+
 	try {
 		delvideos(71);
-		delvideos(65); 
 	} catch (Exception $e) {
 		echo($e->getMessage())."<br>\n";
 	}
@@ -36,13 +35,21 @@
 
 	/*	ici Tests des modification 
 		d'une video
-	*/		
-
+			
+	*/	
 	try {
 		modifvideos(63, "3368hjk",1);
 	} catch (Exception $e) {
 		echo($e->getMessage())."<br>\n";
-	}
-		
+	}	
+	
 	//supression d'un user créer
 
+
+
+
+	/* si tout fonctionne bien la page doit afficher
+		video([id] => [id_yt] => 7zBqopjayHY [user_id]=>23)
+		video([id] => 178 [id_yt] => 7zBqopjayHY [user_id]=>23)
+
+	*/
