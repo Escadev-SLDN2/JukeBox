@@ -12,5 +12,8 @@ CREATE TABLE users (
 INSERT INTO users(
     name,nickname,email,hash_pass,role
     ) VALUES(
-        'bob','marlon','bob@gmail.com','ABC$208f','utilisateur'
+        'bob','marlon','bob@gmail.com','ABC$208f','ROLE_USER'
+        ),
+        ('booba','B2O','booba@hotgame.fr','BGRltlo6','ROLE_ADMIN'
         );
+    
