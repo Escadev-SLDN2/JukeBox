@@ -22,11 +22,10 @@
 */
 
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
-	$pdo =& Bdd::connect();
+	$pdo = DBconnect();
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 	echo "action : SELECT id, name, nickname FROM users<br>\n";
 	$pdo->query("SELECT id, name, nickname FROM users");
-	Bdd::disconnect($pdo);
 	echo "is pdo set :".(isset($pdo) ? "true" : "false")."<br>\n";
 
 /* 
