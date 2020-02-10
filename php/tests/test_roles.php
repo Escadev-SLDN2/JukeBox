@@ -38,7 +38,6 @@
 	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	User::disconnect();
 	$user->delete();
-	Bdd::disconnect();
 
 /* 
 	la page devrait afficher :

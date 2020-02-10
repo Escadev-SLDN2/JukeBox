@@ -11,12 +11,12 @@ class User {
     public $role;
     
     //	contructeur d'user
-    public function __construct(int $_id, string $_name, string $_nick, string $_mail, $_role) {
-        $this->id = $_id;
-        $this->name = $_name;
-        $this->nick = $_nick;
-        $this->mail = $_mail;
-        $this->role = $_role;
+    public function __construct(int $id, string $name, string $nick, string $mail, string $role) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->nick = $nick;
+        $this->mail = $mail;
+        $this->role = $role;
     }
     
     //	Ajout/suppression/modification d'un user 
@@ -24,7 +24,7 @@ class User {
 	
     //	supprime un utilisateur de la bdd
     public function delete() {
-        $pdo = &Bdd::connect();
+        $pdo = DBConnect();
         $sql = "DELETE FROM users WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':id' => $this->id));
@@ -34,8 +34,8 @@ class User {
     
     //	modifie la ligne d'un utilisateur dans la bdd
     //	ne modifie que les champs necessaires
-    public function modify(string $name = "", string $nick = "", string $mail = "", string $pass = "", string $role = "") {
-        $pdo = &Bdd::connect();
+    public function modify(string $name = "", string $nick = "", string $mail = "", string $pass = "", $role = "") {
+        $pdo = DBConnect();
         $sql = "UPDATE users SET ";
         $nb = 0;
         $parametres = array();
@@ -118,7 +118,7 @@ class User {
     
     //	renvoi l'id de l'utilisateur a qui appartient le mail
     public static function getIdFromMail(string $mail) {
-        $pdo = &Bdd::connect();
+        $pdo = DBConnect();
         $sql = "SELECT id FROM users WHERE email=:mail";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':mail' => $mail));
@@ -142,13 +142,13 @@ class User {
     
     //	renvoi les donnes de l'user identifie par l'id
     public static function getFromId(int $id) {
-        $pdo = &Bdd::connect();
+        $pdo = DBConnect();
         $sql = "SELECT name, nickname, email, role FROM users WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':id' => $id));
         if($stmt->rowcount()== 1) {
             $row = $stmt->fetch();
-            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], $row['role']);
+            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], (string)$row['role']);
             return $user;
         } else if($stmt->rowcount()== 0) {
             throw new Exception('No User with this id');
@@ -165,7 +165,7 @@ class User {
     
     //	ajoute un utilisateur a la bdd
     public static function add(string $name, string $nick, string $mail, string $pass) {
-        $pdo = &Bdd::connect();
+        $pdo = DBConnect();
         $sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
         if(self::isMailUsed($mail)) {
             throw new Exception("Mail already used");
@@ -182,7 +182,7 @@ class User {
     
     //	renvoi l'id du user qui a pour role SU	
     public static function getSUId() {
-        $pdo = &Bdd::connect();
+        $pdo = DBConnect();
         $sql = "SELECT id FROM users WHERE role = 'SU'";
         $answer = $pdo->query($sql);
         if($answer->rowCount()== 1) {
@@ -207,7 +207,7 @@ class User {
     //	renvoi un booleen correspondant a la validite du couple (id, pass)
     public static function isPasswdValid(string $mail, string $pass) {
         if(self::isMailUsed($mail)){
-            $pdo = &Bdd::connect();
+            $pdo = DBConnect();
             $id = self::getIdFromMail($mail);
             $sql = "SELECT hash_pass FROM users WHERE id = :id";
             $stmt = $pdo->prepare($sql);

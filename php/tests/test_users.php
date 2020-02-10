@@ -3,7 +3,7 @@
 	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
 	include "../users.php";
-	$pdo =& Bdd::connect();
+    $pdo = DBConnect();
 	$pdo->query("DELETE FROM users WHERE nickname='tt0' OR nickname='tt1' OR nickname='tt2'");
 
 /*	Tests des ajouts
@@ -53,7 +53,7 @@
 	
 	$user1->delete();
 	$user2->delete();
-	Bdd::disconnect();
+	unset($pdo);
 
 /* 
 	la page devrait afficher :

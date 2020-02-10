@@ -37,7 +37,6 @@
 	echo "is connected :".(User::isConnected() ? "true" : "false")."<br>\n";
 
 	$user->delete();
-	Bdd::disconnect();
 
 /* 
 	la page devrait afficher :
