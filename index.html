@@ -54,7 +54,7 @@
               <div class="col">
                 <button type="button" class="btn btn-danger ml-5 pl-3" data-toggle="modal" data-target="#myModal" >
                   Inscription
-              </button>
+                </button>
              <!--POPUP-->
               <div id="myModal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
@@ -109,48 +109,53 @@
             <!--pop up 2-->
             <div class="row">
               <div class="col">
-                <div class="dropdown">
-                  <button class="btn btn-danger" dropdown-toggle type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Connexion
+              
+                  <button type="button" class="btn btn-danger ml-5 pl-3" data-toggle="modal" data-target="#myModal2" >
+                    Inscription
                   </button>
-                  <ul class="dropdown-menu connectpannel mt-2 " aria-labelledby="dropdownMenu1">
-                    <li>
-                      <form method="POST" action="php/connexion.php">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class=" mr-3 ml-2 mt-3 ">
-                              <div class="form-group"> 
-                                <div class="row">
-                                  <div class="col-3 col-xs-3">
-                                    <label class="connectLabel pl-3 pr-3" for="nom">Mail </label>
-                                  </div>
-                                  <div class="col-9 col-xs-9">
-                                    <input class="connectInput w-100" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" required/>
-                                  </div>
-                                </div>
+                  <div id="myModal2" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <!--Header du POPUP-->
+                        <div class="modal-header bg-dark py-2 px-2">
+                          <h5 class="modal-title text-light">Connection</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <!--body du POPUP-->                      
+                        <div class="modal-body bg-secondary">                        
+                          <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
+                            <div class="container">
+    
+                
+                              <div class="form-group row justify-content-between">
+                                  <label for="inputEmail" class="col connectLabel pl-3 pr-3 mt-1 mr-3">Email :*</label>
+                                  <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" name="email" required>
                               </div>
-                                <div class="form-group">
-                                  <div class="row">
-                                    <div class="col-3 col-xs-3">
-                                      <label class="connectLabel pl-3 pr-3" for="mdp">Mdp </label>
-                                    </div>
-                                    <div class="col-9 col-xs-9">                            
-                                      <input class="connectInput w-100" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
-                                    </div>           
-                                  </div>                                  
-                                </div>
-                                <div class="row"> 
-                                  <input class="col-11 ml-3 mr-3 pb-0 form-group buttonv" type="submit" value="Valider"> 
-                                </div> 
+    
+                              <div class="form-group row justify-content-between">
+                                  <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mot de passe :*</label>
+                                  <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="mercisam123" name="password" required>
+                              </div>
+    
+                             
+                              <!--Bouton s'inscrire-->
+                              <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                  <button type="button" class="btn btn-secondary rounded-pill px-5 py-1" data-dismiss="modal" aria-label="Close">
+                                      Retour
+                                  </button>
+                                  <button type="submit" class="btn btn-danger rounded-pill px-5 py-1">
+                                      S'inscrire
+                                  </button>
                               </div>
                             </div>
-                  
-                          </div>
+                          </form>
                         </div>
-                      </form>
-                    </li>
-                  </ul>    
-                </div>       
+                      </div>
+                    </div>
+                  </div>   
+                
               </div>
             </div>
 
