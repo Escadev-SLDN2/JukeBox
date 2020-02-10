@@ -50,8 +50,7 @@ body {
   border: 1px solid #a9000c;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
+.btn-secondary:hover {
   background-color: #a9000c;
   border-color: #a9000c;
   box-shadow: none;
@@ -65,8 +64,7 @@ body {
   border-color: #a9000c;
 }
 
-.btn-danger:hover,
-.btn-danger:focus {
+.btn-danger:hover {
   color: black;
   background-color: #cdcbcb;
 }
