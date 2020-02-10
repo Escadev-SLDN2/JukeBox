@@ -9,7 +9,7 @@
     
     //ajout d'une video à la BDD
     function addvideos(string $id_yt, int $user_id){
-        $pdo = & Bdd::connect();
+        $pdo =DBConnect();
         $sql = "INSERT INTO videos (id_yt, user_id) VALUES (:id_yt, :user_id)";
 
         // s'exécute seulement si le pdo accepte la synthaxe de la requete
@@ -17,7 +17,7 @@
 
             // lie les params de la requette avec les varibles correspondantes
             $stmt ->bindParam (':id_yt', $id_yt, PDO ::PARAM_STR);
-            $stmt ->bindParam (':user_id', $user_id, PDO ::PARAM_STR);
+            $stmt ->bindParam (':user_id', $user_id, PDO ::PARAM_INT);
 
             //ecrit done si la bdd accepte la requete
             //ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
@@ -30,7 +30,7 @@
     
     //modifier la video dans la BDD
     function modifvideos(int $id,string $id_yt, int $user_id=-1){
-        $pdo = & Bdd::connect();
+        $pdo = DBConnect();
         $sql = "UPDATE videos SET ";
         $nb = 0;
         
@@ -71,7 +71,7 @@
     // suppression d'une video dans la bdd
     function delvideos(int $id){
 
-        $pdo =& Bdd::connect();
+        $pdo =DBConnect();
         $sql = "DELETE FROM videos WHERE id = :id";
 
         if($stmt = $pdo->prepare($sql)){
