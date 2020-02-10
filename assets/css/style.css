@@ -81,3 +81,24 @@ body {
   color: #cdcbcb;
   background-color: #a9000c;
 }
+
+.fa-thumbs-down {
+  color: #a9000c;
+}
+
+.fa-thumbs-up {
+  color: #2ee709;
+}
+
+.close {
+  color: #cdcbcb;
+}
+
+.boubou {
+  width: 100%;
+}
+
+.itl-ajout {
+  border-radius: 5px;
+  background-color:  #221f1f !important ;
+}
