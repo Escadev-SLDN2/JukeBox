@@ -76,10 +76,12 @@ body {
   border: 1px black solid;
 }
 
-
 /* Adding music section */
 .adding_music_container label {
   color: #cdcbcb;
   background-color: #a9000c;
 }
 
+.close {
+  text-shadow: none;
+}
