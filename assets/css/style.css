@@ -12,7 +12,7 @@ body {
 }
 
 .text-light {
-    color: #cdcbcb;
+    color: #cdcbcb!important;
 }
 
 
@@ -53,12 +53,6 @@ body {
     border-color: #cdcbcb;
 }
 
-.btn-danger {
-    color: #cdcbcb;
-    background-color: #a9000c;
-    border-color: #a9000c;
-}
-
 .btn-secondary:hover , .btn-secondary:focus {
     background-color: #a9000c;
     border-color: #a9000c;
@@ -66,6 +60,18 @@ body {
 }
 
 */
+
+.btn-danger {
+    color: #cdcbcb;
+    background-color: #a9000c;
+    border-color: #a9000c;
+}
+
+/* Adding music section */
+.adding_music_container label {
+    color: #cdcbcb;
+background-color:#a9000c;
+}
 
 
 
