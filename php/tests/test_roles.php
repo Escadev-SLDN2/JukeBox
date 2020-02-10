@@ -4,10 +4,10 @@
 	error_reporting(E_ALL);
 	require_once "../users.php";
 	
-	if(User::getIdFromMail("test2localhost")==-1){
-		$user=User::add("blabla", "bla", "test2localhost", "azerty2");
+	if(User::isMailUsed("test2localhost")){
+        $user=User::getFromMail("test2localhost");	
 	}else{
-		$user=User::getFromId(User::getIdFromMail("test2localhost"));	
+		$user=User::add("blabla", "bla", "test2localhost", "azerty2");
 	}
 
 /*	Le but ici est de tester la gestion des roles
@@ -38,7 +38,6 @@
 	try{echo "is SU :".((User::isSUSet()) ? "true" : "false")."<br>\n";}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	User::disconnect();
 	$user->delete();
-	Bdd::disconnect();
 
 /* 
 	la page devrait afficher :
