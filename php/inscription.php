@@ -106,35 +106,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="container ">
                                     <div class="form-group row justify-content-between">
                                         <label for="inputName" class="col connectLabel pl-3 pr-3 mt-1 mr-3" >Nom :*</label>
-                                        <input type="text" class="form-control col-sm-9" id="inputName" placeholder="Nom Prenom" value="<?php
-    echo(isset($name)? $name : "")
-    ?>" name="name" required>
+                                        <input type="text" class="form-control col-sm-9" id="inputName" placeholder="Nom Prenom" value="<?php echo(isset($name)? $name : "")?>" name="name" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
                                         <label for="inputPseudo" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Pseudo :*</label>
-                                        <input type="text" class="form-control col-sm-9" id="inputPseudo" placeholder="Pseudo" value="<?php
-    echo(isset($nick)? $nick : "")
-    ?>" name="nickname" required>
+                                        <input type="text" class="form-control col-sm-9" id="inputPseudo" placeholder="Pseudo" value="<?php echo(isset($nick)? $nick : "")?>" name="nickname" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
                                         <label for="inputEmail" class="col connectLabel pl-3 pr-3 mt-1 mr-3">Email :*</label>
-                                        <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="mail@gmail.com" value="<?php
-    echo(isset($mail)? $mail : "")
-    ?>" name="email" required>
+                                        <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="mail@gmail.com" value="<?php echo(isset($mail)? $mail : "")?>" name="email" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
                                         <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mdp :*</label>
                                         <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="Mot de passe" name="password" required>
                                     </div>
                                     <div class="form-group row justify-content-between connectLabel text-center">
-                                        <?php
-    echo $error;
-
-    ?>
+                                        <?phpecho $error;?>
                                     </div>
                                     <!--Bouton s'inscrire-->
                                     <div class="form-group d-flex justify-content-around mt-2 mb-0">
-                                        <button type="button" class="btn btn-secondary rounded-pill" >Retour</button>
+                                        <a type="button" href="../index.html" class="btn btn-secondary rounded-pill" >Retour</a>
                                         <button type="submit" class="btn btn-danger rounded-pill">S'inscrire</button>
                                     </div>
                                     
