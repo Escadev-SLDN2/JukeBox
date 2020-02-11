@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 require_once "users.php";
 
 $error = "";
@@ -81,14 +78,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Header -->
         <header>
             <div class="container-fluid bg-dark mb-5">
-                <div class="row">
+                <div class="row ">
                     <!-- Logo -->
                     <div class="col-2 text-light d-block align-items-start justify-content-center">
-                        <img src="assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">
+                        <img src="../assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">
                     </div>
                     <!-- Titre -->
                     <div class="col-sm-6 text-light d-flex align-items-center">
-                        <img src="assets/img/titre-escabox.png" alt="ESCABOX">
+                        <img src="../assets/img/titre-escabox.png" alt="ESCABOX">
                     </div>
                 </div>
             </div>
@@ -105,6 +102,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col bg-secondary p-5 mx-5">
                             <form class="form" action="#" method="POST" role="form" autocomplete="off">
                                 <div class="container ">
+                                    <div class="form-group row connectLabel py-md-2 text-center <?php if(empty($error)){echo "d-none";}?>">
+                                        <div class="col">
+                                            <?php echo $error;?>
+                                        </div>
+                                    </div>
                                     <div class="form-group row justify-content-between">
                                         <label for="inputName" class="col connectLabel pl-3 pr-3 mt-1 mr-3" >Nom :*</label>
                                         <input type="text" class="form-control col-sm-9" id="inputName" placeholder="Nom Prenom" value="<?php echo(isset($name)? $name : "")?>" name="name" required>
@@ -120,9 +122,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="form-group row justify-content-between">
                                         <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mdp :*</label>
                                         <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="Mot de passe" name="password" required>
-                                    </div>
-                                    <div class="form-group row justify-content-between connectLabel text-center">
-                                        <?phpecho $error;?>
                                     </div>
                                     <!--Bouton s'inscrire-->
                                     <div class="form-group d-flex justify-content-around mt-2 mb-0">
