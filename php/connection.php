@@ -94,31 +94,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Conteneur Visionneuse, Vote et Ajout de musique-->
             <section>
                 <div class="container mb-3">
-                    <div class="row mx-md-5">
-                        <div class="col bg-secondary p-5 mx-md-5">
+                    <div class="row mx-5">
+                        <div class="col bg-secondary px-5 pt-5 pb-4  mx-5">
                             <form method="POST" action="#">
+                                <div class="form-group row connectLabel py-md-2 text-center <?php if(empty($error_message)){echo "d-none";}?>">
+                                    <div class="col">
+                                        <?php echo $error_message;?>
+                                    </div>
+                                </div>
                                 <div class="form-group"> 
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <label class="connectLabel  px-md-3 mt-md-1 mr-md-3" for="nom">Mail </label>
-                                        </div>
-                                        <div class="col-9">
-                                            <input class="connectInput form-control" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" required/>
-                                        </div>
+                                    <div class="row justify-content-between">
+                                        <label class="col connectLabel p-1 px-md-3 mt-md-1 mr-md-3" for="nom">Mail </label>
+                                        <input class="col-md-9 connectInput form-control" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <label class="connectLabel px-md-3 mt-md-1 mr-md-3" for="mdp">Mdp </label>
-                                        </div>
-                                        <div class="col-9">                            
-                                            <input class="connectInput form-control" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
-                                        </div>           
-                                    </div>                                  
+                                    <div class="row justify-content-between">
+                                        <label class="col connectLabel p-1 px-md-3 mt-md-1 mr-md-3" for="mdp">Mdp </label>
+                                        <input class="col-md-9 connectInput form-control" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
+                                    </div>
                                 </div>
-                                <div class="row"> 
-                                    <input class="col form-group buttonv" type="submit" value="Valider"> 
+                                <div class="form-group d-flex justify-content-around mt-md-2 mb-mb-0">
+                                    <a type="button" href="../index.html" class="btn btn-secondary rounded-pill" >Retour</a>
+                                    <button type="submit" class="btn btn-danger rounded-pill">Valider</button>
                                 </div>
                             </form>
                         </div>
