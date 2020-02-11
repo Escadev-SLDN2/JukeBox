@@ -102,3 +102,9 @@ body {
   border-radius: 5px;
   background-color:  #221f1f !important ;
 }
+table{
+  width:100%;
+}
+.text{
+  width: 100%;
+}
