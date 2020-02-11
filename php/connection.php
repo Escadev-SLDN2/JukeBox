@@ -105,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="form-group"> 
                                     <div class="row justify-content-between">
                                         <label class="col connectLabel p-1 px-md-3 mt-md-1 mr-md-3" for="nom">Mail </label>
-                                        <input class="col-md-9 connectInput form-control" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" value="<?php echo $mail;?>" required/>
+                                        <input class="col-md-9 connectInput form-control" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" value="<?php if(isset($mail)){echo $mail;}?>" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
