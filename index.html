@@ -305,16 +305,22 @@
             <!-- [Thomas] Nous pouvons aussi utiliser "d-flex align-items-center justify-content-between"
             mais les colonnes bootstrap seront peut-être plus maniables si l'on veut rapprocher
             "Choix de l'utilisateur" et "Donner le rôle admin". Sans parler du responsive. -->
-            <div class="col-sm-2 mb-2">
-              <button>Passer la vidéo</button>
-            </div>
+            
 
-            <div class="offset-sm-1 col-sm-2 mb-2">
+            <div class="offset-sm-1 col-sm-3 mb-2">
               <button>Choix de la Playlist</button>
             </div>
 
-            <div class="offset-sm-1 col-sm-2 border border-dark mb-2">
-              Choix de l'utilisateur
+            <div class="offset-sm-1 col-sm-3 mb-2">
+              <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Choix de l'utilisateur
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">user</button>
+                    <button class="dropdown-item" type="button">Super User</button>
+                  </div>
+              </div>
             </div>
 
             <div class="offset-sm-1 col mb-2">
