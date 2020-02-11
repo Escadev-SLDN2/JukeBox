@@ -1,1 +1,6 @@
+
 config.conf
+.vscode
+.idea
+.workspace
+.codelite
