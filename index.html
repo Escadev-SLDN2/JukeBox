@@ -31,133 +31,167 @@
 
     <!-- Header -->
     <header>
-      <div class="container-fluid bg-dark mb-5">
-        <div class="row">
-
-          <!-- Logo -->
-          <div class="col-2 text-light d-block align-items-start justify-content-center">            
-            <img src="assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">            
-          </div> 
-
-          <!-- Titre -->
-          <div class="col-sm-6 text-light d-flex align-items-center">            
-            <img src="assets/img/titre-escabox.png" alt="ESCABOX">            
-          </div>
-
-          <!-- Inscription et Connexion
-          Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
-          <div class="col py-2 text-right">
-
-            <div class="row mb-1">
-              <div class="col">
-                <button type="button" class="btn btn-danger ml-5 pl-3" data-toggle="modal" data-target="#myModal" >
-                  Inscription
-              </button>
-             <!--POPUP-->
-              <div id="myModal" class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <!--Header du POPUP-->
-                    <div class="modal-header bg-dark py-2 px-2">
-                      <h5 class="modal-title text-light">Inscription</h5>
-                      <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <!--body du POPUP-->                      
-                    <div class="modal-body bg-secondary">                        
-                      <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
-                        <div class="container">
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputName" class="col connectLabel pl-3 pr-3 mt-1 mr-3" >Nom :*</label>
-                              <input type="text" class="form-control col-sm-9" id="inputName" placeholder="nom complet" name="name" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputPseudo" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Pseudo :*</label>
-                              <input type="text" class="form-control col-sm-9" id="inputPseudo" placeholder="pseudo" name="nickname" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputEmail" class="col connectLabel pl-3 pr-3 mt-1 mr-3">Email :*</label>
-                              <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" name="email" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mdp :*</label>
-                              <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="mercisam123" name="password" required>
-                          </div>
-
-                         
-                          <!--Bouton s'inscrire-->
-                          <div class="form-group d-flex justify-content-around mt-2 mb-0">
-                              <button type="button" class="btn btn-secondary rounded-pill px-4 py-1" data-dismiss="modal" aria-label="Close">
-                                  Retour
-                              </button>
-                              <button type="submit" class="btn btn-danger rounded-pill px-4 py-1">
-                                  S'inscrire
-                              </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>  
-            <!--dropdown-->
+        <div class="container-fluid bg-dark mb-5">
             <div class="row">
-              <div class="col">
-                <div class="dropdown">
-                  <button class="btn btn-danger" dropdown-toggle type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Connexion
-                  </button>
-                  <ul class="dropdown-menu connectpannel mt-2 " aria-labelledby="dropdownMenu1">
-                    <li>
-                      <form method="POST" action="php/connexion.php">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class=" mr-3 ml-2 mt-3 ">
-                              <div class="form-group"> 
-                                <div class="row">
-                                  <div class="col-3 col-xs-3">
-                                    <label class="connectLabel pl-3 pr-3" for="nom">Mail </label>
-                                  </div>
-                                  <div class="col-9 col-xs-9">
-                                    <input class="connectInput w-100" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" required/>
-                                  </div>
-                                </div>
-                              </div>
-                                <div class="form-group">
-                                  <div class="row">
-                                    <div class="col-3 col-xs-3">
-                                      <label class="connectLabel pl-3 pr-3" for="mdp">Mdp </label>
+  
+                <!-- Logo -->
+                <div class="col-2 text-light d-block align-items-start justify-content-center">
+                    <img src="assets/img/logo_escabox.png"   class="logo position-absolute mt-3 img-fluid" alt="ESCABOX">
+                </div>
+  
+                <!-- Titre -->
+                <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
+                    <img src="assets/img/titre-escabox.png" alt="ESCABOX">
+                </div>
+  
+                <!-- Inscription et Connexion
+          Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
+                <div class="col py-2 text-right">
+  
+                    <div class="row mb-1">
+                        <div class="col-5">
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                                data-target="#myModal">
+                                Inscription
+                            </button>
+                            <!--POPUP-->
+                            <div id="myModal" class="modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <!--Header du POPUP-->
+                                        <div class="modal-header bg-dark py-2 px-2">
+                                            <h5 class="modal-title text-light">Inscription</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <!--body du POPUP-->
+                                        <div class="modal-body bg-secondary">
+                                            <form class="form" action="php/inscription.php" method="POST" role="form"
+                                                autocomplete="off">
+                                                <div class="container">
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputName"
+                                                            class="col-12 connectLabel pl-3 pr-3 mt-1">Nom :*</label>
+                                                        <input type="text" class="form-control col-sm-12" id="inputName"
+                                                            placeholder="nom complet" name="name" required>
+                                                    </div>
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputPseudo"
+                                                            class="col-12 connectLabel pl-2 pr-2 mt-1">Pseudo :*</label>
+                                                        <input type="text" class="form-control col-sm-12"
+                                                            id="inputPseudo" placeholder="pseudo" name="nickname"
+                                                            required>
+                                                    </div>
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputEmail"
+                                                            class="col connectLabel pl-3 pr-3 mt-1">Email :*</label>
+                                                        <input type="email" class="form-control col-sm-12"
+                                                            id="inputEmail" placeholder="email@gmail.com" name="email"
+                                                            required>
+                                                    </div>
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputPassword"
+                                                            class="col connectLabel pl-2 pr-2 mt-1">Mot de passe
+                                                            :*</label>
+                                                        <input type="password" class="form-control col-sm-12"
+                                                            id="inputPassword" placeholder="petitekokinedu87"
+                                                            name="password" required>
+                                                    </div>
+  
+  
+                                                    <!--Bouton s'inscrire-->
+                                                    <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                                        <button type="button"
+                                                            class="btn btn-secondary rounded-pill px-4 py-1"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i class="fas fa-long-arrow-alt-left"></i> Annuler
+                                                        </button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger rounded-pill px-4 py-1">
+                                                            <i class="fas fa-check"></i> S'inscrire
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="col-9 col-xs-9">                            
-                                      <input class="connectInput w-100" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
-                                    </div>           
-                                  </div>                                  
                                 </div>
-                                <div class="row"> 
-                                  <input class="col-11 ml-3 mr-3 pb-0 form-group buttonv" type="submit" value="Valider"> 
-                                </div> 
-                              </div>
                             </div>
-                  
-                          </div>
                         </div>
-                      </form>
-                    </li>
-                  </ul>    
-                </div>       
-              </div>
+  
+                        <!--pop up 2-->
+  
+                        <div class="col-5">
+  
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                                data-target="#myModal2">
+                                Connexion
+                            </button>
+                            <div id="myModal2" class="modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <!--Header du POPUP-->
+                                        <div class="modal-header bg-dark py-2 px-2">
+                                            <h5 class="modal-title text-light">Connexion</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <!--body du POPUP-->
+                                        <div class="modal-body bg-secondary">
+                                            <form class="form" action="php/inscription.php" method="POST" role="form"
+                                                autocomplete="off">
+                                                <div class="container">
+  
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="signin"
+                                                            class="col-12 connectLabel pl-3 pr-3 mt-1">Email :*</label>
+                                                        <input type="email" class="form-control col-sm-12"
+                                                            id="signin" placeholder="email@gmail.com" name="email"
+                                                            required>
+                                                    </div>
+  
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="password"
+                                                            class="col-12 connectLabel pl-2 pr-2 mt-1">Mot de passe
+                                                            :*</label>
+                                                        <input type="password" class="form-control col-sm-12"
+                                                            id="password" placeholder="petitekokinedu87"
+                                                            name="password" required>
+                                                    </div>
+  
+  
+                                                    <!--Bouton s'inscrire-->
+                                                    <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                                        <button type="button"
+                                                            class="btn btn-secondary rounded-pill px-4 py-1"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i class="fas fa-long-arrow-alt-left"></i> Annuler
+                                                        </button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger rounded-pill px-4 py-1">
+                                                            <i class="fas fa-check"></i> Connexion
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+  
+                        </div>
+                    </div>
+  
+                </div>
             </div>
-
-          </div>
         </div>
-      </div>
     </header>
 
 
@@ -254,7 +288,7 @@
                       <div class="form-group row d-flex align-items-center">
 
                         <div class="col-sm-4">
-                          <label class="py-2 text-center w-100" for="musicUrl">URL</label>
+                          <label class="connectInput py-2 mt-2 text-center w-100" for="musicUrl">URL</label>
                         </div>
 
                         <div class="col">
@@ -266,7 +300,7 @@
                       <div class="form-group row d-flex align-items-start">
 
                         <div class="col-sm-4">
-                            <label class="py-2 text-center w-100" for="keyWords">Mots-clés</label>
+                            <label class="connectInput py-2 text-center w-100" for="keyWords">Mots-clés</label>
                         </div>
 
                         <div class="col">
@@ -304,7 +338,7 @@
           <div class="row">
 
             <div class="col-lg-4 order-2 order-lg-1">
-              <button type="button" class="btn btn-danger w-100">Choix de la Playlist</button>
+              <button type="button" class="btn btn-danger w-100" data-toggle="collapse" data-target="#collapseExample">Choix de la Playlist</button>
             </div>
 
             <div class="col mb-2 text-right order-1 order-lg-2">
@@ -336,6 +370,7 @@
       L'"astuce" est répété pour le carousel des vidéos en cours et Table_gestion_admin -->
 
       <section>
+       <div class="collapse" id="collapseExample">
         <div class="container mb-3">
           <div class="row">
             <div class="col">
@@ -352,9 +387,36 @@
                 </header>
 
                 <!-- Contenu CdlP -->
-                <div class="row pt-1 pb-3 bg-secondary">
+                <div class="row pt-1 pb-3 bg-light">
                   <div class="col">
-                    Tags Tag tag
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-toggle">
+                        <input type="checkbox" checked autocomplete="off"> 
+                        metal
+                      </label>  
+                      <label class="btn btn-toggle">
+                          <input type="checkbox" checked autocomplete="off">
+                        calme
+                      </label>
+                      <label class="btn btn-toggle">
+                        <input type="checkbox" checked autocomplete="off"> 
+                        travail
+                      </label>
+                      <label class="btn btn-toggle">
+                        <input type="checkbox" checked autocomplete="off"> 
+                        lo-fi
+                      </label>
+                      <label class="btn btn-toggle">
+                        <input type="checkbox" checked autocomplete="off"> 
+                        mathieu
+                      </label>
+                      <label class="btn btn-toggle">
+                        <input type="checkbox" checked autocomplete="off"> 
+                        RnB
+                      </label>
+                    </div>
+
+                    
                   </div>
                 </div>
           
@@ -367,7 +429,9 @@
                     </div>
 
                     <div class="col text-center">
-                      <button>Valider</button>
+                      <button type="button" class="btn btn-danger">
+                        Valider
+                      </button>
                     </div>
 
                   </div>
@@ -378,6 +442,7 @@
             </div>
           </div>
         </div>
+       </div> 
       </section>
       
 
@@ -545,23 +610,98 @@
                 <header>
                   <div class="row">
                     <div class="col bg-dark text-light">
-                      Tableau_gestion_admin
+                      Liste des vidéos
                     </div>
                   </div>
                 </header>
 
                 <!-- Contenu Gestion_playlist -->
                 <div class="row">
-                  <div class="col py-4">
-                    [Tableau de gestion]
+                  <div class="col ">
+                    <div class="table-responsive">
+                      <table class="table-sm table-dark">
+                        <thead>
+                          <tr scope="row">
+                            <th scope="col px-2">titre</th>
+                            <th scope="col">Lien</th>
+                            <th scope="col">Mots-clés</th>
+                            <th scope="col">Modifier</th>
+                            <th scope="col">Supprimer</th>
+                            <th scope="col"> <input type="checkbox" name="Check" id="Check" /> </th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="bg-info">
+                            <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                            <td >mdEy1m6vtsM</td>
+                            <td >Manga</td>
+                            <td >  <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                            <td >  <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                            <td > <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                          </tr>
+                          <tr >
+                            <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                            <td >mdEy1m6vtsM</td>
+                            <td >Manga</td>
+                            <td >  <button class="btn btn-danger" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                            <td >  <button class="btn btn-danger"  title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                            <td > <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                          </tr>
+                          <tr class="bg-info">
+                            <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                            <td >mdEy1m6vtsM</td>
+                            <td >Manga</td>
+                            <td >  <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>              
+                            <td >  <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                            <td > <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                          </tr>
+                          <tr >
+                            <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                            <td >mdEy1m6vtsM</td>
+                            <td >Manga</td>
+                            <td >  <button class="btn btn-danger " title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                            <td >  <button class="btn btn-danger"  title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                            <td > <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                          </tr>
+                          <tr class="bg-info">
+                            <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                            <td >mdEy1m6vtsM</td>
+                            <td >Manga</td>
+                            <td >  <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                            <td >  <button class="btn btn-dark"  title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                            <td > <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                          </tr>
+                        </tbody>
+                        
+                        
+
+                      </table>
+                    </div>
                   </div>
                 </div>
           
                 <!-- Footer Gestion_playlist -->
                 <footer>
                   <div class="row border-top border-dark">
-                    <div class="col">
-                      Controles_admin
+                    <div class="col-4 my-2">
+                      <input class="text" type="text" name="mots-clés" />
+                      
+                    </div>
+                    <div class="col-1  my-2">
+                      <button class="btn btn-success">Enregistrer le Mot-clé</button> 
+                      
+                      
+                    </div>
+                    <div class="col-1 offset-1 my-2">
+                      <button class="btn btn-success">Supprimer le Mot-clé</button> 
+                      
+                      
+                    </div>
+                    <div class="col-2 offset-2 my-2">
+                      <button class="btn btn-success">Supprimer videos</button> 
+                      
+                      
                     </div>
                   </div>
                 </footer>
