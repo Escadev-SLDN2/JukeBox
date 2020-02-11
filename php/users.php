@@ -168,7 +168,7 @@ class User {
         $pdo = DBConnect();
         $sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
         if(self::isMailUsed($mail)) {
-            throw new Exception("Mail already used");
+            throw new Exception("Cette adresse email est d&eacute;j&agrave; utilisé");
         }else{
             $stmt = $pdo->prepare($sql);
             $hash = password_hash($pass, PASSWORD_DEFAULT);
@@ -227,17 +227,17 @@ class User {
     public static function connect(string $mail, string $pass) {
         try {
             if(empty($mail)) {
-                throw new Exception("Please enter your email.");
+                throw new Exception("Veuillez entrer votre adresse email.");
             }
             if(empty($pass)) {
-                throw new Exception("Please enter your password.");
+                throw new Exception("Veuillez entrer votre mot de passe.");
             }
             if(self::isPasswdValid($mail, $pass)) {
                 $user = self::getFromMail($mail);
                 $_SESSION['user'] = $user;
                 $_SESSION['loggedIn'] = true;
             } else {
-                throw new Exception("Invalid Password");
+                throw new Exception("Email ou mot de passe invalide.");
             }
         }
         catch(Exception $e) {
