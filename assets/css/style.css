@@ -51,7 +51,7 @@ body {
 }
 
 .btn-secondary:hover,
-.btn-secondary:focus {
+.btn-secondary:focus{
   background-color: #a9000c;
   border-color: #a9000c;
   box-shadow: none;
@@ -59,6 +59,18 @@ body {
   color: #cdcbcb;
 }
 
+.btn-toggle {
+  color: #000000;
+  background-color: #cdcbcb;
+  border: 1px solid #a9000c;
+}
+.btn-toggle.active {
+  background-color: #a9000c!important;
+  border-color: #a9000c;
+  box-shadow: none;
+  border: 1px solid #221f1f;
+  color: #cdcbcb;
+}
 .btn-danger {
   color: #cdcbcb;
   background-color: #a9000c;
