@@ -1,44 +1,87 @@
 body {
-    background-color: #587276;
-    font-family: sans-serif;
+  background-color: #587276;
+  font-family: sans-serif;
 }
 
-.bg-dark{
-   background-color: #221f1f!important;
+.bg-dark {
+  background-color: #221f1f !important;
 }
 
 .bg-secondary {
-    background-color: #cdcbcb!important;
+  background-color: #cdcbcb !important;
 }
 
 .text-light {
-    color: #cdcbcb;
+  color: #cdcbcb !important;
+}
+
+.connectLabel {
+  text-align: center;
+  background-color: #a9000c;
+  border-radius: 2px;
+  border: 1px solid #221f1f;
+  color: #cdcbcb;
+}
+.connectpannel {
+  background-color: #cdcdcd;
+  border: 1px solid #221f1f;
+  border-radius: 2px;
+}
+.buttonv {
+  text-align: center;
+  background-color: #a9000c;
+  border-radius: 2px;
+  border: 1px solid #221f1f;
+  color: #cdcbcb;
+}
+.connectInput {
+  border: 1px solid #221f1f;
+  border-radius: 2px;
+}
+
+.buttonSignup:hover {
+  background-color: #cdcbcb !important;
 }
 
 /* Suggestion : attribuer class btn-secondary et btn-danger en fonction des différents boutons  */
-
-
-/*
-
 .btn-secondary {
-    color: #000000;
-    background-color: #cdcbcb;
-    border-color: #cdcbcb;
+  color: #000000;
+  background-color: #cdcbcb;
+  border: 1px solid #a9000c;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #a9000c;
+  border-color: #a9000c;
+  box-shadow: none;
+  border: 1px solid #221f1f;
+  color: #cdcbcb;
 }
 
 .btn-danger {
-    color: #cdcbcb;
-    background-color: #a9000c;
-    border-color: #a9000c;
+  color: #cdcbcb;
+  background-color: #a9000c;
+  border-color: #a9000c;
 }
 
-.btn-secondary:hover , .btn-secondary:focus {
-    background-color: #a9000c;
-    border-color: #a9000c;
-    box-shadow: none;
+.btn-danger:hover,
+.btn-danger:focus {
+  color: black;
+  background-color: #cdcbcb;
 }
 
-*/
+.form-control,
+.modial-dialog {
+  border: 1px black solid;
+}
 
+/* Adding music section */
+.adding_music_container label {
+  color: #cdcbcb;
+  background-color: #a9000c;
+}
 
-
+.close {
+  text-shadow: none;
+}
