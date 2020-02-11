@@ -27,6 +27,24 @@
         }
 
     }
+
+    /*
+    recupérartion de l'id video garce à l'id_yt
+    */
+    function GetIdVideo( string $id_yt ){
+        $pdo =DBConnect();
+        $sql = "SELECT id FROM videos WHERE id_yt=$id_yt";
+        $result = $pdo->query($sql);
+        if($result->rowcount()>1){          //verrifie les doublons
+            throw new Exception('deux fois meme videos ');
+        } elseif($result->rowcount()==1){   //verifie qu'une seule video avec id_yt
+            $tab=$result->fetch();          //recupére une ligne depuis le resultat associé à la PDO
+            return $tab['id'];              //affiche id sous forme d'un tableau
+        }elseif($result->rowcount()==0){    //aucune video
+            return -1;
+        }
+
+    }
     
     //modifier la video dans la BDD
     function modifvideos(int $id,string $id_yt, int $user_id=-1){
