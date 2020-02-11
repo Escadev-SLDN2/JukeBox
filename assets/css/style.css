@@ -51,8 +51,9 @@ body {
 }
 
 .btn-secondary:hover,
-.btn-secondary:focus {
-  background-color: #a9000c;
+.btn-secondary:focus,
+.btn-secondary.active {
+  background-color: #a9000c!important;
   border-color: #a9000c;
   box-shadow: none;
   border: 1px solid #221f1f;
