@@ -102,9 +102,16 @@ body {
   border-radius: 5px;
   background-color:  #221f1f !important ;
 }
+
 table{
   width:100%;
 }
+
 .text{
   width: 100%;
+}
+
+.logo{
+  max-width: 35%;
+  min-width: 30% !important;
 }
