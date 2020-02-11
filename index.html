@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-  <head>
-    
+<head>
+
     <!-- Ici se trouvent les métadonnées pour le navigateur -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,142 +22,179 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Ici se trouvent les liens vers les feuilles de styles -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-  </head>
+    <script src="https://kit.fontawesome.com/86d37fbec9.js" crossorigin="anonymous"></script>
+
+</head>
 
 
-  <body>
+<body>
 
     <!-- Header -->
     <header>
-      <div class="container-fluid bg-dark mb-5">
-        <div class="row">
-
-          <!-- Logo -->
-          <div class="col-2 text-light d-block align-items-start justify-content-center">            
-            <img src="assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">            
-          </div> 
-
-          <!-- Titre -->
-          <div class="col-sm-6 text-light d-flex align-items-center">            
-            <img src="assets/img/titre-escabox.png" alt="ESCABOX">            
-          </div>
-
-          <!-- Inscription et Connexion
-          Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
-          <div class="col py-2 text-right">
-
-            <div class="row mb-1">
-              <div class="col">
-                <button type="button" class="btn btn-danger ml-5 pl-3" data-toggle="modal" data-target="#myModal" >
-                  Inscription
-              </button>
-             <!--POPUP-->
-              <div id="myModal" class="modal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <!--Header du POPUP-->
-                    <div class="modal-header bg-dark py-2 px-2">
-                      <h5 class="modal-title text-light">Inscription</h5>
-                      <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <!--body du POPUP-->                      
-                    <div class="modal-body bg-secondary">                        
-                      <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
-                        <div class="container">
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputName" class="col connectLabel pl-3 pr-3 mt-1 mr-3" >Nom :*</label>
-                              <input type="text" class="form-control col-sm-9" id="inputName" placeholder="nom complet" name="name" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputPseudo" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Pseudo :*</label>
-                              <input type="text" class="form-control col-sm-9" id="inputPseudo" placeholder="pseudo" name="nickname" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputEmail" class="col connectLabel pl-3 pr-3 mt-1 mr-3">Email :*</label>
-                              <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="email@gmail.com" name="email" required>
-                          </div>
-
-                          <div class="form-group row justify-content-between">
-                              <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mdp :*</label>
-                              <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="mercisam123" name="password" required>
-                          </div>
-
-                         
-                          <!--Bouton s'inscrire-->
-                          <div class="form-group d-flex justify-content-around mt-2 mb-0">
-                              <button type="button" class="btn btn-secondary rounded-pill px-4 py-1" data-dismiss="modal" aria-label="Close">
-                                  Retour
-                              </button>
-                              <button type="submit" class="btn btn-danger rounded-pill px-4 py-1">
-                                  S'inscrire
-                              </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>  
-            <!--dropdown-->
+        <div class="container-fluid bg-dark mb-5">
             <div class="row">
-              <div class="col">
-                <div class="dropdown">
-                  <button class="btn btn-danger" dropdown-toggle type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Connexion
-                  </button>
-                  <ul class="dropdown-menu connectpannel mt-2 " aria-labelledby="dropdownMenu1">
-                    <li>
-                      <form method="POST" action="php/connexion.php">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class=" mr-3 ml-2 mt-3 ">
-                              <div class="form-group"> 
-                                <div class="row">
-                                  <div class="col-3 col-xs-3">
-                                    <label class="connectLabel pl-3 pr-3" for="nom">Mail </label>
-                                  </div>
-                                  <div class="col-9 col-xs-9">
-                                    <input class="connectInput w-100" type="text" name="email" id="nom" placeholder="dupont.87400@mail.com" required/>
-                                  </div>
-                                </div>
-                              </div>
-                                <div class="form-group">
-                                  <div class="row">
-                                    <div class="col-3 col-xs-3">
-                                      <label class="connectLabel pl-3 pr-3" for="mdp">Mdp </label>
-                                    </div>
-                                    <div class="col-9 col-xs-9">                            
-                                      <input class="connectInput w-100" type="password" name="password" id="mdp" placeholder="motdepasse87" required/> 
-                                    </div>           
-                                  </div>                                  
-                                </div>
-                                <div class="row"> 
-                                  <input class="col-11 ml-3 mr-3 pb-0 form-group buttonv" type="submit" value="Valider"> 
-                                </div> 
-                              </div>
-                            </div>
-                  
-                          </div>
-                        </div>
-                      </form>
-                    </li>
-                  </ul>    
-                </div>       
-              </div>
-            </div>
 
-          </div>
+                <!-- Logo -->
+                <div class="col-2 text-light d-block align-items-start justify-content-center">
+                    <img src="assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">
+                </div>
+
+                <!-- Titre -->
+                <div class="col-sm-6 text-light d-flex align-items-center">
+                    <img src="assets/img/titre-escabox.png" alt="ESCABOX">
+                </div>
+
+                <!-- Inscription et Connexion
+          Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
+                <div class="col py-2 text-right">
+
+                    <div class="row mb-1">
+                        <div class="col-5">
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                                data-target="#myModal">
+                                Inscription
+                            </button>
+                            <!--POPUP-->
+                            <div id="myModal" class="modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <!--Header du POPUP-->
+                                        <div class="modal-header bg-dark py-2 px-2">
+                                            <h5 class="modal-title text-light">Inscription</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <!--body du POPUP-->
+                                        <div class="modal-body bg-secondary">
+                                            <form class="form" action="php/inscription.php" method="POST" role="form"
+                                                autocomplete="off">
+                                                <div class="container">
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputName"
+                                                            class="col-12 connectLabel pl-3 pr-3 mt-1">Nom :*</label>
+                                                        <input type="text" class="form-control col-sm-12" id="inputName"
+                                                            placeholder="nom complet" name="name" required>
+                                                    </div>
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputPseudo"
+                                                            class="col-12 connectLabel pl-2 pr-2 mt-1">Pseudo :*</label>
+                                                        <input type="text" class="form-control col-sm-12"
+                                                            id="inputPseudo" placeholder="pseudo" name="nickname"
+                                                            required>
+                                                    </div>
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputEmail"
+                                                            class="col connectLabel pl-3 pr-3 mt-1">Email :*</label>
+                                                        <input type="email" class="form-control col-sm-12"
+                                                            id="inputEmail" placeholder="email@gmail.com" name="email"
+                                                            required>
+                                                    </div>
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputPassword"
+                                                            class="col connectLabel pl-2 pr-2 mt-1">Mot de passe
+                                                            :*</label>
+                                                        <input type="password" class="form-control col-sm-12"
+                                                            id="inputPassword" placeholder="petitekokinedu87"
+                                                            name="password" required>
+                                                    </div>
+
+
+                                                    <!--Bouton s'inscrire-->
+                                                    <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                                        <button type="button"
+                                                            class="btn btn-secondary rounded-pill px-4 py-1"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i class="fas fa-long-arrow-alt-left"></i> Annuler
+                                                        </button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger rounded-pill px-4 py-1">
+                                                            <i class="fas fa-check"></i> S'inscrire
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--pop up 2-->
+
+                        <div class="col-5">
+
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                                data-target="#myModal2">
+                                Connexion
+                            </button>
+                            <div id="myModal2" class="modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <!--Header du POPUP-->
+                                        <div class="modal-header bg-dark py-2 px-2">
+                                            <h5 class="modal-title text-light">Connexion</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <!--body du POPUP-->
+                                        <div class="modal-body bg-secondary">
+                                            <form class="form" action="php/inscription.php" method="POST" role="form"
+                                                autocomplete="off">
+                                                <div class="container">
+
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputEmail"
+                                                            class="col-12 connectLabel pl-3 pr-3 mt-1">Email :*</label>
+                                                        <input type="email" class="form-control col-sm-12"
+                                                            id="inputEmail" placeholder="email@gmail.com" name="email"
+                                                            required>
+                                                    </div>
+
+                                                    <div class="form-group row justify-content-between">
+                                                        <label for="inputPassword"
+                                                            class="col-12 connectLabel pl-2 pr-2 mt-1">Mot de passe
+                                                            :*</label>
+                                                        <input type="password" class="form-control col-sm-12"
+                                                            id="inputPassword" placeholder="petitekokinedu87"
+                                                            name="password" required>
+                                                    </div>
+
+
+                                                    <!--Bouton s'inscrire-->
+                                                    <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                                        <button type="button"
+                                                            class="btn btn-secondary rounded-pill px-4 py-1"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i class="fas fa-long-arrow-alt-left"></i> Annuler
+                                                        </button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger rounded-pill px-4 py-1">
+                                                            <i class="fas fa-check"></i> Connexion
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
     </header>
 
 
@@ -165,430 +202,314 @@
     <main>
 
 
-      <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
-      <section>
-        <div class="container mb-3">
-          <div class="row">
-
-            <!-- Conteneur Visionneuse (Visiteur) -->
-            <div class="col-12 col-lg-7 mb-2">
-              <div class="container">
-                <div class="row">
-                  <div class="col bg-dark text-light">
-                    Visionneuse
-                  </div>
-                </div>
-              </div>
-            </div>
-              
-            <!-- Conteneur Passer, Vote et Ajout de musique (Connecté) -->
-            <div class="col">
-            
-              <!-- Conteneur Passer et Voter -->
-              <div class="container mb-2">
+        <!-- Conteneur Visionneuse, Vote et Ajout de musique-->
+        <section>
+            <div class="container mb-3">
                 <div class="row">
 
-                  <!-- Conteneur Passer -->
-                  <div class="col mr-2">
-
-                    <!--Header Passer -->
-                    <div class="row">
-                      <div class="col bg-dark text-light">
-                        Passer vidéo
-                      </div>
-                    </div>
-                    
-
-                    <!-- Contenu Passer -->
-                    <div class="row">
-                      <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                        <button>Passer</button>
-                      </div>
+                    <!-- Conteneur Visionneuse (Visiteur) -->
+                    <div class="col-12 col-lg-8 mb-2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col bg-dark text-light">
+                                    Visionneuse
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                  </div>
+                    <!-- Conteneur Vote et Ajout de musique (Connecté) -->
+                    <div class="col">
 
-                  <!-- Conteneur Vote -->
-                  <div class="col">
+                        <!-- Vote -->
+                        <div class="container mb-2">
 
-                    <!--Header Vote -->
-                    <div class="row">
-                      <div class="col-12 bg-dark text-light">
-                        Vote
-                      </div>
+                            <!--Header Vote -->
+                            <div class="row">
+                                <div class="col bg-dark text-light">
+                                    Vote
+                                </div>
+                            </div>
+
+                            <!-- Contenu Vote -->
+                            <div class="row">
+                                <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
+                                    <button><i class="fas fa-thumbs-down"></i></button>
+                                    [-1]
+                                    <button><i class="fas fa-thumbs-up"></i></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Ajout -->
+                        <div class="container adding_music_container">
+                            <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+
+                                <!--Header Ajout -->
+                                <div class="row">
+                                    <div class="col bg-dark text-light">
+                                        Ajout de musique
+                                    </div>
+                                </div>
+
+                                <!-- Contenu Ajout -->
+                                <div class="row">
+
+                                    <div class="col bg-secondary py-3">
+
+                                        <div class="form-group row d-flex align-items-center">
+
+                                            <div class="col-sm-4">
+                                                <label class="py-1 mt-2 text-center w-100 itl-ajout"
+                                                    for="musicUrl">URL</label>
+                                            </div>
+
+                                            <div class="col">
+                                                <input type="url" class="form-control" name="musicUrl" id="musicUrl"
+                                                    placeholder="https://" required>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group row d-flex align-items-start">
+
+                                            <div class="col-sm-4 ">
+                                                <label class="py-2 text-center w-100 itl-ajout"
+                                                    for="keyWords">Mots-clés</label>
+                                            </div>
+
+                                            <div class="col">
+                                                <textarea type="email" class="form-control" name="keyWords"
+                                                    id="keyWords" placeholder="ex: rock" required></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <button name="add_music" type="submit" class="btn btn-danger w-100">
+                                                    Ajouter
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+
                     </div>
-                    
-
-                    <!-- Contenu Vote -->
-                    <div class="row">
-                      <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                        <button><i class="fas fa-thumbs-down"></i></button>
-                        [-1]
-                        <button><i class="fas fa-thumbs-up"></i></button>
-                      </div>
-                    </div>
-
-
-                  </div>
 
                 </div>
-              </div>
-
-
-              <!-- Ajout -->
-              <div class="container adding_music_container">
-                <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
-                
-                  <!--Header Ajout -->
-                  <div class="row">
-                    <div class="col bg-dark text-light">
-                      Ajouter une vidéo
-                    </div>
-                  </div>
-
-                  <!-- Contenu Ajout -->
-                  <div class="row">
-                
-                    <div class="col bg-secondary py-3">
-
-                      <div class="form-group row d-flex align-items-center">
-
-                        <div class="col-sm-4">
-                          <label class="py-2 text-center w-100" for="musicUrl">URL</label>
-                        </div>
-
-                        <div class="col">
-                          <input type="url" class="form-control" name="musicUrl" id="musicUrl" placeholder="https://" required>
-                        </div>
-
-                      </div>
-
-                      <div class="form-group row d-flex align-items-start">
-
-                        <div class="col-sm-4">
-                            <label class="py-2 text-center w-100" for="keyWords">Mots-clés</label>
-                        </div>
-
-                        <div class="col">
-                            <textarea type="email" class="form-control" name="keyWords" id="keyWords" placeholder="ex: rock" required></textarea>
-                        </div>
-
-                      </div>
-                                                                                
-                      <div class="row">                            
-                        <div class="col">
-                          <button name="add_music" type="submit" class="btn btn-danger w-100">
-                            Ajouter
-                          </button>
-                        </div>
-                      </div>
-
-                    </div>
-                    
-                  </div>
-
-                </form>
-              </div>
-
             </div>
+        </section>
 
-          </div>
-        </div>
-      </section>
-      
 
-      <!-- Les quatres options (Admin) -->
-      <section>
-        <div class="container mb-3">
-        
-          <div class="row d-flex align-items-center">
-            <!-- [Thomas] Nous pouvons aussi utiliser "d-flex align-items-center justify-content-between"
+        <!-- Les quatres options (Admin) -->
+        <section>
+            <div class="container mb-3">
+
+                <div class="row d-flex align-items-center">
+                    <!-- [Thomas] Nous pouvons aussi utiliser "d-flex align-items-center justify-content-between"
             mais les colonnes bootstrap seront peut-être plus maniables si l'on veut rapprocher
             "Choix de l'utilisateur" et "Donner le rôle admin". Sans parler du responsive. -->
-            <div class="col-sm-2 mb-2">
-              <button>Passer la vidéo</button>
+                    <div class="col-sm-2 mb-2">
+                        <button>Passer la vidéo</button>
+                    </div>
+
+                    <div class="offset-sm-1 col-sm-2 mb-2">
+                        <button>Choix de la Playlist</button>
+                    </div>
+
+                    <div class="offset-sm-1 col-sm-2 border border-dark mb-2">
+                        Choix de l'utilisateur
+                    </div>
+
+                    <div class="offset-sm-1 col mb-2">
+                        <button>Donner le rôle admin</button>
+                    </div>
+
+                </div>
+
             </div>
+        </section>
 
-            <div class="offset-sm-1 col-sm-2 mb-2">
-              <button>Choix de la Playlist</button>
-            </div>
 
-            <div class="offset-sm-1 col-sm-2 border border-dark mb-2">
-              Choix de l'utilisateur
-            </div>
+        <!-- Choix de la playlist / CdlP (Admin) -->
 
-            <div class="offset-sm-1 col mb-2">
-              <button>Donner le rôle admin</button>
-            </div>
-
-          </div>
-          
-        </div>
-      </section>
-      
-
-      <!-- Choix de la playlist / CdlP (Admin) -->
-
-      <!-- [Thomas] N'ayant pas réussi à faire fonctionné padding-x (px),
+        <!-- [Thomas] N'ayant pas réussi à faire fonctionné padding-x (px),
       j'ai doublé les conteneurs afin de respecter les paddings
       des premiers conteneurs (visionneuse/vote/ajout/les quatres fonctions).
       L'"astuce" est répété pour le carousel des vidéos en cours et Table_gestion_admin -->
 
-      <section>
-        <div class="container mb-3">
-          <div class="row">
-            <div class="col">
-
-              <div class="container">
-
-                <!-- Header CdlP -->
-                <header>
-                  <div class="row">
-                    <div class="col bg-dark text-light">
-                      Choix de la playlist
-                    </div>
-                  </div>
-                </header>
-
-                <!-- Contenu CdlP -->
-                <div class="row pt-1 pb-3 bg-secondary">
-                  <div class="col">
-                    Tags Tag tag
-                  </div>
-                </div>
-          
-                <!-- Footer CdlP -->
-                <footer>
-                  <div class="row py-1 bg-secondary border-top border-dark">
-
-                    <div class="col-sm-10 d-flex justify-content-end align-items-center">
-                      x vidéo(s) sélectionnée(s)
-                    </div>
-
-                    <div class="col text-center">
-                      <button>Valider</button>
-                    </div>
-
-                  </div>
-                </footer>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-      
-
-      <!-- Carousel vidéo (Visiteur) -->
-      <section>
-        <div class="container mb-3 mt-3">
-          <div class="row">
-            <div class="col">
-
-              <div class="container ">
-
-                <!-- Header Carousel -->
-                <header>
-                  <div class="row">
-                    <div class="col bg-dark text-light">
-                      Vidéo/Playlist en cours
-                    </div>
-                  </div>
-                </header>
-        
-                <!-- Contenu Carousel -->
-              
-                  <div class="row ">
-                    <div class="col-md-12 bg-secondary">
-                      <div id="Carousel" class="carousel slide" data-interval="false" data-wrap="false">
-                        
-                        <!-- Carousel items -->
-                        <div class="carousel-inner pt-3"  >
-                          <div class="item carousel-item">
-                            <div class="row">
-                              <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col offset-1 offset-md-0 text-center">
-                                    titre-page0
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              
-                            </div>
-                            <!--.row-->
-                          </div>
-                          <!--thumbnail-->
-                          <div class="item active carousel-item ">
-                            <div class="row">
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre-page1
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                <div class="row">
-                                  <div class="col text-center">
-                                    titre
-                                  </div>
-                                </div>
-                              </div>
-                              
-                            </div>
-                            <!--.row-->
-                          </div>
-                          <!--thumbnail-->
-                          <div class="item carousel-item">
-                            <div class="row">
-                              
-                                <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                  <div class="row">
-                                    <div class="col text-center">
-                                      titre-page2
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                  <div class="row">
-                                    <div class="col text-center">
-                                      titre
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                  <div class="row">
-                                    <div class="col text-center">
-                                      titre
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                  <div class="row">
-                                    <div class="col text-center">
-                                      titre
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                              
-                            <!--.row-->
-                          </div>
-                          <!--.item-->
-                        </div>
-                        <!--controls-->
-
-                        <a class="carousel-control-prev d-flex justify-content-start" href="#Carousel" role="button" data-slide="prev">
-                            <span><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="carousel-control-next d-flex justify-content-end" href="#Carousel" role="button" data-slide="next">
-                            <span><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                      <!--.Carousel-->
-                    </div>
-                  </div>
-                
-                
-                
-        </div>
-      </section>
-      
-
-      <!-- Gestion des vidéos et playlist (Admin) -->
-      <section>
-        <div class="container mb-3">
-          <div class="row">
-            <div class="col">
-
-              <div class="container bg-secondary">
-
-                <!-- Header Gestion_playlist -->
-                <header>
-                  <div class="row">
-                    <div class="col bg-dark text-light">
-                      Tableau_gestion_admin
-                    </div>
-                  </div>
-                </header>
-
-                <!-- Contenu Gestion_playlist -->
+        <section>
+            <div class="container mb-3">
                 <div class="row">
-                  <div class="col py-4">
-                    [Tableau de gestion]
-                  </div>
-                </div>
-          
-                <!-- Footer Gestion_playlist -->
-                <footer>
-                  <div class="row border-top border-dark">
                     <div class="col">
-                      Controles_admin
+
+                        <div class="container">
+
+                            <!-- Header CdlP -->
+                            <header>
+                                <div class="row">
+                                    <div class="col bg-dark text-light">
+                                        Choix de la playlist
+                                    </div>
+                                </div>
+                            </header>
+
+                            <!-- Contenu CdlP -->
+                            <div class="row pt-1 pb-3 bg-secondary">
+                                <div class="col">
+                                    Tags Tag tag
+                                </div>
+                            </div>
+
+                            <!-- Footer CdlP -->
+                            <footer>
+                                <div class="row py-1 bg-secondary border-top border-dark">
+
+                                    <div class="col-sm-10 d-flex justify-content-end align-items-center">
+                                        x musique(s) sélectionnée(s)
+                                    </div>
+
+                                    <div class="col text-center">
+                                        <button>Valider</button>
+                                    </div>
+
+                                </div>
+                            </footer>
+
+                        </div>
+
                     </div>
-                  </div>
-                </footer>
-
-              </div>
-
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
+
+
+        <!-- Carousel vidéo (Visiteur) -->
+        <section>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="container">
+
+                            <!-- Header Carousel -->
+                            <header>
+                                <div class="row">
+                                    <div class="col bg-dark text-light">
+                                        Vidéo/Playlist en cours
+                                    </div>
+                                </div>
+                            </header>
+
+                            <!-- Contenu Carousel -->
+                            <div class="row text-center">
+
+                                <!-- Left -->
+                                <div class="col-sm-1 bg-secondary">
+                                    L
+                                </div>
+
+                                <div class="col bg-danger">
+                                    Vid1
+                                </div>
+
+                                <div class="col bg-success">
+                                    Vid2
+                                </div>
+
+                                <div class="col bg-warning">
+                                    Vid3
+                                </div>
+
+                                <div class="col bg-info">
+                                    Vid4
+                                </div>
+
+                                <!-- Right -->
+                                <div class="col-sm-1 bg-secondary">
+                                    R
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gestion des vidéos et playlist (Admin) -->
+        <section>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="container bg-secondary">
+
+                            <!-- Header Gestion_playlist -->
+                            <header>
+                                <div class="row">
+                                    <div class="col bg-dark text-light">
+                                        Tableau_gestion_admin
+                                    </div>
+                                </div>
+                            </header>
+
+                            <!-- Contenu Gestion_playlist -->
+                            <div class="row">
+                                <div class="col py-4">
+                                    [Tableau de gestion]
+                                </div>
+                            </div>
+
+                            <!-- Footer Gestion_playlist -->
+                            <footer>
+                                <div class="row border-top border-dark">
+                                    <div class="col">
+                                        Controles_admin
+                                    </div>
+                                </div>
+                            </footer>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    
+
 
     <!-- Footer -->
     <footer>
-      <div class="container-fluid bg-dark">
-        <div class="row">
-          <div class="col">
-            Footer
-          </div>
+        <div class="container-fluid bg-dark">
+            <div class="row">
+                <div class="col">
+                    Footer
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <!-- Ici se trouvent les liens vers les fichiers javascript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/86d37fbec9.js" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
