@@ -77,11 +77,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="row ">
                     <!-- Logo -->
                     <div class="col-2 text-light d-block align-items-start justify-content-center">
-                        <img src="../assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">
+                        <a href="../"><img src="../assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
                     </div>
                     <!-- Titre -->
-                    <div class="col-md-6 text-light d-flex align-items-center">
-                        <img src="../assets/img/titre-escabox.png" alt="ESCABOX">
+                    <div class="col-md-6 my-4 ml-5 ml-md-0 text-light d-flex align-items-center">
+                        <a href="../"><img src="../assets/img/titre-escabox.png" alt="ESCABOX"></a
                     </div>
                 </div>
             </div>
@@ -94,8 +94,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Conteneur Visionneuse, Vote et Ajout de musique-->
             <section>
                 <div class="container mb-3">
-                    <div class="row mx-5">
-                        <div class="col bg-secondary px-5 pt-5 pb-4  mx-5">
+                    <div class="row mx-sm-5">
+                        <div class="col bg-secondary px-5 pt-5 pb-4  mx-sm-5">
                             <form method="POST" action="#">
                                 <div class="form-group row connectLabel py-md-2 text-center <?php if(empty($error_message)){echo "d-none";}?>">
                                     <div class="col">
