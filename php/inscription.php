@@ -1,25 +1,24 @@
 <?php
 require_once "users.php";
-
-$error = "";
+$error_message = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty(trim($_POST['name']))) {
-        $error .= "veuillez entrer votre nom. <br>\n";
+        $error_message.= "veuillez entrer votre nom. <br>\n";
     } else {
         $name = trim($_POST['name']);
     }
     if(empty(trim($_POST['nickname']))) {
-        $error .= "veuillez entrer votre pseudo. <br>\n";
+        $error_message.= "veuillez entrer votre pseudo. <br>\n";
     } else {
         $nick = trim($_POST['nickname']);
     }
     if(empty(trim($_POST['email']))) {
-        $error .= "Veuillez entrer votre email. <br>\n";
+        $error_message.= "Veuillez entrer votre email. <br>\n";
     } else {
         $mail = trim($_POST['email']);
     }
     if(empty(trim($_POST['password']))) {
-        $error .= "Veuillez entrer votre mot de passe. <br>\n";
+        $error_message.= "Veuillez entrer votre mot de passe. <br>\n";
     } else {
         $pass = trim($_POST['password']);
     }
@@ -28,15 +27,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = User::add($name, $nick, $mail, $pass);
         }
         catch(Exception $e) {
-            $error = $e->getMessage(). "<br>\n";
+            $error_message.= $e->getMessage(). "<br>\n";
         }
         if(isset($user)) {
-            User::connect($user->mail, $pass);
-            if(User::isConnected()) {
-                header("location: ../index.html");
-                exit;
-            } else {
-                $error = "Erreur de connexion <br>\n";
+            try{
+                User::connect($user->mail, $pass);
+                if(User::isConnected()) {
+                    header("location: ../index.html");
+                    exit;
+                } else {
+                    $error_message= "Erreur de connexion <br>\n";
+                }
+            }catch(Exception $e){
+                $error_message.= $e->getMessage()."<br>\n";
             }
         }
     }
@@ -84,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img src="../assets/img/logo_escabox.png" width="50%" class="position-absolute mt-3" alt="ESCABOX">
                     </div>
                     <!-- Titre -->
-                    <div class="col-sm-6 text-light d-flex align-items-center">
+                    <div class="col-md-6 text-light d-flex align-items-center">
                         <img src="../assets/img/titre-escabox.png" alt="ESCABOX">
                     </div>
                 </div>
@@ -102,29 +105,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="col bg-secondary p-5 mx-5">
                             <form class="form" action="#" method="POST" role="form" autocomplete="off">
                                 <div class="container ">
-                                    <div class="form-group row connectLabel py-md-2 text-center <?php if(empty($error)){echo "d-none";}?>">
+                                    <div class="form-group row connectLabel py-md-2 text-center <?php if(empty($error_message)){echo "d-none";}?>">
                                         <div class="col">
-                                            <?php echo $error;?>
+                                            <?php echo $error_message;?>
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-between">
-                                        <label for="inputName" class="col connectLabel pl-3 pr-3 mt-1 mr-3" >Nom :*</label>
-                                        <input type="text" class="form-control col-sm-9" id="inputName" placeholder="Nom Prenom" value="<?php echo(isset($name)? $name : "")?>" name="name" required>
+                                        <label for="inputName" class="col connectLabel px-md-3 mt-md-1 mr-md-3" >Nom :*</label>
+                                        <input type="text" class="form-control col-md-9" id="inputName" placeholder="Nom Prenom" value="<?php echo(isset($name)? $name : "")?>" name="name" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
-                                        <label for="inputPseudo" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Pseudo :*</label>
-                                        <input type="text" class="form-control col-sm-9" id="inputPseudo" placeholder="Pseudo" value="<?php echo(isset($nick)? $nick : "")?>" name="nickname" required>
+                                        <label for="inputPseudo" class="col connectLabel px-md-2 mt-md-1 mr-md-3">Pseudo :*</label>
+                                        <input type="text" class="form-control col-md-9" id="inputPseudo" placeholder="Pseudo" value="<?php echo(isset($nick)? $nick : "")?>" name="nickname" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
-                                        <label for="inputEmail" class="col connectLabel pl-3 pr-3 mt-1 mr-3">Email :*</label>
-                                        <input type="email" class="form-control col-sm-9" id="inputEmail" placeholder="mail@gmail.com" value="<?php echo(isset($mail)? $mail : "")?>" name="email" required>
+                                        <label for="inputEmail" class="col connectLabel px-md-3 mt-md-1 mr-md-3">Email :*</label>
+                                        <input type="email" class="form-control col-md-9" id="inputEmail" placeholder="mail@gmail.com" value="<?php echo(isset($mail)? $mail : "")?>" name="email" required>
                                     </div>
                                     <div class="form-group row justify-content-between">
-                                        <label for="inputPassword" class="col connectLabel pl-2 pr-2 mt-1 mr-3">Mdp :*</label>
-                                        <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="Mot de passe" name="password" required>
+                                        <label for="inputPassword" class="col connectLabel px-md-2 mt-md-1 mr-md-3">Mdp :*</label>
+                                        <input type="password" class="form-control col-md-9" id="inputPassword" placeholder="Mot de passe" name="password" required>
                                     </div>
                                     <!--Bouton s'inscrire-->
-                                    <div class="form-group d-flex justify-content-around mt-2 mb-0">
+                                    <div class="form-group d-flex justify-content-around mt-md-2 mb-mb-0">
                                         <a type="button" href="../index.html" class="btn btn-secondary rounded-pill" >Retour</a>
                                         <button type="submit" class="btn btn-danger rounded-pill">S'inscrire</button>
                                     </div>
