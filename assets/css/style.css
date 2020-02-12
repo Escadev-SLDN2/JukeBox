@@ -127,3 +127,8 @@ table{
   max-width: 35%;
   min-width: 30% !important;
 }
+
+.tableFixHead          { overflow-y: auto; height: 250px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+th     { background:#cdcbcb; }
