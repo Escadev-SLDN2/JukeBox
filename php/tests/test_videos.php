@@ -15,10 +15,11 @@
     d'une video
 	*/
 	try{ 
-		addvideos("7zBqopjayHY",1);
+		addvideos("7zBqopjayHY",6);
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
+
 	try{ 
 		addvideos("6hhxvjvjxh",2);
 	} catch(Exception $e){
@@ -26,7 +27,21 @@
 	}
 
 	//afficher teste addvideos
-	try{echo(GetIdVideo()); echo"<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{
+		if(GetIdVideo('7zBqopjayHY')==-1){
+			echo "la video n'est pas dans la dbb <br>\n";
+		}else{
+			echo "la video est dans la bdd <br>\n";
+		}
+	}catch(Exception $e){echo($e->getMessage())."<br>\n";}
+
+	try{
+		if(GetIdVideo('7zBqopjayvh')==-1){
+			echo "la video n'est pas dans la dbb <br>\n";
+		}else{
+			echo "la video est dans la bdd <br>\n";
+		}
+	}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	
 
 	/*	ici Tests des suppression

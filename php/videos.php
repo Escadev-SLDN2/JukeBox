@@ -33,7 +33,7 @@
     */
     function GetIdVideo( string $id_yt ){
         $pdo =DBConnect();
-        $sql = "SELECT id FROM videos WHERE id_yt=$id_yt";
+        $sql = "SELECT id FROM videos WHERE id_yt='$id_yt'";
         $result = $pdo->query($sql);
         if($result->rowcount()>1){          //verrifie les doublons
             throw new Exception('deux fois meme videos ');
