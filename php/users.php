@@ -254,7 +254,7 @@ class User {
         if((isset($_SESSION["user"])&&(isset($_SESSION["loggedIn"]))&& $_SESSION["loggedIn"])=== true) {
             return true;
         }else if(isset($_COOKIE['userId'])&& !empty($_COOKIE['userId'])){
-            $id = $_COOKIE['userId'];
+            $id = (int) $_COOKIE['userId'];
             $user = self::getFromId($id);
             $_SESSION['user'] = $user;
             $_SESSION['loggedIn'] = true;
