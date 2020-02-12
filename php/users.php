@@ -236,6 +236,7 @@ class User {
                 $user = self::getFromMail($mail);
                 $_SESSION['user'] = $user;
                 $_SESSION['loggedIn'] = true;
+                setcookie("userId", (string) $user->id, time()+3600);
             } else {
                 throw new Exception("Email ou mot de passe invalide.");
             }
@@ -252,6 +253,12 @@ class User {
     public static function isConnected() {
         if((isset($_SESSION["user"])&&(isset($_SESSION["loggedIn"]))&& $_SESSION["loggedIn"])=== true) {
             return true;
+        }else if(isset($_COOKIE['userId'])&& !empty($_COOKIE['userId'])){
+            $id = $_COOKIE['userId'];
+            $user = self::getFromId($id);
+            $_SESSION['user'] = $user;
+            $_SESSION['loggedIn'] = true;
+            return true;
         }
         return false;
     }
@@ -260,5 +267,7 @@ class User {
     public static function disconnect() {
         $_SESSION['loggedIn'] = false;
         $_SESSION['user'] = null;
+        //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
+        setcookie("userId", '', time()-1);
     }
 }
