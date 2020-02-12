@@ -3,7 +3,6 @@
    ini_set('display_errors', 1);
    ini_set('display_startup_errors', 1);
    error_reporting(E_ALL);
-   use PHPUnit\Framework\TestCase;
 
 	//recuperation des données
 	require_once "../videos.php";
@@ -16,18 +15,18 @@
     d'une video
 	*/
 	try{ 
-		addvideos("7zBqopjayHY",6);
+		addvideos("7zBqopjayHY",1);
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
 	try{ 
-		addvideos("6hhxvjvjxh",9);
+		addvideos("6hhxvjvjxh",2);
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
 
 	//afficher teste addvideos
-	//try{echo(GetIdVideo()); echo"<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
+	try{echo(GetIdVideo()); echo"<br>\n";} catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	
 
 	/*	ici Tests des suppression
