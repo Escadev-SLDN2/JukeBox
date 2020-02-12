@@ -130,6 +130,11 @@ table{
   min-width: 30% !important;
 }
 
+
+.btn-give-admin {
+  padding: 0 2rem;
+}
+
 .red-bg{
   background-color: #a9000c !important;
 }
