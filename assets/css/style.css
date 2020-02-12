@@ -136,3 +136,8 @@ table{
 .fluid{
   padding: 0px;
 }
+
+/* TITRE DU HEADER - ESCABOX */ 
+#titre{
+  letter-spacing: -0.04em;
+}
