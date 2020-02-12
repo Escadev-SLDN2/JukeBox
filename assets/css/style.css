@@ -127,3 +127,7 @@ table{
   max-width: 35%;
   min-width: 30% !important;
 }
+
+.btn-give-admin {
+  padding: 0 2rem;
+}
