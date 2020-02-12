@@ -117,6 +117,7 @@ body {
 
 table{
   width:100%;
+  margin-bottom: 0rem !important;
 }
 
 .text{
@@ -126,9 +127,24 @@ table{
 .logo{
   max-width: 35%;
   min-width: 30% !important;
+  
 }
 
-.tableFixHead          { overflow-y: auto; height: 250px; }
-.tableFixHead thead th { position: sticky; top: 0; }
 
-th     { background:#cdcbcb; }
+.table td , .table th {
+  vertical-align: middle;
+}
+
+
+.tableFixHead          { 
+  overflow-y: auto; height: 250px;
+ }
+
+.tableFixHead thead th {
+   position: sticky; top: 0;
+   }
+
+th     { 
+  background:#cdcbcb;
+ }
+
