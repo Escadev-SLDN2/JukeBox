@@ -127,3 +127,8 @@ table{
   max-width: 35%;
   min-width: 30% !important;
 }
+
+/* TITRE DU HEADER - ESCABOX */ 
+#titre {
+  letter-spacing: -0.04em;
+}
