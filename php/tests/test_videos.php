@@ -13,7 +13,7 @@
 
 	/*  ici Tests des ajouts
     d'une video
-	*/
+
 	try{ 
 		addvideos("7zBqopjayHY",6);
 	} catch(Exception $e){
@@ -25,6 +25,7 @@
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
+		*/
 
 	//afficher teste addvideos
 	try{
