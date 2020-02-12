@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Escabox</title>
+        <meta name="description" content="Ce petit paragraphe sera affiché dans les SERP, juste sous le titre des pages.">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    
+    <body>
+        <!-- Application header -->
+        <header class="bg-dark mb-5">
+            <nav class="navbar navbar-expand-sm navbar-dark">
+                <a class="navbar-brand position-relative" href="#">
+                    <img src="assets/img/logo_escabox.png" alt="Escabox" class="app_logo" />
+                    <h1 class="app_title">Escabox</h1>
+                </a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-block btn-primary rounded" data-toggle="modal" data-target="#signupModal">
+                                Inscription
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Section Youtube player -->
+        <section class="player">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-sm-7">
+                        <div class="card h-100">
+                            <div class="card-header bg-dark">
+                                <h2 class="card-title text-light">Visionneuse</h2>
+                            </div>
+                            <div class="card-body p-0">
+                                <iframe src="https://www.youtube.com/embed/MYZ67-Sh7kM?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="card h-100">
+                                    <div class="card-header bg-dark">
+                                        <h2 class="card-title text-light">J'ai tous les droits</h2>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <a href="#" class="btn btn-block btn-secondary">
+                                            <i class="fas fa-fast-forward"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card h-100">
+                                    <div class="card-header bg-dark">
+                                        <h2 class="card-title text-light">J'ai le droit de vote</h2>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center justify-content-center">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-4 mb-0">
+                                                <a href="#" class="btn btn-block btn-link text-warning">
+                                                    <i class="fas fa-2x fa-thumbs-down"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 mb-0">
+                                                <input type="text" class="form-control" value="+1" disabled />
+                                            </div>
+                                            <div class="col-4 mb-0">
+                                                <a href="#" class="btn btn-block btn-link text-success">
+                                                    <i class="fas fa-2x fa-thumbs-up"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm mb-0">
+                                <form action="" method="post">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-dark">
+                                            <h2 class="card-title text-light">Une vidéo de plus ?</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group row align-items-start required">
+                                                <div class="col-sm-5">
+                                                    <label for="addVideoUrl">Url de la vidéo :</label>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <input type="url" class="form-control" id="addVideoUrl" aria-describedby="addVideoUrlHelp" placeholder="ex: https://www.youtube.com/watch?v=MYZ67-Sh7kM" required />
+                                                    <small id="addVideoUrlHelp" class="form-text text-muted">Il faut une url simplifiée…</small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row align-items-start required">
+                                                <div class="col-sm-5">
+                                                    <label for="addVideoTags">Mots-clés associés :</label>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <textarea class="form-control" id="addVideoTags" aria-describedby="addVideoTagsHelp" placeholder="ex: metal, dance, techno, …" required></textarea>
+                                                    <small id="addVideoTagsHelp" class="form-text text-muted">Un mot-clé par ligne !</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer bg-dark">
+                                            <button type="submit" class="btn btn-primary ml-auto">
+                                                Envoyez la musique&nbsp;<i class="fas fa-arrow-circle-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Playlist controls -->
+        <section class="controls">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="input-group">
+                            <select class="custom-select" id="changeSuperuser">
+                                <option selected>Qui sera le Super Utilisateur maintenant ?</option>
+                                <option value="">Moi</option>
+                                <option value="">Toi</option>
+                                <option value="">Elle</option>
+                                <option value="">Lui</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    Passe le relai&nbsp;<i class="fas fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <button class="btn btn-block btn-primary" data-toggle="collapse" data-target="#selectTags" aria-expanded="false" aria-controls="selectTags">
+                            Change-moi cette playlist&nbsp;<i class="fas fa-arrow-circle-down"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row collapse" id="selectTags">
+                    <div class="col-sm">
+                        <div class="card h-100">
+                            <div class="card-header bg-dark">
+                                <h2 class="card-title text-light">Qu'est-ce qu'on écoute ?</h2>
+                            </div>
+                            <div class="card-body d-flex align-items-start justify-content-start">
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary active">
+                                        <input type="checkbox" checked /> metal
+                                    </label>
+                                </div>
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input type="checkbox" checked /> trance
+                                    </label>
+                                </div>
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary">
+                                        <input type="checkbox" checked /> musette
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-dark justify-content-end">
+                                <p class="text-light mb-0 mr-5">
+                                    <span id="nbSelectedTags">0</span>&nbsp;vidéo sélectionnée
+                                </p>
+                                <button class="btn btn-primary" type="button">
+                                    Balance la purée&nbsp;<i class="fas fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sign up Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="" method="post">
+                        <div class="modal-header bg-dark">
+                            <h5 class="modal-title text-light" id="signupModalLabel">Inscris-toi</h5>
+                            <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body container-fluid">
+                            <div class="form-group row align-items-start required">
+                                <div class="col-sm-5">
+                                    <label for="signupName">Ton nom :</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" id="signupName" aria-describedby="signupNameHelp" placeholder="ex: Sophie Dupont" required />
+                                    <small id="signupNameHelp" class="form-text text-muted">Nous ne donnerons cette info à personne.</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row align-items-start required">
+                                <div class="col-sm-5">
+                                    <label for="signupNickname">Ton pseudo :</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" id="signupNickname" aria-describedby="signupNicknameHelp" placeholder="ex: sophiedupont" required />
+                                    <small id="signupNicknameHelp" class="form-text text-muted">Trouves-en un cool ! C'est toi &#x1F60D;</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row align-items-start required">
+                                <div class="col-sm-5">
+                                    <label for="signupEmail">Ton mail :</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="email" class="form-control" id="signupEmail" aria-describedby="signupEmailHelp" placeholder="ex: sophie@dupont.com" required />
+                                    <small id="signupEmailHelp" class="form-text text-muted">Nous ne donnerons pas ça non plus.</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row align-items-start required">
+                                <div class="col-sm-5">
+                                    <label for="signupPassword">Ton mot de passe :</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="password" class="form-control" id="signupPassword" aria-describedby="signupPasswordHelp" placeholder="ex: m0T2p4sSk1D3cH1r3!" required />
+                                    <small id="signupPasswordHelp" class="form-text text-muted">Évite les "123456" et les "maman" stp…</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row align-items-start required">
+                                <div class="col-sm-5">
+                                    <label for="signupPasswordConfirm">Répète-le pour voir :</label>
+                                </div>
+                                <div class="col-sm">
+                                    <input type="password" class="form-control" id="signupPasswordConfirm" aria-describedby="signupPasswordConfirmHelp" placeholder="ex: le même qu'au-dessus" required />
+                                    <small id="signupPasswordConfirmHelp" class="form-text text-muted">Écris encore ton mot de passe</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                <i class="fas fa-arrow-circle-left"></i>&nbsp;Non, j'annule ça
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Oui, je crée mon compte&nbsp;<i class="fas fa-check-circle"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/86d37fbec9.js" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,202 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #587276;
+    font-family: Arial, sans-serif;
+}
+
+.bg-dark {
+    background-color: #221f1f !important;
+}
+
+.bg-secondary {
+    background-color: #cdcbcb !important;
+}
+
+.text-primary {
+    color: #a9000c !important;
+}
+
+.text-light {
+    color: #ffffff !important;
+}
+
+.btn-primary,
+.btn-primary:active {
+    color: #cdcbcb !important;
+    background-color: #a9000c !important;
+    border-color: #a9000c !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    color: #221f1f !important;
+    background-color: #cdcbcb !important;
+    border-color: #a9000c !important;
+}
+
+[class*='col-'] {
+    margin-bottom: 1rem;
+}
+
+.form-group [class*='col-'] {
+    margin-bottom: 0;
+}
+
+header .navbar-brand .app_logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 80px;
+}
+
+header .navbar-brand h1 {
+    margin: 0 0 0 90px;
+}
+
+@media (max-width: 567px) {
+    header .navbar-brand .app_logo {
+        z-index: auto;
+        margin-top: 10px;
+        width: 50px;
+    }
+
+    header .navbar-brand h1 {
+        margin: 0 0 0 60px;
+    }
+
+    header .navbar-collapse .navbar-nav .nav-item .nav-link {
+        text-align: center;
+    }
+}
+
+.modal .modal-dialog .modal-header {
+    padding: 0.25rem 1rem;
+}
+
+.modal .modal-dialog .modal-content {
+    background-color: #cdcbcb;
+}
+
+.modal .modal-dialog .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+}
+
+@media (max-width: 567px) {
+    .modal .modal-dialog .modal-footer {
+        display: flex;
+    }
+
+    .modal .modal-dialog .modal-footer .btn-secondary {
+        order: 2;
+    }
+
+    .modal .modal-dialog .modal-footer .btn-primary {
+        order: 1;
+    }
+}
+
+form .form-group label {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: .375rem .75rem;
+    font-size: 0.9em;
+    line-height: 1.7;
+    color: #cdcbcb;
+    background-color: #a9000c;
+    border: 1px solid #cdcbcb;
+    border-radius: .25rem;
+}
+
+form .form-group.required label:after {
+    content: " *";
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    font-weight: bold;
+    color: #cdcbcb;
+}
+
+@media (max-width: 567px) {
+    form .form-group label {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    form .form-group .form-control {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+    }
+
+    .custom-select {
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0.25rem !important;
+    }
+
+    .input-group-append {
+        width: 100%;
+    }
+
+    .input-group-append .btn {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.card .card-header {
+    padding: 0.25rem 1rem;
+}
+
+.card .card-header .card-title {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.card .card-body {
+    background-color: #cdcbcb;
+}
+
+.card .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+}
+
+iframe {
+    display: block;
+}
+
+.card .card-body iframe {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.btn-group-toggle {
+    margin: 0.25rem 0.5rem;
+}
+
+.btn-group-toggle .btn-secondary {
+    color: #221f1f;
+    background-color: transparent;
+}
+
+.btn-group-toggle .btn-secondary.active {
+    background-color: #a9000c !important;
+}
