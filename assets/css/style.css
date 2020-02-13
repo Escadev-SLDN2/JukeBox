@@ -3,7 +3,8 @@ body {
   font-family: sans-serif;
 }
 
-.bg-dark {
+.bg-dark
+.table-dark {
   background-color: #221f1f !important;
 }
 
@@ -117,6 +118,7 @@ body {
 
 table{
   width:100%;
+
 }
 
 .text{
@@ -126,4 +128,21 @@ table{
 .logo{
   max-width: 35%;
   min-width: 30% !important;
+}
+
+
+.btn-give-admin {
+  padding: 0 2rem;
+}
+
+.red-bg{
+  background-color: #a9000c !important;
+}
+.fluid{
+  padding: 0px;
+}
+
+/* TITRE DU HEADER - ESCABOX */ 
+#titre{
+  letter-spacing: -0.04em;
 }
