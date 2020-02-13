@@ -160,13 +160,13 @@ class User {
     //	ajoute un utilisateur a la bdd
     public static function add(string $name, string $nick, string $mail, string $pass) {
         $pdo = DBConnect();
-        $sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
+        $sql = "INSERT INTO users (name, nickname, email, hash_pass, role) VALUES (:name, :nick, :mail, :hash, :role)";
         if(self::isMailUsed($mail)) {
             throw new Exception("Cette adresse email est d&eacute;j&agrave; utilisé");
         }else{
             $stmt = $pdo->prepare($sql);
             $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt->execute(array(':name' => $name, ':nick' => $nick, ':mail' => $mail, ':hash' => $hash));
+            $stmt->execute(array(':name' => $name, ':nick' => $nick, ':mail' => $mail, ':hash' => $hash, ':role' => 'ROLE_USER'));
             return self::getFromMail($mail);
         }
     }
