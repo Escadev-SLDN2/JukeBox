@@ -11,7 +11,7 @@ if(isset($_COOKIE['userId'])){
 	echo "vos cookies sont vides pour ce site"."<br>\n";	
 }
 if(isset($_SESSION["user"])){
-	echo "votre session contiend : ";
+	echo "votre session contient : ";
 	print_r($_SESSION);
 	echo "<br>\n";
 }else{
@@ -25,7 +25,7 @@ if(User::isConnected()){
 }
 
 if(isset($_SESSION["user"])){
-	echo "votre session contiend : ";
+	echo "votre session contient : ";
 	print_r($_SESSION);
 	echo "<br>\n";
 }else{
