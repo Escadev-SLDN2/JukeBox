@@ -33,7 +33,6 @@
     <header>
         <div class="container-fluid bg-dark mb-5">
             <div class="row">
-  
                 <!-- Logo -->
                 <div class="col-2 text-light d-block align-items-start justify-content-center">
                     <img src="assets/img/logo_escabox.png"   class="logo position-absolute mt-3 img-fluid" alt="ESCABOX">
@@ -41,7 +40,7 @@
   
                 <!-- Titre -->
                 <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
-                    <img src="assets/img/titre-escabox.png" alt="ESCABOX">
+                    <h1 id="titre" class="mt-2">ESCABOX</h1>
                 </div>
   
                 <!-- Inscription et Connexion
@@ -144,7 +143,7 @@
                                         </div>
                                         <!--body du POPUP-->
                                         <div class="modal-body bg-secondary">
-                                            <form class="form" action="php/inscription.php" method="POST" role="form"
+                                            <form class="form" action="php/connection.php" method="POST" role="form"
                                                 autocomplete="off">
                                                 <div class="container">
   
@@ -350,7 +349,7 @@
                   <option value="3">Three</option>
                 </select>
                 <div class="input-group-append">
-                  <button type="button" class="btn btn-danger">Donner le rôle Administrateur</button>
+                    <button type="button" class="btn btn-danger btn-give-admin" data-toggle="tooltip" data-placement="top" title="Donner le rôle Administrateur"><i class="fas fa-user-tie"></i></button>
                 </div>
               </div>                
               
@@ -616,6 +615,7 @@
                 </header>
 
                 <!-- Contenu Gestion_playlist -->
+
                 <div class="row">
                   
                     <div class="table-responsive tableFixHead">
@@ -692,11 +692,14 @@
                 <footer>
                   <div class="row border-top border-dark">
                     <div class="col-6 col-sm-3 my-auto">
+
+
                       <input class="text" type="text" name="mots-clés" />
 
                     </div>
                     <div class="col-6 col-sm-3  my-2">
                       <button class="btn btn-danger">Enregistrer le Mot-clé</button> 
+
 
 
                     </div>
@@ -707,6 +710,7 @@
                     </div>
                     <div class="col-6 col-sm-3 my-2">
                       <button class="btn btn-danger">Supprimer videos</button> 
+
 
 
                     </div>
