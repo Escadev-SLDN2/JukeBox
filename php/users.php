@@ -20,8 +20,8 @@ class User {
     }
     
     //	Ajout/suppression/modification d'un user 
-
-	
+    
+    
     //	supprime un utilisateur de la bdd
     public function delete() {
         $pdo = DBConnect();
@@ -29,8 +29,6 @@ class User {
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':id' => $this->id));
     }
-    
-
     
     //	modifie la ligne d'un utilisateur dans la bdd
     //	ne modifie que les champs necessaires
@@ -43,40 +41,38 @@ class User {
         //	si il y a au moins un element avant, on rajoute une virgule et un espace pour respecter la synthaxe
         if(!empty($name)) {
             $sql .= "name = :name";
-            $nb++;
+            $nb ++;
         }
         if(!empty($nick)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "nickname = :nick";
-            $nb++;
+            $nb ++;
         }
         if(!empty($mail)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "email = :mail";
-            $nb++;
+            $nb ++;
         }
         if(!empty($pass)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "hash_pass = :hash";
-            $nb++;
+            $nb ++;
         }
         if(!empty($role)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "role = :role";
-            $nb++;
+            $nb ++;
         }
         $sql .= " WHERE id=:id";
-        
         $stmt = $pdo->prepare($sql);
-        
         $parametres[':id'] = $this->id;
         if(!empty($name)) {
             $parametres[':name'] = $name;
@@ -94,7 +90,6 @@ class User {
         if(!empty($role)) {
             $parametres[':role'] = $role;
         }
-        
         $stmt->execute($parametres);
         if(!empty($name)) {
             $this->name = $name;
@@ -108,7 +103,6 @@ class User {
         if(!empty($role)) {
             $this->role = $role;
         }
-
     }
     
     //	ne modifie que le role d'un user
@@ -124,17 +118,17 @@ class User {
         $stmt->execute(array(':mail' => $mail));
         if($stmt->rowcount()> 1) {
             throw new Exception("Multiple Users with this email");
-        }else if($stmt->rowcount()==0){
-            return -1;
+        } else if($stmt->rowcount()== 0) {
+            return - 1;
         }
         $row = $stmt->fetch();
         $id = (int) $row['id'];
         return $id;
     }
-    
-    public static function isMailUsed(string $mail){
+
+    public static function isMailUsed(string $mail) {
         $id = self::getIdFromMail($mail);
-        if ($id == -1){
+        if($id == - 1) {
             return false;
         }
         return true;
@@ -148,16 +142,16 @@ class User {
         $stmt->execute(array(':id' => $id));
         if($stmt->rowcount()== 1) {
             $row = $stmt->fetch();
-            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], (string)$row['role']);
+            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], (string) $row['role']);
             return $user;
         } else if($stmt->rowcount()== 0) {
             throw new Exception('No User with this id');
         }
     }
-    
-    public static function getFromMail(string $mail){
+
+    public static function getFromMail(string $mail) {
         $id = self::getIdFromMail($mail);
-        if($id == -1){
+        if($id == - 1) {
             throw new Exception('No User with this mail');
         }
         return self::getFromId($id);
@@ -203,10 +197,12 @@ class User {
         return true;
     }
     
-    //	Connexion d'un user	
-    //	renvoi un booleen correspondant a la validite du couple (id, pass)
+    //Connexion d'un user
+    
+    
+    //renvoi un booleen correspondant a la validite du couple (id, pass)
     public static function isPasswdValid(string $mail, string $pass) {
-        if(self::isMailUsed($mail)){
+        if(self::isMailUsed($mail)) {
             $pdo = DBConnect();
             $id = self::getIdFromMail($mail);
             $sql = "SELECT hash_pass FROM users WHERE id = :id";
