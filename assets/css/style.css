@@ -7,6 +7,10 @@ body {
   background-color: #cdcbcb !important;
 }
 
+.bg-dark {
+  background-color: #221f1f !important;
+}
+
 .text-light {
   color: #cdcbcb !important;
 }
