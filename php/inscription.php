@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             try{
                 User::connect($user->mail, $pass);
                 if(User::isConnected()) {
-                    header("location: ../index.html");
+                    header("location: ../index.php?msg=success");
                     exit;
                 } else {
                     $error_message= "Erreur de connexion <br>\n";
