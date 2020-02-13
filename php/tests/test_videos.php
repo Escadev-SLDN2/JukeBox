@@ -25,7 +25,7 @@
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
-
+		*/
 	try{ 
 		addvideos("6hhxvjgvgjxh",6);
 	} catch(Exception $e){
@@ -38,7 +38,7 @@
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
-	*/
+
 
 	//afficher teste addvideos
 	try{
