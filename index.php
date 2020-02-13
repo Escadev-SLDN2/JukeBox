@@ -105,7 +105,15 @@
                                                             id="inputPassword" placeholder="petitekokinedu87"
                                                             name="password" required>
                                                     </div>
-  
+
+                                                    <div class="form-group row justify-content-between">
+                                                      <label for="inputPassword"
+                                                          class="col connectLabel pl-2 pr-2 mt-1">Confirmation mot de passe
+                                                          :*</label>
+                                                      <input type="password" class="form-control col-sm-12"
+                                                          id="confirmPassword" placeholder="petitekokinedu87"
+                                                          name="confirmPassword" required>
+                                                    </div>
   
                                                     <!--Bouton s'inscrire-->
                                                     <div class="form-group d-flex justify-content-around mt-2 mb-0">
@@ -198,9 +206,21 @@
     </header>
 
 
+          
     <!-- Contenu page_super_admin -->
     <main>
+      
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>
+          <?php echo $_GET['msg'];?></strong>    
+      </div>
 
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>
+          <?php echo $_GET['Erreur de connexion'];?></strong>    
+      </div>
 
       <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
       <section>

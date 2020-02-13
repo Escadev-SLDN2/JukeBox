@@ -170,7 +170,7 @@ class User {
         $pdo = DBConnect();
         $sql = "INSERT INTO users (name, nickname, email, hash_pass, role) VALUES (:name, :nick, :mail, :hash, :role)";
         if(self::isMailUsed($mail)) {
-            throw new Exception("Cette adresse email est d&eacute;j&agrave; utilisé");
+            throw new Exception("error-email");
         }else{
             $stmt = $pdo->prepare($sql);
             $hash = password_hash($pass, PASSWORD_DEFAULT);
