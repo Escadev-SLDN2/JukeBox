@@ -6,6 +6,12 @@
 
     // Récupération des données 
     require_once "bdd.php";
+
+
+    class Video{
+        public $id;
+        public $id_yt;
+    }
     
     //ajout d'une video à la BDD
     function addvideos(string $id_yt, int $user_id){
