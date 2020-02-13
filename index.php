@@ -29,6 +29,15 @@
 
   <body>
 
+  <?php
+// Appelle la méthode FindAll()
+require_once('php/users.php');
+$users = User::findAll();
+
+// Debug tip :
+// var_dump($users);
+?>
+
     <!-- Header -->
     <header>
         <div class="container-fluid bg-dark mb-5">
@@ -343,9 +352,9 @@
               <div class="input-group">
                 <select class="custom-select" id="inputGroupSelect04">
                   <option selected>Choisir un utilisateur connecté</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                    <?php foreach($users as $user) { ?>
+                      <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
+                    <?php } ?>
                 </select>
                 <div class="input-group-append">
                     <button type="button" class="btn btn-danger btn-give-admin" data-toggle="tooltip" data-placement="top" title="Donner le rôle Administrateur"><i class="fas fa-user-tie"></i></button>
