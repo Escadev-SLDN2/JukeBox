@@ -30,13 +30,9 @@
   <body>
 
   <?php
-// Appelle la méthode FindAll()
-require_once('php/users.php');
-$users = User::findAll();
-
-// Debug tip :
-// var_dump($users);
-?>
+      require_once('php/users.php');
+      $users = User::findAll();
+  ?>
 
     <!-- Header -->
     <header>
