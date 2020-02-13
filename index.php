@@ -1,3 +1,25 @@
+<?php 
+  $alertType="d-none";
+  $msg=$_GET['msg'];
+ if(!empty($msg)) {
+  if($msg=="success") {
+    $alertType="alert-success";
+    $alertMsg="Vous êtes bien connecté";
+  }else {
+    $alertType="alert-danger";
+    if($msg=="error-empty") {
+      $alertMsg="Veuillez remplir tous les champs obligatoires";
+    }
+    if($msg=="error-email") {
+      $alertMsg="L'adresse email est déjà utilisée";
+    }  
+    if($msg=="error-pass") {
+      $alertMsg="Les mots de passe ne correspondent pas";
+    }
+  } 
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -206,16 +228,10 @@
     <!-- Contenu page_super_admin -->
     <main>
       
-      <div class="alert alert-success alert-dismissible">
+      <div class="alert <?php echo $alertType;?> alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>
-          <?php echo $_GET['msg'];?></strong>    
-      </div>
-
-      <div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>
-          <?php echo $_GET['Erreur de connexion'];?></strong>    
+          <?php echo $alertMsg; ?></strong>   
       </div>
 
       <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
