@@ -3,13 +3,12 @@ body {
   font-family: sans-serif;
 }
 
-.bg-dark,
-.table-dark {
-  background-color: #221f1f !important;
-}
-
 .bg-secondary {
   background-color: #cdcbcb !important;
+}
+
+.bg-dark {
+  background-color: #221f1f !important;
 }
 
 .text-light {
@@ -84,6 +83,18 @@ body {
   background-color: #cdcbcb;
 }
 
+.btn-dark {
+  color: #cdcbcb;
+  background-color: #221f1f;
+  border-color: #221f1f;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+  color: black;
+  background-color: #cdcbcb;
+}
+
 .form-control,
 .modial-dialog {
   border: 1px black solid;
@@ -116,9 +127,9 @@ body {
   background-color:  #221f1f !important ;
 }
 
-table{
+table {
   width:100%;
-
+  margin-bottom: 0rem !important;
 }
 
 .text{
@@ -128,16 +139,31 @@ table{
 .logo{
   max-width: 35%;
   min-width: 30% !important;
+  
 }
+
+.table td , .table th {
+  vertical-align: middle;
+}
+
+
+.tableFixHead          { 
+  overflow-y: auto; height: 250px;
+ }
+
+.tableFixHead thead th {
+   position: sticky; top: 0;
+   }
+
+th     { 
+  background:#cdcbcb;
+ }
 
 
 .btn-give-admin {
   padding: 0 2rem;
 }
 
-.red-bg{
-  background-color: #a9000c !important;
-}
 .fluid{
   padding: 0px;
 }
