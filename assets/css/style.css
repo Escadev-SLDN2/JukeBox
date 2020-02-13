@@ -3,7 +3,7 @@ body {
   font-family: sans-serif;
 }
 
-.bg-dark
+.bg-dark,
 .table-dark {
   background-color: #221f1f !important;
 }
