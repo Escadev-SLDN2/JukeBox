@@ -21,7 +21,15 @@ class User {
     
     //	Ajout/suppression/modification d'un user 
     
-    
+    //    Récupère tous les utilisateurs
+    public static function findAll() {
+        $pdo = DBConnect();
+        $sql = "SELECT name FROM users WHERE role='ROLE_USER'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     //	supprime un utilisateur de la bdd
     public function delete() {
         $pdo = DBConnect();
