@@ -19,28 +19,41 @@
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
-
+	
 	try{ 
 		addvideos("6hhxvjvjxh",2);
 	} catch(Exception $e){
 		echo($e->getMessage())."<br>\n";
 	}
-		*/
+
+	try{ 
+		addvideos("6hhxvjgvgjxh",6);
+	} catch(Exception $e){
+		echo($e->getMessage())."<br>\n";
+	}
+	
+	// test doublons
+	try{ 
+		addvideos("6hhxvjgvgjxh",6);
+	} catch(Exception $e){
+		echo($e->getMessage())."<br>\n";
+	}
+	*/
 
 	//afficher teste addvideos
 	try{
-		if(GetIdVideo('7zBqopjayHY')==-1){
+		if(GetIdVideo('SDdZx')==-1){
 			echo "la video n'est pas dans la dbb <br>\n";
 		}else{
-			echo "la video est dans la bdd <br>\n";
+			echo "la video est déja dans la bdd <br>\n";
 		}
 	}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 
 	try{
-		if(GetIdVideo('7zBqopjayvh')==-1){
+		if(GetIdVideo('7zBqo')==-1){
 			echo "la video n'est pas dans la dbb <br>\n";
 		}else{
-			echo "la video est dans la bdd <br>\n";
+			echo "la video est déja dans la bdd <br>\n";
 		}
 	}catch(Exception $e){echo($e->getMessage())."<br>\n";}
 	
@@ -50,7 +63,11 @@
 
 	*/
 	try {
-		delvideos(63);
+		if(delvideos(4) == -1){
+			echo"la videoà été supprimer <br>\n";
+		} elseif(delvideos(8) == 0){
+			echo"la video que vous essayer de supprimer n'existe pas<br>\n";
+		} 
 	} catch (Exception $e) {
 		echo($e->getMessage())."<br>\n";
 	}
@@ -60,11 +77,29 @@
 		d'une video
 		*/		
 	
-	try {
-		modifvideos(63, "3368hjk",1);
+	try { 
+		if(modifvideos(4, "3368hjk",3)!= -1){
+			
+			echo"'id_yt de la video ne peux pa etre modiffier <br>\n";
+		} else{
+			echo"l'id_yt de la video a été modiffier <br>\n";
+		}
+		
 	} catch (Exception $e) {
 		echo($e->getMessage())."<br>\n";
 	}	
+
+	try { 
+		if(modifvideos(7, "333bravo",2)!= 0){
+			
+			echo"'id_yt de la video ne peux pa etre modiffier <br>\n";
+		} else{
+			echo"l'id_yt de la video a été modiffier <br>\n";
+		}
+		
+	} catch (Exception $e) {
+		echo($e->getMessage())."<br>\n";
+	}
 	
 	//supression d'un user créer
 

@@ -12,18 +12,14 @@
         $pdo =DBConnect();
         $sql = "INSERT INTO videos (id_yt, user_id) VALUES (:id_yt, :user_id)";
 
-        // s'exécute seulement si le pdo accepte la synthaxe de la requete
-        if($stmt = $pdo -> prepare ($sql)){
-
-            // lie les params de la requette avec les varibles correspondantes
+        //interdit les doublond grace à l'id_yt
+        if(GetIdVideo($id_yt) != -1){
+            throw new Exception("la video existe déja");
+        } else{
+            $stmt = $pdo -> prepare ($sql);
             $stmt ->bindParam (':id_yt', $id_yt, PDO ::PARAM_STR);
             $stmt ->bindParam (':user_id', $user_id, PDO ::PARAM_INT);
-
-            //ecrit done si la bdd accepte la requete
-            //ecrit un message d'erreur generique en cas de renvois d'erreur de la part de la bdd
-			if(!($stmt->execute())){
-				throw new Exception("Something went wrong. Please try again later.");
-			}
+            $stmt->execute();
         }
 
     }
@@ -57,8 +53,6 @@
             $sql .="id_yt = :id_yt";
             $nb = $nb+1;
         }
-        //ici on n'utilise pas le strlen parce que il calcule la longeur d'une chaine de cara.
-
         if( $user_id != -1){
             if($nb >= 1){ 
                 $sql .=", ";
