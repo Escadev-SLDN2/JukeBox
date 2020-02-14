@@ -7,6 +7,8 @@
             $alertType="alert-success";
             if($conn=="1"){
                 $alertMsg="Vous êtes bien connecté";
+            }else if($conn=="-1"){
+                $alertMsg="Vous êtes bien deconnecté";
             }else{
                 $alertMsg="Vous êtes bien inscrit";
             }
@@ -228,8 +230,13 @@
                             </div>
   
                         </div>
-                    </div>
+                        <div class="col-5">
   
+                            <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
+                                Deconnexion
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

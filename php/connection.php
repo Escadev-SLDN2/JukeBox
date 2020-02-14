@@ -5,13 +5,14 @@ error_reporting(E_ALL);
 
 require_once "users.php";
 
-if(User::isConnected()) {
-    header("location: ../");
-    exit;
-}
+
 
 $error_type = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(User::isConnected()) {
+    header("location: ../");
+    exit;
+    }
     if(empty(trim($_POST['email'])) || empty(trim($_POST['password']))) {
         $error_type = "error-empty";
     } else {
@@ -30,4 +31,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     header("location: ../index.php?msg=$error_type");
+}
+if($_SERVER["REQUEST_METHOD"] == "GET") {
+    if(User::isConnected() && $_GET['deconnect']==true){
+        $_SESSION['user']->disconnect();
+        header("location: ../index.php?msg=success&conn=-1");
+    }
 }
