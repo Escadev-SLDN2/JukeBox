@@ -30,6 +30,7 @@
             }
         } 
     }
+    
     if (User::isConnected()){
         $isConn = true;
         $user = $_SESSION['user'];
@@ -238,6 +239,7 @@
   
                         </div>
                         <div class="col-5">
+  
                             <a type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if(!$isConn){echo "d-none";} ?> " href="php/connection.php?deconnect=true">
                                 Deconnexion
                             </a>
@@ -792,7 +794,7 @@
       <div class="container-fluid bg-dark">
         <div class="row">
           <div class="col">
-            Footer 
+            Footer
           </div>
         </div>
       </div>
