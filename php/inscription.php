@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             try{
                 User::connect($user->mail, $pass);
                 if(User::isConnected()) {
-                    header("location: ../index.php");
+                    header("location: ../index.php?msg=success");
                     exit;
                 }
             }catch(Exception $e){
