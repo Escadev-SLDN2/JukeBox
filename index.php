@@ -238,7 +238,6 @@
   
                         </div>
                         <div class="col-5">
-  
                             <a type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if(!$isConn){echo "d-none";} ?> " href="php/connection.php?deconnect=true">
                                 Deconnexion
                             </a>
