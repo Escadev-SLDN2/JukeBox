@@ -407,9 +407,11 @@
               <div class="input-group">
                 <select class="custom-select" id="inputGroupSelect04">
                   <option selected>Choisir un utilisateur connecté</option>
-                    <?php foreach($users as $user) { ?>
-                      <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
-                    <?php } ?>
+					<?php if($isConn){ ?>
+						<?php foreach($users as $user) { ?>
+						  <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
+						<?php } ?>
+					<?php } ?>
                 </select>
                 <div class="input-group-append">
                     <button type="button" class="btn btn-danger btn-give-admin" data-toggle="tooltip" data-placement="top" title="Donner le rôle Administrateur"><i class="fas fa-user-tie"></i></button>
