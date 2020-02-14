@@ -1,4 +1,6 @@
 <?php 
+    require_once "php/users.php";
+    $isConn = false;
     $alertType="d-none";
     $msg=$_GET['msg'];
     $conn=$_GET['conn'];
@@ -7,6 +9,8 @@
             $alertType="alert-success";
             if($conn=="1"){
                 $alertMsg="Vous êtes bien connecté";
+            }else if($conn=="-1"){
+                $alertMsg="Vous êtes bien deconnecté";
             }else{
                 $alertMsg="Vous êtes bien inscrit";
             }
@@ -25,7 +29,12 @@
                 $alertMsg="Email ou mot de passe invalide";
             }
         } 
-    } 
+    }
+    if (User::isConnected()){
+        $isConn = true;
+        $user = $_SESSION['user'];
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +79,7 @@
             <div class="row">
                 <!-- Logo -->
                 <div class="col-2 text-light d-block align-items-start justify-content-center">
-                        <a href="index.php"><img src="assets/img/logo_escabox.png" class="logo position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
+                        <a href="index.html"><img src="assets/img/logo_escabox.png" class="logo position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
                 </div>
                 <!-- Titre -->
                 <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
@@ -83,7 +92,7 @@
   
                     <div class="row mb-1">
                         <div class="col-5">
-                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if($isConn){echo "d-none";} ?>  " data-toggle="modal"
                                 data-target="#myModal">
                                 Inscription
                             </button>
@@ -169,7 +178,7 @@
   
                         <div class="col-5">
   
-                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou" data-toggle="modal"
+                            <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if($isConn){echo "d-none";} ?> " data-toggle="modal"
                                 data-target="#myModal2">
                                 Connexion
                             </button>
@@ -228,8 +237,13 @@
                             </div>
   
                         </div>
-                    </div>
+                        <div class="col-5">
   
+                            <a type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if(!$isConn){echo "d-none";} ?> " href="php/connection.php?deconnect=true">
+                                Deconnexion
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -263,7 +277,7 @@
             </div>
               
             <!-- Conteneur Passer, Vote et Ajout de musique (Connecté) -->
-            <div class="col">
+            <div class="col <?php if(!$isConn){echo "d-none";} ?> ">
             
               <!-- Conteneur Passer et Voter -->
               <div class="container mb-2">
@@ -380,7 +394,7 @@
 
       <!-- Les trois options (Admin) -->
       <section>
-        <div class="container mb-2">
+        <div class="container mb-2 <?php if(!$isConn){echo "d-none";} ?> ">
         
           <div class="row">
 
@@ -416,7 +430,7 @@
       des premiers conteneurs (visionneuse/vote/ajout/les quatres fonctions).
       L'"astuce" est répété pour le carousel des vidéos en cours et Table_gestion_admin -->
 
-      <section>
+      <section class="<?php if(!$isConn){echo "d-none";} ?> ">
        <div class="collapse" id="collapseExample">
         <div class="container mb-3">
           <div class="row">
@@ -647,7 +661,7 @@
 
       <!-- Gestion des vidéos et playlist (Admin) -->
       <section>
-        <div class="container mb-3">
+        <div class="container mb-3 <?php if(!$isConn){echo "d-none";} ?> ">
           <div class="row">
             <div class="col">
 
@@ -779,7 +793,7 @@
       <div class="container-fluid bg-dark">
         <div class="row">
           <div class="col">
-            Footer
+            Footer 
           </div>
         </div>
       </div>
