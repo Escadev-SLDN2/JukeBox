@@ -20,8 +20,16 @@ class User {
     }
     
     //	Ajout/suppression/modification d'un user 
+    
+    //    Récupère tous les utilisateurs
+    public static function findAll() {
+        $pdo = DBConnect();
+        $sql = "SELECT name FROM users WHERE role='ROLE_USER'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 
-	
     //	supprime un utilisateur de la bdd
     public function delete() {
         $pdo = DBConnect();
@@ -29,8 +37,6 @@ class User {
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':id' => $this->id));
     }
-    
-
     
     //	modifie la ligne d'un utilisateur dans la bdd
     //	ne modifie que les champs necessaires
@@ -43,40 +49,38 @@ class User {
         //	si il y a au moins un element avant, on rajoute une virgule et un espace pour respecter la synthaxe
         if(!empty($name)) {
             $sql .= "name = :name";
-            $nb++;
+            $nb ++;
         }
         if(!empty($nick)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "nickname = :nick";
-            $nb++;
+            $nb ++;
         }
         if(!empty($mail)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "email = :mail";
-            $nb++;
+            $nb ++;
         }
         if(!empty($pass)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "hash_pass = :hash";
-            $nb++;
+            $nb ++;
         }
         if(!empty($role)) {
             if($nb >= 1) {
                 $sql .= ", ";
             }
             $sql .= "role = :role";
-            $nb++;
+            $nb ++;
         }
         $sql .= " WHERE id=:id";
-        
         $stmt = $pdo->prepare($sql);
-        
         $parametres[':id'] = $this->id;
         if(!empty($name)) {
             $parametres[':name'] = $name;
@@ -94,7 +98,6 @@ class User {
         if(!empty($role)) {
             $parametres[':role'] = $role;
         }
-        
         $stmt->execute($parametres);
         if(!empty($name)) {
             $this->name = $name;
@@ -108,7 +111,6 @@ class User {
         if(!empty($role)) {
             $this->role = $role;
         }
-
     }
     
     //	ne modifie que le role d'un user
@@ -124,17 +126,17 @@ class User {
         $stmt->execute(array(':mail' => $mail));
         if($stmt->rowcount()> 1) {
             throw new Exception("Multiple Users with this email");
-        }else if($stmt->rowcount()==0){
-            return -1;
+        } else if($stmt->rowcount()== 0) {
+            return - 1;
         }
         $row = $stmt->fetch();
         $id = (int) $row['id'];
         return $id;
     }
-    
-    public static function isMailUsed(string $mail){
+
+    public static function isMailUsed(string $mail) {
         $id = self::getIdFromMail($mail);
-        if ($id == -1){
+        if($id == - 1) {
             return false;
         }
         return true;
@@ -148,16 +150,16 @@ class User {
         $stmt->execute(array(':id' => $id));
         if($stmt->rowcount()== 1) {
             $row = $stmt->fetch();
-            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], (string)$row['role']);
+            $user = new User((int) $id, $row['name'], $row['nickname'], $row['email'], (string) $row['role']);
             return $user;
         } else if($stmt->rowcount()== 0) {
             throw new Exception('No User with this id');
         }
     }
-    
-    public static function getFromMail(string $mail){
+
+    public static function getFromMail(string $mail) {
         $id = self::getIdFromMail($mail);
-        if($id == -1){
+        if($id == - 1) {
             throw new Exception('No User with this mail');
         }
         return self::getFromId($id);
@@ -166,13 +168,13 @@ class User {
     //	ajoute un utilisateur a la bdd
     public static function add(string $name, string $nick, string $mail, string $pass) {
         $pdo = DBConnect();
-        $sql = "INSERT INTO users (name, nickname, email, hash_pass) VALUES (:name, :nick, :mail, :hash)";
+        $sql = "INSERT INTO users (name, nickname, email, hash_pass, role) VALUES (:name, :nick, :mail, :hash, :role)";
         if(self::isMailUsed($mail)) {
-            throw new Exception("Mail already used");
+            throw new Exception("error-email");
         }else{
             $stmt = $pdo->prepare($sql);
             $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt->execute(array(':name' => $name, ':nick' => $nick, ':mail' => $mail, ':hash' => $hash));
+            $stmt->execute(array(':name' => $name, ':nick' => $nick, ':mail' => $mail, ':hash' => $hash, ':role' => 'ROLE_USER'));
             return self::getFromMail($mail);
         }
     }
@@ -203,10 +205,12 @@ class User {
         return true;
     }
     
-    //	Connexion d'un user	
-    //	renvoi un booleen correspondant a la validite du couple (id, pass)
+    //Connexion d'un user
+    
+    
+    //renvoi un booleen correspondant a la validite du couple (id, pass)
     public static function isPasswdValid(string $mail, string $pass) {
-        if(self::isMailUsed($mail)){
+        if(self::isMailUsed($mail)) {
             $pdo = DBConnect();
             $id = self::getIdFromMail($mail);
             $sql = "SELECT hash_pass FROM users WHERE id = :id";
@@ -227,17 +231,18 @@ class User {
     public static function connect(string $mail, string $pass) {
         try {
             if(empty($mail)) {
-                throw new Exception("Please enter your email.");
+                throw new Exception("Veuillez entrer votre adresse email.");
             }
             if(empty($pass)) {
-                throw new Exception("Please enter your password.");
+                throw new Exception("Veuillez entrer votre mot de passe.");
             }
             if(self::isPasswdValid($mail, $pass)) {
                 $user = self::getFromMail($mail);
                 $_SESSION['user'] = $user;
                 $_SESSION['loggedIn'] = true;
+                setcookie("userId", (string) $user->id, time()+3600);
             } else {
-                throw new Exception("Invalid Password");
+                throw new Exception("Email ou mot de passe invalide.");
             }
         }
         catch(Exception $e) {
@@ -252,6 +257,12 @@ class User {
     public static function isConnected() {
         if((isset($_SESSION["user"])&&(isset($_SESSION["loggedIn"]))&& $_SESSION["loggedIn"])=== true) {
             return true;
+        }else if(isset($_COOKIE['userId'])&& !empty($_COOKIE['userId'])){
+            $id = (int) $_COOKIE['userId'];
+            $user = self::getFromId($id);
+            $_SESSION['user'] = $user;
+            $_SESSION['loggedIn'] = true;
+            return true;
         }
         return false;
     }
@@ -260,5 +271,7 @@ class User {
     public static function disconnect() {
         $_SESSION['loggedIn'] = false;
         $_SESSION['user'] = null;
+        //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
+        setcookie("userId", '', time()-1);
     }
 }
