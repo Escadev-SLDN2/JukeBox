@@ -80,7 +80,7 @@
             <div class="row">
                 <!-- Logo -->
                 <div class="col-2 text-light d-block align-items-start justify-content-center">
-                        <a href="index.html"><img src="assets/img/logo_escabox.png" class="logo position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
+                        <a href="index.php"><img src="assets/img/logo_escabox.png" class="logo position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
                 </div>
                 <!-- Titre -->
                 <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
