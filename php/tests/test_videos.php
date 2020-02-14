@@ -96,7 +96,7 @@
 	*/			
 	
 	try { 
-		if(modifvideos(4, "3368hjk",3)!= -1){
+		if(modifvideos(0, "video1",1)!= -1){
 			
 			echo"l'id_yt de la video ne peux pa etre modiffier <br>\n";
 		} else{
@@ -108,7 +108,7 @@
 	}	
 
 	try { 
-		if(modifvideos(233, "333brhhvo",2)!= 0){
+		if(modifvideos(0, "video3",2)!= 0){
 			
 			echo"l'id_yt de la video ne peux pa etre modiffier <br>\n";
 		} else{
@@ -128,6 +128,6 @@
 	$user4->delete();
 
 
-		// détruit une variable dont le nom à été passer en param
-	//unset($pdo);
+	// détruit une variable dont le nom à été passer en param
+	unset($pdo);
 	
