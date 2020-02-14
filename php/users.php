@@ -231,10 +231,10 @@ class User {
     public static function connect(string $mail, string $pass) {
         try {
             if(empty($mail)) {
-                throw new Exception("Veuillez entrer votre adresse email.");
+                throw new Exception("error-empty");
             }
             if(empty($pass)) {
-                throw new Exception("Veuillez entrer votre mot de passe.");
+                throw new Exception("error-empty");
             }
             if(self::isPasswdValid($mail, $pass)) {
                 $user = self::getFromMail($mail);
@@ -242,7 +242,7 @@ class User {
                 $_SESSION['loggedIn'] = true;
                 setcookie("userId", (string) $user->id, time()+3600);
             } else {
-                throw new Exception("Email ou mot de passe invalide.");
+                throw new Exception("error-connect");
             }
         }
         catch(Exception $e) {

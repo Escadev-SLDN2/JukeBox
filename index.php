@@ -1,23 +1,31 @@
 <?php 
-  $alertType="d-none";
-  $msg=$_GET['msg'];
- if(!empty($msg)) {
-  if($msg=="success") {
-    $alertType="alert-success";
-    $alertMsg="Vous êtes bien connecté";
-  }else {
-    $alertType="alert-danger";
-    if($msg=="error-empty") {
-      $alertMsg="Veuillez remplir tous les champs obligatoires";
-    }
-    if($msg=="error-email") {
-      $alertMsg="L'adresse email est déjà utilisée";
-    }  
-    if($msg=="error-pass") {
-      $alertMsg="Les mots de passe ne correspondent pas";
-    }
-  } 
-} 
+    $alertType="d-none";
+    $msg=$_GET['msg'];
+    $conn=$_GET['conn'];
+    if(!empty($msg)) {
+        if($msg=="success") {
+            $alertType="alert-success";
+            if($conn=="1"){
+                $alertMsg="Vous êtes bien connecté";
+            }else{
+                $alertMsg="Vous êtes bien inscrit";
+            }
+        }else {
+            $alertType="alert-danger";
+            if($msg=="error-empty") {
+                $alertMsg="Veuillez remplir tous les champs obligatoires";
+            }
+            if($msg=="error-email") {
+                $alertMsg="L'adresse email est déjà utilisée";
+            }  
+            if($msg=="error-pass") {
+                $alertMsg="Les mots de passe ne correspondent pas";
+            }
+            if($msg=="error-connect") {
+                $alertMsg="Email ou mot de passe invalide";
+            }
+        } 
+    } 
 ?>
 
 <!DOCTYPE html>
