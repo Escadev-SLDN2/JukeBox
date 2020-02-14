@@ -185,7 +185,7 @@ class User {
     //	renvoi l'id du user qui a pour role SU	
     public static function getSUId() {
         $pdo = DBConnect();
-        $sql = "SELECT id FROM users WHERE role = 'SU'";
+        $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN');'";
         $answer = $pdo->query($sql);
         if($answer->rowCount()== 1) {
             $row = $answer->fetch();
