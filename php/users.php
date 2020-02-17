@@ -269,6 +269,7 @@ class User {
     
     //	deconnecte le user
     public static function disconnect() {
+        session_unset();
         session_destroy();
         //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
         setcookie("userId", '', time()-1, '/');
