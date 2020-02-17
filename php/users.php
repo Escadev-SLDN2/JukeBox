@@ -240,14 +240,13 @@ class User {
                 $user = self::getFromMail($mail);
                 $_SESSION['user'] = $user;
                 $_SESSION['loggedIn'] = true;
-                setcookie("userId", (string) $user->id, time()+3600);
+                setcookie("userId", (string) $user->id, time()+3600, '/');
             } else {
                 throw new Exception("error-connect");
             }
         }
         catch(Exception $e) {
-            $_SESSION['loggedIn'] = false;
-            $_SESSION['user'] = null;
+            self::disconnect();
             throw $e;
         }
     }
@@ -269,9 +268,8 @@ class User {
     
     //	deconnecte le user
     public static function disconnect() {
-        $_SESSION['loggedIn'] = false;
-        $_SESSION['user'] = null;
+        session_destroy();
         //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
-        setcookie("userId", '', time()-1);
+        setcookie("userId", '', time()-1, '/');
     }
 }

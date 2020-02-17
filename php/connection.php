@@ -33,8 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     header("location: ../index.php?msg=$error_type");
 }
 if($_SERVER["REQUEST_METHOD"] == "GET") {
-    if(User::isConnected() && $_GET['deconnect']==true){
-        $_SESSION['user']->disconnect();
+    if($_GET['deconnect']==true){
+        User::disconnect();
         header("location: ../index.php?msg=success&conn=-1");
     }
 }
