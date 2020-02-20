@@ -265,7 +265,7 @@ if (User::isConnected()) {
 
                                         <!--Header Passer -->
                                         <div class="row">
-                                            <div class="col bg-dark text-light next">
+                                            <div class="col bg-dark text-light">
                                                 Passer vidéo
                                             </div>
                                         </div>
@@ -273,7 +273,7 @@ if (User::isConnected()) {
                                         <!-- Contenu Passer -->
                                         <div class="row">
                                             <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                <button>Passer</button>
+                                                <button id="next">Passer</button>
                                             </div>
                                         </div>
 
