@@ -276,7 +276,7 @@ if (User::isConnected()) {
                                         <!-- Contenu Passer -->
                                         <div class="row">
                                             <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                <button>Passer</button>
+                                                <button id="next">Passer</button>
                                             </div>
                                         </div>
 
@@ -785,13 +785,18 @@ if (User::isConnected()) {
                 height: 400,
                 videoId: 'osP5IkxsQ0g',
                 playerVars: {
-                    autoplay:1,
+                    autoplay: 1,
                     playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM'
                 },
-                
+
             });
         }
+
+        $('#next').on('click', function() {
+            player.nextVideo()
+        });
     </script>
+
 </body>
 
 </html>
