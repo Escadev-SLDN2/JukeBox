@@ -2,6 +2,7 @@
 require_once "php/users.php";
 $isConn = false;
 $alertType = "d-none";
+$users = User::findAll();
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 if (!empty($msg)) {
@@ -68,11 +69,6 @@ if (User::isConnected()) {
 
 
 <body>
-
-    <?php
-    require_once('php/users.php');
-    $users = User::findAll();
-    ?>
 
     <!-- Header -->
     <header>
@@ -162,8 +158,8 @@ if (User::isConnected()) {
                             <div class="col-5">
 
                                 <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if ($isConn) {
-                                                                                                    echo "d-none";
-                                                                                                } ?> " data-toggle="modal" data-target="#myModal2">
+                                                                                                        echo "d-none";
+                                                                                                    } ?> " data-toggle="modal" data-target="#myModal2">
                                     Connexion
                                 </button>
                                 <div id="myModal2" class="modal" tabindex="-1" role="dialog">
@@ -260,27 +256,31 @@ if (User::isConnected()) {
                         <div class="col ">
 
                             <!-- Conteneur Passer et Voter -->
-                            <div class="container mb-2">
-                                <div class="row">
+                            
+                                <div class="container mb-2">
+                                    <div class="row">
+                                    <?php if ($isSUSet) { ?>
 
-                                    <!-- Conteneur Passer -->
-                                    <div class="col mr-2">
 
-                                        <!--Header Passer -->
-                                        <div class="row">
-                                            <div class="col bg-dark text-light">
-                                                Passer vidéo
+                                        <!-- Conteneur Passer -->
+                                        <div class="col mr-2">
+
+                                            <!--Header Passer -->
+                                            <div class="row">
+                                                <div class="col bg-dark text-light">
+                                                    Passer vidéo
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Contenu Passer -->
-                                        <div class="row">
-                                            <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                <button id="next">Passer</button>
+                                            <!-- Contenu Passer -->
+                                            <div class="row">
+                                                <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
+                                                    <button id="next">Passer</button>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </div>
+                                        </div>
+                                    <?php } ?>
 
                                     <!-- Conteneur Vote -->
                                     <div class="col">
@@ -303,64 +303,64 @@ if (User::isConnected()) {
 
                                     </div>
 
+                                    </div>
                                 </div>
-                            </div>
 
 
-                            <!-- Ajout -->
-                            <div class="container adding_music_container">
-                                <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+                                <!-- Ajout -->
+                                <div class="container adding_music_container">
+                                    <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
 
-                                    <!--Header Ajout -->
-                                    <div class="row">
-                                        <div class="col bg-dark text-light">
-                                            Ajouter une vidéo
-                                        </div>
-                                    </div>
-
-                                    <!-- Contenu Ajout -->
-                                    <div class="row">
-
-                                        <div class="col bg-secondary py-3">
-
-                                            <div class="form-group row d-flex align-items-center">
-
-                                                <div class="col-sm-4">
-                                                    <label class="connectInput py-2 mt-2 text-center w-100" for="musicUrl">URL</label>
-                                                </div>
-
-                                                <div class="col">
-                                                    <input type="url" class="form-control" name="musicUrl" id="musicUrl" placeholder="https://" required>
-                                                </div>
-
+                                        <!--Header Ajout -->
+                                        <div class="row">
+                                            <div class="col bg-dark text-light">
+                                                Ajouter une vidéo
                                             </div>
-
-                                            <div class="form-group row d-flex align-items-start">
-
-                                                <div class="col-sm-4">
-                                                    <label class="connectInput py-2 text-center w-100" for="keyWords">Mots-clés</label>
-                                                </div>
-
-                                                <div class="col">
-                                                    <textarea type="email" class="form-control" name="keyWords" id="keyWords" placeholder="ex: rock" required></textarea>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col">
-                                                    <button name="add_music" type="submit" class="btn btn-danger w-100">
-                                                        Ajouter
-                                                    </button>
-                                                </div>
-                                            </div>
-
                                         </div>
 
-                                    </div>
+                                        <!-- Contenu Ajout -->
+                                        <div class="row">
 
-                                </form>
-                            </div>
+                                            <div class="col bg-secondary py-3">
+
+                                                <div class="form-group row d-flex align-items-center">
+
+                                                    <div class="col-sm-4">
+                                                        <label class="connectInput py-2 mt-2 text-center w-100" for="musicUrl">URL</label>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <input type="url" class="form-control" name="musicUrl" id="musicUrl" placeholder="https://" required>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group row d-flex align-items-start">
+
+                                                    <div class="col-sm-4">
+                                                        <label class="connectInput py-2 text-center w-100" for="keyWords">Mots-clés</label>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <textarea type="email" class="form-control" name="keyWords" id="keyWords" placeholder="ex: rock" required></textarea>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <button name="add_music" type="submit" class="btn btn-danger w-100">
+                                                            Ajouter
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
 
                         </div>
                     <?php } ?>
@@ -370,7 +370,7 @@ if (User::isConnected()) {
 
 
         <!-- Les trois options (Admin) -->
-        <?php if ($isConn) { ?>
+        <?php if ($iSUSet) { ?>
             <section>
                 <div class="container mb-2 ">
 
@@ -636,7 +636,7 @@ if (User::isConnected()) {
             </div>
         </section>
 
-        <?php if ($isConn) { ?>
+        <?php if ($isSUSet) { ?>
             <!-- Gestion des vidéos et playlist (Admin) -->
             <section>
                 <div class="container mb-3">
