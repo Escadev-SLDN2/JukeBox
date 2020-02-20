@@ -309,7 +309,7 @@ if (User::isConnected()) {
 
                             <!-- Ajout -->
                             <div class="container adding_music_container">
-                                <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+                                <form class="form" action="php/ajout.php" method="POST" role="form" autocomplete="off">
 
                                     <!--Header Ajout -->
                                     <div class="row">
