@@ -247,6 +247,9 @@ if (User::isConnected()) {
                             <div class="row">
                                 <div class="col bg-dark text-light">
                                     Visionneuse
+                                    <div id="video-placeholder">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -772,9 +775,28 @@ if (User::isConnected()) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/86d37fbec9.js" crossorigin="anonymous"></script>
-    <script> $('#next').on('click', function () {
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-placeholder', {
+                width: '100%',
+                height: 400,
+                videoId: 'osP5IkxsQ0g',
+                playerVars: {
+                    autoplay: 1,
+                    playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM'
+                },
+
+            });
+        }
+
+        $('#next').on('click', function() {
             player.nextVideo()
-            }); </script>
+        });
+    </script>
+
 </body>
 
 </html>
