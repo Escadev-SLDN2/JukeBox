@@ -247,7 +247,7 @@ if (User::isConnected()) {
                             <div class="row">
                                 <div class="col bg-dark text-light">
                                     Visionneuse
-                                    <div class="col" id="video-placeholder">
+                                    <div id="video-placeholder">
 
                                     </div>
                                 </div>
@@ -785,12 +785,10 @@ if (User::isConnected()) {
                 height: 400,
                 videoId: 'osP5IkxsQ0g',
                 playerVars: {
-                    color: 'white',
+                    autoplay:1,
                     playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM'
                 },
-                events: {
-                    onReady: initialize
-                }
+                
             });
         }
     </script>
