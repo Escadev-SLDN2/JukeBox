@@ -6,20 +6,17 @@ error_reporting(E_ALL);
 
 // Récupération des données 
 require_once "videos.php";
+require_once "users.php";
+session_start();
+$user = $_SESSION['user'];
 
-$error_type = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty(trim($_POST['musicURL'])) {
-            $error_type = "error-empty";
-        }
-    }
-    if (empty($error_type)) {
+        
         try {
-            User::addvideos($mail, $pass);
-            header("location: ../index.php?msg=success&conn=1");
-            exit;
+            addvideos(trim($_POST['musicUrl']), $user->id);
         } catch (Exception $e) {
-            $error_type = $e->getMessage();
+            echo ($e->getMessage()) . "<br>\n";
         }
     }
+    exit;
 
