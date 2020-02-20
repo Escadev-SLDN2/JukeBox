@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-ini_set('session.auto_start', '1');
 require_once "bdd.php";
 
 class User {
@@ -238,6 +237,7 @@ class User {
             }
             if(self::isPasswdValid($mail, $pass)) {
                 $user = self::getFromMail($mail);
+                session_start();
                 $_SESSION['user'] = $user;
                 $_SESSION['loggedIn'] = true;
                 setcookie("userId", (string) $user->id, time()+3600, '/');
@@ -259,6 +259,7 @@ class User {
         }else if(isset($_COOKIE['userId'])&& !empty($_COOKIE['userId'])){
             $id = (int) $_COOKIE['userId'];
             $user = self::getFromId($id);
+            session_start();
             $_SESSION['user'] = $user;
             $_SESSION['loggedIn'] = true;
             return true;
@@ -268,6 +269,7 @@ class User {
     
     //	deconnecte le user
     public static function disconnect() {
+        session_unset();
         session_destroy();
         //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
         setcookie("userId", '', time()-1, '/');
