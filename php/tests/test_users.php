@@ -135,5 +135,3 @@ unset($pdo);
  true
  false
  */
-
-?>
