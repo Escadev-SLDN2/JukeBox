@@ -8,7 +8,7 @@ class User {
     public $nick;
     public $mail;
     public $role;
-    
+
     //	contructeur d'user
     public function __construct(int $id, string $name, string $nick, string $mail, string $role) {
         $this->id = $id;
@@ -17,9 +17,9 @@ class User {
         $this->mail = $mail;
         $this->role = $role;
     }
-    
-    //	Ajout/suppression/modification d'un user 
-    
+
+    //	Ajout/suppression/modification d'un user
+
     //    Récupère tous les utilisateurs
     public static function findAll() {
         $pdo = DBConnect();
@@ -36,7 +36,7 @@ class User {
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(':id' => $this->id));
     }
-    
+
     //	modifie la ligne d'un utilisateur dans la bdd
     //	ne modifie que les champs necessaires
     public function modify(string $name = "", string $nick = "", string $mail = "", string $pass = "", $role = "") {
@@ -111,12 +111,12 @@ class User {
             $this->role = $role;
         }
     }
-    
+
     //	ne modifie que le role d'un user
     public function changeRole(string $role) {
         $this->modify("", "", "", "", $role);
     }
-    
+
     //	renvoi l'id de l'utilisateur a qui appartient le mail
     public static function getIdFromMail(string $mail) {
         $pdo = DBConnect();
@@ -140,7 +140,7 @@ class User {
         }
         return true;
     }
-    
+
     //	renvoi les donnes de l'user identifie par l'id
     public static function getFromId(int $id) {
         $pdo = DBConnect();
@@ -163,7 +163,7 @@ class User {
         }
         return self::getFromId($id);
     }
-    
+
     //	ajoute un utilisateur a la bdd
     public static function add(string $name, string $nick, string $mail, string $pass) {
         $pdo = DBConnect();
@@ -177,11 +177,11 @@ class User {
             return self::getFromMail($mail);
         }
     }
-    
-    //	Gestion des roles	
-    
-    
-    //	renvoi l'id du user qui a pour role SU	
+
+    //	Gestion des roles
+
+
+    //	renvoi l'id du user qui a pour role SU
     public static function getSUId() {
         $pdo = DBConnect();
         $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN');'";
@@ -193,9 +193,9 @@ class User {
             return - 1;
         }
     }
-    
+
     //	verifie si un user a le role SU
-    //	renvoi un booleen 
+    //	renvoi un booleen
     public static function isSUSet() {
         $id = self::getSUId();
         if($id == - 1) {
@@ -203,10 +203,10 @@ class User {
         }
         return true;
     }
-    
+
     //Connexion d'un user
-    
-    
+
+
     //renvoi un booleen correspondant a la validite du couple (id, pass)
     public static function isPasswdValid(string $mail, string $pass) {
         if(self::isMailUsed($mail)) {
@@ -223,7 +223,7 @@ class User {
         }
         return false;
     }
-    
+
     //	verifie les credentials du user,
     //	si elles sont valides, met ses donnes dans $_SESSION et renvoi une string vide,
     //	sinon leve une exception
@@ -250,7 +250,7 @@ class User {
             throw $e;
         }
     }
-    
+
     //	verifie si les donnes necessaires sont presentes dans $_SESSION
     //	renvoi un booleen
     public static function isConnected() {
@@ -266,12 +266,13 @@ class User {
         }
         return false;
     }
-    
+
     //	deconnecte le user
     public static function disconnect() {
         session_unset();
         session_destroy();
         //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
+        setcookie("PHPSESSID", '', time()-1, '/');
         setcookie("userId", '', time()-1, '/');
     }
 }
