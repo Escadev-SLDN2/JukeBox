@@ -158,8 +158,8 @@ if (User::isConnected()) {
                             <div class="col-5">
 
                                 <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if ($isConn) {
-                                                                                                        echo "d-none";
-                                                                                                    } ?> " data-toggle="modal" data-target="#myModal2">
+                                                                                                    echo "d-none";
+                                                                                                } ?> " data-toggle="modal" data-target="#myModal2">
                                     Connexion
                                 </button>
                                 <div id="myModal2" class="modal" tabindex="-1" role="dialog">
@@ -256,9 +256,9 @@ if (User::isConnected()) {
                         <div class="col ">
 
                             <!-- Conteneur Passer et Voter -->
-                            
-                                <div class="container mb-2">
-                                    <div class="row">
+
+                            <div class="container mb-2">
+                                <div class="row">
                                     <?php if ($isSUSet) { ?>
 
 
@@ -303,64 +303,64 @@ if (User::isConnected()) {
 
                                     </div>
 
+                                </div>
+                            </div>
+
+
+                            <!-- Ajout -->
+                            <div class="container adding_music_container">
+                                <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+
+                                    <!--Header Ajout -->
+                                    <div class="row">
+                                        <div class="col bg-dark text-light">
+                                            Ajouter une vidéo
+                                        </div>
                                     </div>
-                                </div>
 
+                                    <!-- Contenu Ajout -->
+                                    <div class="row">
 
-                                <!-- Ajout -->
-                                <div class="container adding_music_container">
-                                    <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+                                        <div class="col bg-secondary py-3">
 
-                                        <!--Header Ajout -->
-                                        <div class="row">
-                                            <div class="col bg-dark text-light">
-                                                Ajouter une vidéo
-                                            </div>
-                                        </div>
+                                            <div class="form-group row d-flex align-items-center">
 
-                                        <!-- Contenu Ajout -->
-                                        <div class="row">
-
-                                            <div class="col bg-secondary py-3">
-
-                                                <div class="form-group row d-flex align-items-center">
-
-                                                    <div class="col-sm-4">
-                                                        <label class="connectInput py-2 mt-2 text-center w-100" for="musicUrl">URL</label>
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <input type="url" class="form-control" name="musicUrl" id="musicUrl" placeholder="https://" required>
-                                                    </div>
-
+                                                <div class="col-sm-4">
+                                                    <label class="connectInput py-2 mt-2 text-center w-100" for="musicUrl">URL</label>
                                                 </div>
 
-                                                <div class="form-group row d-flex align-items-start">
-
-                                                    <div class="col-sm-4">
-                                                        <label class="connectInput py-2 text-center w-100" for="keyWords">Mots-clés</label>
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <textarea type="email" class="form-control" name="keyWords" id="keyWords" placeholder="ex: rock" required></textarea>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button name="add_music" type="submit" class="btn btn-danger w-100">
-                                                            Ajouter
-                                                        </button>
-                                                    </div>
+                                                <div class="col">
+                                                    <input type="url" class="form-control" name="musicUrl" id="musicUrl" placeholder="https://" required>
                                                 </div>
 
                                             </div>
 
+                                            <div class="form-group row d-flex align-items-start">
+
+                                                <div class="col-sm-4">
+                                                    <label class="connectInput py-2 text-center w-100" for="keyWords">Mots-clés</label>
+                                                </div>
+
+                                                <div class="col">
+                                                    <textarea type="email" class="form-control" name="keyWords" id="keyWords" placeholder="ex: rock" required></textarea>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button name="add_music" type="submit" class="btn btn-danger w-100">
+                                                        Ajouter
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                         </div>
 
-                                    </form>
-                                </div>
+                                    </div>
+
+                                </form>
+                            </div>
 
                         </div>
                     <?php } ?>
@@ -385,8 +385,8 @@ if (User::isConnected()) {
                                 <select class="custom-select" id="inputGroupSelect04">
                                     <option selected>Choisir un utilisateur connecté</option>
                                     <?php if ($isConn) { ?>
-                                        <?php foreach ($users as $user) { ?>
-                                            <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
+                                        <?php foreach ($users as $User) { ?>
+                                            <option value="<?php echo $User['id'] ?>"><?php echo $User['name'] ?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
