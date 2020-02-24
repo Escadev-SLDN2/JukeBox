@@ -834,7 +834,7 @@ if (User::isConnected()) {
                 videoId: 'osP5IkxsQ0g',
                 playerVars: {
                     autoplay: 1,
-                    playlist: <?php echo str_replace(array('[',']','"'),'' ,json_encode($videos)) ?>
+                    playlist: '<?php echo str_replace(array('[',']','"'),'' ,json_encode($videos)) ?>'
                 },
 
             });
