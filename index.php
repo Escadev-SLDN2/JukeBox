@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 require_once "php/users.php";
 $isConn = false;
 $alertType = "d-none";
@@ -261,7 +264,7 @@ if (User::isConnected()) {
 
                             <div class="container mb-2">
                                 <div class="row">
-                                    <?php if ($user->role == "ROLE_ADMIN") { ?>
+                                    <?php if ($user->isSU()) { ?>
 
 
                                         <!-- Conteneur Passer -->
@@ -372,7 +375,7 @@ if (User::isConnected()) {
 
 
         <!-- Les trois options (Admin) -->
-        <?php if ($user->role == "ROLE_ADMIN") { ?>
+        <?php if ($isConn && $user->isSU()) { ?>
 
             <section>
                 <div class="container mb-2 ">
@@ -651,7 +654,7 @@ if (User::isConnected()) {
                 <!-- Gestion des vidéos et playlist (Admin) -->
 
 
-                <?php if ($user->role == "ROLE_ADMIN") { ?>
+        <?php if ($isConn && $user->isSU()) { ?>
         
             <section>
 
@@ -778,7 +781,7 @@ if (User::isConnected()) {
                 </div>
 
             </section>
-            <?php } ?>
+        <?php } ?>
       
 
 

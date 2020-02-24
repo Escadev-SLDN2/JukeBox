@@ -212,7 +212,7 @@ class User
     public function isSU()
     {
         $id = self::getSUId();
-        if (($id == $this->id)&&($user->role == "ROLE_ADMIN")) {
+        if (($id == $this->id)&&($this->role == "ROLE_ADMIN")) {
             return true;
         }
         return false;
