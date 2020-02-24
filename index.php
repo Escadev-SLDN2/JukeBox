@@ -92,11 +92,11 @@ if (User::isConnected()) {
                     <div class="row mb-1">
                         <?php if (!$isConn) { ?>
                             <div class="col-5">
-                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou " data-toggle="modal" data-target="#myModal">
+                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
                                     Inscription
                                 </button>
                                 <!--POPUP-->
-                                <div id="myModal" class="modal" tabindex="-1" role="dialog">
+                                <div id="inscriptionModal" class="modal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <!--Header du POPUP-->
@@ -161,10 +161,10 @@ if (User::isConnected()) {
 
                                 <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if ($isConn) {
                                                                                                     echo "d-none";
-                                                                                                } ?> " data-toggle="modal" data-target="#myModal2">
+                                                                                                } ?> " data-toggle="modal" data-target="#connexionModal">
                                     Connexion
                                 </button>
-                                <div id="myModal2" class="modal" tabindex="-1" role="dialog">
+                                <div id="connexionModal" class="modal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <!--Header du POPUP-->
