@@ -10,7 +10,7 @@ if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté";
+            $alertMsg = "Vous êtes bien connecté, bonjour" ; echo ghjkl ;
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
@@ -92,8 +92,7 @@ if (User::isConnected()) {
                 <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
                     <h1 id="titre" class="mt-2">ESCABOX</h1>
                 </div>
-               
-
+                
                 <!-- Inscription et Connexion
           Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
                 <div class="col py-2 text-right">
@@ -221,9 +220,12 @@ if (User::isConnected()) {
                         <?php } ?>
                         <?php if ($isConn) { ?>
                             <div class="col-5 offset-5">
-                                <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
-                                    Deconnexion
-                                </a>
+                                <?php 
+                                echo 'Bonjour' . $user->nickname;
+                                ?>
+                                    <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
+                                        Deconnexion
+                                    </a>
                             </div>
                         <?php } ?>
                     </div>
