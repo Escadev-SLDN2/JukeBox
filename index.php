@@ -385,8 +385,8 @@ if (User::isConnected()) {
                                 <select class="custom-select" id="inputGroupSelect04">
                                     <option selected>Choisir un utilisateur connecté</option>
                                     <?php if ($isConn) { ?>
-                                        <?php foreach ($users as $user) { ?>
-                                            <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
+                                        <?php foreach ($users as $User) { ?>
+                                            <option value="<?php echo $User['id'] ?>"><?php echo $User['name'] ?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
