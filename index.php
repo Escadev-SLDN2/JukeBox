@@ -5,6 +5,7 @@ $alertType = "d-none";
 $users = User::findAll();
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
+$vid = $_GET ['vid'];
 if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
@@ -12,6 +13,8 @@ if (!empty($msg)) {
             $alertMsg = "Vous êtes bien connecté";
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
+        } else if ($vid == "1") {
+            $alertMsg = "La vidéo a bien été ajoutée";
         } else {
             $alertMsg = "Vous êtes bien inscrit";
         }
@@ -28,6 +31,12 @@ if (!empty($msg)) {
         }
         if ($msg == "error-connect") {
             $alertMsg = "Email ou mot de passe invalide";
+        }
+        if ($msg == "error-dupes") {
+            $alertMsg = "La vidéo existe déjà dans la BDD";
+        }
+        if ($msg == "error-url"){
+            $alertMsg = "L'URL n'est pas correct, il faut un URL youtube";
         }
     }
 }
@@ -311,7 +320,7 @@ if (User::isConnected()) {
 
                             <!-- Ajout -->
                             <div class="container adding_music_container">
-                                <form class="form" action="adding_music.php" method="POST" role="form" autocomplete="off">
+                                <form class="form" action="php/ajout.php" method="POST" role="form" autocomplete="off">
 
                                     <!--Header Ajout -->
                                     <div class="row">
