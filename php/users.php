@@ -197,25 +197,26 @@ class User
     public static function getSUId()
     {
         $pdo = DBConnect();
-        $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN');'";
+        $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN'";
         $answer = $pdo->query($sql);
-        if ($answer->rowCount() == 1) {
+        if ($answer->rowCount() == 0) {
+            return -1;
+        }else {
             $row = $answer->fetch();
             return $row['id'];
-        } else if ($answer->rowCount() == 0) {
-            return -1;
         }
+        
     }
 
     //	verifie si un user a le role SU
     //	renvoi un booleen
-    public static function isSUSet()
+    public function isSU()
     {
         $id = self::getSUId();
-        if ($id == -1) {
-            return false;
+        if (($id == $this->id)) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     //Connexion d'un user

@@ -261,7 +261,7 @@ if (User::isConnected()) {
 
                             <div class="container mb-2">
                                 <div class="row">
-                                    <?php if ($user->role == "ROLE_ADMIN") { ?>
+                                    <?php if ($user->isSU()) { ?>
 
 
                                         <!-- Conteneur Passer -->
@@ -372,7 +372,7 @@ if (User::isConnected()) {
 
 
         <!-- Les trois options (Admin) -->
-        <?php if ($user->role == "ROLE_ADMIN") { ?>
+        <?php if ($isConn && $user->isSU()) { ?>
 
             <section>
                 <div class="container mb-2 ">
@@ -661,7 +661,7 @@ if (User::isConnected()) {
                 <!-- Gestion des vidéos et playlist (Admin) -->
 
 
-                <?php if ($user->role == "ROLE_ADMIN") { ?>
+        <?php if ($isConn && $user->isSU()) { ?>
         
             <section>
 
@@ -788,7 +788,7 @@ if (User::isConnected()) {
                 </div>
 
             </section>
-            <?php } ?>
+        <?php } ?>
       
 
 
