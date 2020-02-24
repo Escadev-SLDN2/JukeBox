@@ -7,16 +7,23 @@ error_reporting(E_ALL);
 // Récupération des données 
 require_once "videos.php";
 require_once "users.php";
-session_start();
-$user = $_SESSION['user'];
-
+if(User::isConnected()){
+    $user = $_SESSION['user'];
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
+        if (empty(trim($_POST['musicUrl']))){
+            header("location: ../index.php?msg=$error_type");
+        }
         try {
-            addvideos(trim($_POST['musicUrl']), $user->id);
+            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', trim($_POST['musicUrl']), $match);
+            $youtube_id = $match[1];
+            addvideos($youtube_id, $user->id);
+            header("location: ../index.php?msg=success&vid=1");
+            exit;
         } catch (Exception $e) {
             echo ($e->getMessage()) . "<br>\n";
         }
+        header("location: ../index.php?msg=");
     }
     exit;
-
+}

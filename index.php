@@ -4,6 +4,7 @@ $isConn = false;
 $alertType = "d-none";
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
+$vid = $_GET ['vid'];
 if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
@@ -11,6 +12,8 @@ if (!empty($msg)) {
             $alertMsg = "Vous êtes bien connecté";
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
+        } else if ($vid == "1") {
+            $alertMsg = "La vidéo a bien etait ajoutée";
         } else {
             $alertMsg = "Vous êtes bien inscrit";
         }
