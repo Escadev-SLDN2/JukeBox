@@ -31,7 +31,7 @@ if (!empty($msg)) {
         if ($msg == "error-connect") {
             $alertMsg = "Email ou mot de passe invalide";
         }
-        if ($msg == "error-dupe") {
+        if ($msg == "error-dupes") {
             $alertMsg = "La vidéo existe déjà dans la BDD";
         }
         if ($msg == "error-url"){
