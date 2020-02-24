@@ -1,8 +1,11 @@
 <?php
 require_once "php/users.php";
+require_once "php/videos.php";
 $isConn = false;
 $alertType = "d-none";
 $users = User::findAll();
+$videos = findAllVideoYtId();
+shuffle($videos);
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 $vid = $_GET ['vid'];
@@ -831,7 +834,7 @@ if (User::isConnected()) {
                 videoId: 'osP5IkxsQ0g',
                 playerVars: {
                     autoplay: 1,
-                    playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM'
+                    playlist: <?php echo json_encode($videos) ?>
                 },
 
             });

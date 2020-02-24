@@ -101,3 +101,11 @@ function delvideos(int $id)
         }
     }
 }
+
+function findAllVideoYtId()
+    {
+        $pdo = DBConnect();
+        $sql = "SELECT id_yt FROM videos";
+        $answer = $pdo->query($sql, PDO::FETCH_NUM);
+        return array_column($answer->fetchAll(),'0');
+    }
