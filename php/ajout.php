@@ -9,7 +9,7 @@ require_once "videos.php";
 require_once "users.php";
 if(User::isConnected()){
     $user = $_SESSION['user'];
-    $error_type = "error-dupe";
+    $error_type = "error-empty";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty(trim($_POST['musicUrl']))){
             header("location: ../index.php?msg=$error_type");
@@ -31,9 +31,7 @@ if(User::isConnected()){
             echo (header("location: ../index.php?msg=error-dupe"));
             exit;
         }
-        else if ($youtube_id = $match[0]){
-            echo ($e->getMessage()) . "<br>\n";
-        }
+        
         header("location: ../index.php?msg=error-url");
     }    
     exit;

@@ -13,7 +13,7 @@ if (!empty($msg)) {
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
-            $alertMsg = "La vidéo a bien etait ajoutée";
+            $alertMsg = "La vidéo a bien été ajoutée";
         } else {
             $alertMsg = "Vous êtes bien inscrit";
         }
