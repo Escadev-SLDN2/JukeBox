@@ -2,6 +2,7 @@
 require_once "php/users.php";
 $isConn = false;
 $alertType = "d-none";
+$users = User::findAll();
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 if (!empty($msg)) {
@@ -69,11 +70,6 @@ if (User::isConnected()) {
 
 <body>
 
-    <?php
-    require_once('php/users.php');
-    $users = User::findAll();
-    ?>
-
     <!-- Header -->
     <header>
         <div class="container-fluid bg-dark mb-5">
@@ -83,9 +79,11 @@ if (User::isConnected()) {
                     <a href="index.php"><img src="assets/img/logo_escabox.png" class="logo position-absolute mt-3 img-fluid" alt="ESCABOX"></a>
                 </div>
                 <!-- Titre -->
+               
                 <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
                     <h1 id="titre" class="mt-2">ESCABOX</h1>
                 </div>
+               
 
                 <!-- Inscription et Connexion
           Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
@@ -260,27 +258,31 @@ if (User::isConnected()) {
                         <div class="col ">
 
                             <!-- Conteneur Passer et Voter -->
+
                             <div class="container mb-2">
                                 <div class="row">
+                                    <?php if ($user->role == "ROLE_ADMIN") { ?>
 
-                                    <!-- Conteneur Passer -->
-                                    <div class="col mr-2">
 
-                                        <!--Header Passer -->
-                                        <div class="row">
-                                            <div class="col bg-dark text-light">
-                                                Passer vidéo
+                                        <!-- Conteneur Passer -->
+                                        <div class="col mr-2">
+
+                                            <!--Header Passer -->
+                                            <div class="row">
+                                                <div class="col bg-dark text-light">
+                                                    Passer vidéo
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Contenu Passer -->
-                                        <div class="row">
-                                            <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                <button id="next">Passer</button>
+                                            <!-- Contenu Passer -->
+                                            <div class="row">
+                                                <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
+                                                    <button id="next">Passer</button>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </div>
+                                        </div>
+                                    <?php } ?>
 
                                     <!-- Conteneur Vote -->
                                     <div class="col">
@@ -370,7 +372,8 @@ if (User::isConnected()) {
 
 
         <!-- Les trois options (Admin) -->
-        <?php if ($isConn) { ?>
+        <?php if ($user->role == "ROLE_ADMIN") { ?>
+
             <section>
                 <div class="container mb-2 ">
 
@@ -385,8 +388,13 @@ if (User::isConnected()) {
                                 <select class="custom-select" id="inputGroupSelect04">
                                     <option selected>Choisir un utilisateur connecté</option>
                                     <?php if ($isConn) { ?>
+<<<<<<< HEAD
+                                        <?php foreach ($users as $user) { ?>
+                                            <option value="<?php echo $user['id']; ?>"><?php echo $user['name']; ?></option>
+=======
                                         <?php foreach ($users as $listUser) { ?>
                                             <option value="<?php echo $listUser['id'] ?>"><?php echo $listUser['name'] ?></option>
+>>>>>>> dev
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
@@ -483,279 +491,301 @@ if (User::isConnected()) {
                     </div>
                 </div>
             </section>
-        <?php } ?>
+            <?php } ?>
+
+        
 
         <!-- Carousel vidéo (Visiteur) -->
-        <section>
-            <div class="container mb-3 mt-3">
-                <div class="row">
-                    <div class="col">
-
-                        <div class="container ">
-
-                            <!-- Header Carousel -->
-                            <header>
-                                <div class="row">
-                                    <div class="col bg-dark text-light">
-                                        Vidéo/Playlist en cours
-                                    </div>
-                                </div>
-                            </header>
-
-                            <!-- Contenu Carousel -->
-
-                            <div class="row ">
-                                <div class="col-md-12 bg-secondary">
-                                    <div id="Carousel" class="carousel slide" data-interval="false" data-wrap="false">
-
-                                        <!-- Carousel items -->
-                                        <div class="carousel-inner pt-3">
-                                            <div class="item carousel-item">
-                                                <div class="row">
-                                                    <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col offset-1 offset-md-0 text-center">
-                                                                titre-page0
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!--.row-->
-                                            </div>
-                                            <!--thumbnail-->
-                                            <div class="item active carousel-item ">
-                                                <div class="row">
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre-page1
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!--.row-->
-                                            </div>
-                                            <!--thumbnail-->
-                                            <div class="item carousel-item">
-                                                <div class="row">
-
-                                                    <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre-page2
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                        <div class="row">
-                                                            <div class="col text-center">
-                                                                titre
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--.row-->
-                                                </div>
-                                                <!--.item-->
-                                            </div>
-                                            <!--controls-->
-
-                                            <a class="carousel-control-prev d-flex justify-content-start" href="#Carousel" role="button" data-slide="prev">
-                                                <span><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next d-flex justify-content-end" href="#Carousel" role="button" data-slide="next">
-                                                <span><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                            <!--.Carousel-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <?php if ($isConn) { ?>
-            <!-- Gestion des vidéos et playlist (Admin) -->
+       
             <section>
-                <div class="container mb-3">
+                <div class="container mb-3 mt-3">
                     <div class="row">
                         <div class="col">
+                        
 
-                            <div class="container bg-secondary">
+                            <div class="container ">
 
-                                <!-- Header Gestion_playlist -->
+                                <!-- Header Carousel -->
                                 <header>
                                     <div class="row">
                                         <div class="col bg-dark text-light">
-                                            Liste des vidéos
+                                            Vidéo/Playlist en cours
                                         </div>
                                     </div>
-                                </header>
+                                </header>                     
 
-                                <!-- Contenu Gestion_playlist -->
+                                <!-- Contenu Carousel -->
 
-                                <div class="row">
+                                <div class="row ">
+                                    <div class="col-md-12 bg-secondary">
+                                        <div id="Carousel" class="carousel slide" data-interval="false" data-wrap="false">
+                                        
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner pt-3">
+                                                <div class="item carousel-item">
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col offset-1 offset-md-0 text-center">
+                                                                    titre-page0
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                    <div class="table-responsive tableFixHead">
-                                        <table class="table table-sm table-striped">
-                                            <thead>
-                                                <tr scope="row">
-                                                    <th scope="col px-2">Titre des vidéos</th>
-                                                    <th scope="col">Lien</th>
-                                                    <th scope="col">Mots-clés</th>
-                                                    <th scope="col">Modifier</th>
-                                                    <th scope="col">Supprimer</th>
-                                                    <th scope="col"> <input type="checkbox" name="Check" id="Check" /> </th>
+                                                    </div>
+                                                    <!--.row-->
+                                                </div>
+                                                <!--thumbnail-->
+                                                <div class="item active carousel-item ">
+                                                    <div class="row">
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre-page1
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-danger" title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-danger " title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
-                                                    <td>mdEy1m6vtsM</td>
-                                                    <td>Manga</td>
-                                                    <td> <button class="btn btn-danger " title="Modifier"><i class="fas fa-edit"></i></button> </td>
-                                                    <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
-                                                    <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                    </div>
+                                                    
+                                                    <!--.row-->
+                                                </div>
+                                                <!--thumbnail-->
+                                                <div class="item carousel-item">
+                                                    <div class="row">
+
+                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre-page2
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <div class="row">
+                                                                <div class="col text-center">
+                                                                    titre
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--.row-->
+                                                    </div>
+                                                    <!--.item-->
+                                                </div>
+                                                <!--controls-->
+
+                                                <a class="carousel-control-prev d-flex justify-content-start" href="#Carousel" role="button" data-slide="prev">
+                                                    <span><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next d-flex justify-content-end" href="#Carousel" role="button" data-slide="next">
+                                                    <span><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                                <!--.Carousel-->
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
-
-                                <!-- Footer Gestion_playlist -->
-                                <footer>
-                                    <div class="row border-top border-dark">
-
-                                        <div class="col-6 col-sm-3 my-auto">
-                                            <input class="text" type="text" name="mots-clés" />
-                                        </div>
-
-                                        <div class="col-6 col-sm-3  my-2">
-                                            <button class="btn btn-danger">Enregistrer le Mot-clé</button>
-                                        </div>
-
-                                        <div class="col-6 col-sm-3 my-2">
-                                            <button class="btn btn-danger">Supprimer le Mot-clé</button>
-                                        </div>
-
-                                        <div class="col-6 col-sm-3 my-2">
-                                            <button class="btn btn-danger">Supprimer videos</button>
-                                        </div>
-
-                                    </div>
-                                </footer>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
             </section>
-        <?php } ?>
+       
+
+
+                <!-- Gestion des vidéos et playlist (Admin) -->
+
+
+                <?php if ($user->role == "ROLE_ADMIN") { ?>
+        
+            <section>
+
+                <div class="container mb-3">
+                    <div class="row">
+                        
+                            <div class="col">
+
+                                <div class="container bg-secondary">
+
+                                    <!-- Header Gestion_playlist -->
+                                    <header>
+
+                                        <div class="row">
+                                            <div class="col bg-dark text-light">
+                                                Liste des vidéos
+                                            </div>
+                                        </div>
+
+                                    </header>
+
+
+                                    <!-- Contenu Gestion_playlist -->
+
+                                    <div class="row">
+
+                                        <div class="table-responsive tableFixHead">
+                                            <table class="table table-sm table-striped">
+                                                <thead>
+                                                    <tr scope="row">
+                                                        <th scope="col px-2">Titre des vidéos</th>
+                                                        <th scope="col">Lien</th>
+                                                        <th scope="col">Mots-clés</th>
+                                                        <th scope="col">Modifier</th>
+                                                        <th scope="col">Supprimer</th>
+                                                        <th scope="col"> <input type="checkbox" name="Check" id="Check" /> </th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-danger" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-danger " title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-dark" title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-dark" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kimi no Na wa. "Sparkle" - Extended(Sound only)</td>
+                                                        <td>mdEy1m6vtsM</td>
+                                                        <td>Manga</td>
+                                                        <td> <button class="btn btn-danger " title="Modifier"><i class="fas fa-edit"></i></button> </td>
+                                                        <td> <button class="btn btn-danger" title="Supprimer"><i class="fas fa-trash-alt"></i></button> </td>
+                                                        <td> <input type="checkbox" name="Check" id="Check" /> <br /> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Footer Gestion_playlist -->
+                                    <footer>
+                                        <div class="row border-top border-dark">
+
+                                            <div class="col-6 col-sm-3 my-auto">
+                                                <input class="text" type="text" name="mots-clés" />
+                                            </div>
+
+                                            <div class="col-6 col-sm-3  my-2">
+                                                <button class="btn btn-danger">Enregistrer le Mot-clé</button>
+                                            </div>
+
+                                            <div class="col-6 col-sm-3 my-2">
+                                                <button class="btn btn-danger">Supprimer le Mot-clé</button>
+                                            </div>
+
+                                            <div class="col-6 col-sm-3 my-2">
+                                                <button class="btn btn-danger">Supprimer videos</button>
+                                            </div>
+
+                                        </div>
+
+                                    </footer>
+
+                                </div>
+                            
+                            </div>
+                        
+                    </div>
+                </div>
+
+            </section>
+            <?php } ?>
+      
+
+
     </main>
 
 
