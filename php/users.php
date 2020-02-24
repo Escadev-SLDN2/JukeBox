@@ -199,11 +199,12 @@ class User
         $pdo = DBConnect();
         $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN'";
         $answer = $pdo->query($sql);
-        } if ($answer->rowCount() == 0) {
+        if ($answer->rowCount() == 0) {
             return -1;
         }else {
             $row = $answer->fetch();
             return $row['id'];
+        }
         
     }
 
