@@ -209,13 +209,13 @@ class User
 
     //	verifie si un user a le role SU
     //	renvoi un booleen
-    public static function isSUSet()
+    public function isSU()
     {
         $id = self::getSUId();
-        if ($id == -1) {
-            return false;
+        if (($id == $this->id)&&($user->role == "ROLE_ADMIN")) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     //Connexion d'un user
