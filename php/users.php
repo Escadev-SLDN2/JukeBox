@@ -197,7 +197,7 @@ class User
     public static function getSUId()
     {
         $pdo = DBConnect();
-        $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN');'";
+        $sql = "SELECT id FROM users WHERE role = 'ROLE_ADMIN'";
         $answer = $pdo->query($sql);
         if ($answer->rowCount() == 1) {
             $row = $answer->fetch();
