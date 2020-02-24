@@ -10,7 +10,7 @@ if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté, bonjour" ; echo ghjkl ;
+            $alertMsg = "Vous êtes bien connecté." ;
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
@@ -219,10 +219,17 @@ if (User::isConnected()) {
                             </div>
                         <?php } ?>
                         <?php if ($isConn) { ?>
-                            <div class="col-5 offset-5">
+                            <div class="col-5 text-pop">
+                                
                                 <?php 
-                                echo 'Bonjour' . $user->nickname;
+                                echo "Bonjour," . ($user->nick) ;
+                            
                                 ?>
+                                
+                            </div>
+                           
+                            <div class="col-5 ">
+                                
                                     <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
                                         Deconnexion
                                     </a>
@@ -242,7 +249,7 @@ if (User::isConnected()) {
         <div class="alert <?php echo $alertType; ?> alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>
-                <?php echo $alertMsg; ?></strong>
+                <?php echo $alertMsg; echo " Bonjour, &nbsp" . ($user->nick) ; ?></strong>
         </div>
 
         <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
