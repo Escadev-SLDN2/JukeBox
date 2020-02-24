@@ -27,7 +27,7 @@ class User
     public static function findAll()
     {
         $pdo = DBConnect();
-        $sql = "SELECT name FROM users WHERE role='ROLE_USER'";
+        $sql = "SELECT * FROM users WHERE role='ROLE_USER'";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -291,5 +291,13 @@ class User
         //  pour supprimer le cookie, je le recréé vide et avec une date d'expiration passée
         setcookie("PHPSESSID", '', time() - 1, '/');
         setcookie("userId", '', time() - 1, '/');
+    }
+
+    // modification d'un rôle utilisateur
+    public static function setrole($role, $id) {
+        $pdo = DBConnect();      
+        $sql = "UPDATE users SET role='$role' WHERE id=$id;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
     }
 }

@@ -384,20 +384,30 @@ if (User::isConnected()) {
                         </div>
 
                         <div class="col mb-2 text-right order-1 order-lg-2">
-                            <div class="input-group">
-                                <select class="custom-select" id="inputGroupSelect04">
-                                    <option selected>Choisir un utilisateur connecté</option>
-                                    <?php if ($isConn) { ?>
 
-                                        <?php foreach ($users as $listUser) { ?>
-                                            <option value="<?php echo $listUser['id'] ?>"><?php echo $listUser['name'] ?></option>
+                            <form class="form" action="php/setSU.php" method="POST">
+
+                                <div class="input-group">
+
+                                    <select name="userid" class="custom-select" id="inputGroupSelect04">
+                                        <option>Choisir un utilisateur connecté</option>
+                                        <?php if ($isConn) { ?>
+                                            <?php foreach ($users as $listUser) { ?>
+
+                                                <option value="<?php echo $listUser['id'] ?>"><?php echo $listUser['name'] ?></option>
+
+                                            <?php } ?>
                                         <?php } ?>
-                                    <?php } ?>
-                                </select>
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-danger btn-give-admin" data-toggle="tooltip" data-placement="top" title="Donner le rôle Administrateur"><i class="fas fa-user-tie"></i></button>
+                                    </select>
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-danger btn-give-admin" data-toggle="tooltip" data-placement="top" title="Donner le rôle Administrateur"><i class="fas fa-user-tie"></i></button>
+                                    </div>
+
                                 </div>
-                            </div>
+
+                            </form>
+
                         </div>
 
                     </div>
