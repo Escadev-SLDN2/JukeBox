@@ -117,7 +117,7 @@ if (User::isConnected()) {
                                             </div>
                                             <!--body du POPUP-->
                                             <div class="modal-body bg-secondary">
-                                                <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
+                                                <form class="form" action="php/inscription.php" method="POST" role="form">
                                                     <div class="container">
 
                                                         <div class="form-group row justify-content-between">
@@ -185,7 +185,7 @@ if (User::isConnected()) {
                                             </div>
                                             <!--body du POPUP-->
                                             <div class="modal-body bg-secondary">
-                                                <form class="form" action="php/connection.php" method="POST" role="form" autocomplete="off">
+                                                <form class="form" action="php/connection.php" method="POST" role="form">
                                                     <div class="container">
 
 
@@ -320,7 +320,7 @@ if (User::isConnected()) {
 
                             <!-- Ajout -->
                             <div class="container adding_music_container">
-                                <form class="form" action="php/ajout.php" method="POST" role="form" autocomplete="off">
+                                <form class="form" action="php/ajout.php" method="POST" role="form">
 
                                     <!--Header Ajout -->
                                     <div class="row">
