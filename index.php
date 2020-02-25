@@ -12,7 +12,7 @@ if (!empty($msg)) {
         if ($conn == "1") {
             $alertMsg = "Vous êtes bien connecté";
         } else if ($conn == "-1") {
-            $alertMsg = "Vous êtes bien deconnecté";
+            $alertMsg = "Vous êtes bien déconnecté";
         } else if ($vid == "1") {
             $alertMsg = "La vidéo a bien été ajoutée";
         } else {
@@ -222,7 +222,7 @@ if (User::isConnected()) {
                         <?php if ($isConn) { ?>
                             <div class="col-5 offset-5">
                                 <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
-                                    Deconnexion
+                                    Déconnexion
                                 </a>
                             </div>
                         <?php } ?>
