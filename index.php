@@ -10,7 +10,7 @@ if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté.Bonjour, &nbsp";
+            $alertMsg = "Vous êtes bien connecté.&nbsp Bonjour, &nbsp";
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
@@ -222,7 +222,7 @@ if (User::isConnected()) {
                             <div class="col-sm-5 col-8 text-pop">
                                 
                                 <?php 
-                                echo "Bonjour," . ($user->nick) ;
+                                echo "Bonjour,&nbsp" . ($user->nick) ;
                             
                                 ?>
                                 
