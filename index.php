@@ -831,10 +831,10 @@ if (User::isConnected()) {
             player = new YT.Player('video-placeholder', {
                 width: '100%',
                 height: 400,
-                videoId: 'osP5IkxsQ0g',
+                videoId: '<?php echo array_shift($videos); ?>',
                 playerVars: {
                     autoplay: 1,
-                    playlist: '<?php echo str_replace(array('[',']','"'),'' ,json_encode($videos)) ?>'
+                    playlist: '<?php echo str_replace(array('[',']','"'),'' ,json_encode($videos)); ?>'
                 },
 
             });
