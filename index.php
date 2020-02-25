@@ -81,7 +81,7 @@ if (User::isConnected()) {
 
     <!-- Header -->
     <header>
-        <div class="container-fluid bg-dark mb-5">
+        <div class="container-fluid bg-dark py-1 mb-3">
             <div class="row">
                 <!-- Logo -->
                 <div class="col-2 text-light d-block align-items-start justify-content-center">
@@ -90,7 +90,7 @@ if (User::isConnected()) {
                 <!-- Titre -->
                
                 <div class="col-sm-3 ml-3 ml-md-0 text-light d-flex align-items-center">
-                    <h1 id="titre" class="mt-2">ESCABOX</h1>
+                    <h1 id="titre" class="my-3">ESCABOX</h1>
                 </div>
                 
                 <!-- Inscription et Connexion
@@ -100,7 +100,7 @@ if (User::isConnected()) {
                     <div class="row mb-1">
                         <?php if (!$isConn) { ?>
                             <div class="col-5">
-                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
+                                <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
                                     Inscription
                                 </button>
                                 <!--POPUP-->
@@ -167,7 +167,7 @@ if (User::isConnected()) {
 
                             <div class="col-5">
 
-                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if ($isConn) {
+                                <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou <?php if ($isConn) {
                                                                                                     echo "d-none";
                                                                                                 } ?> " data-toggle="modal" data-target="#connexionModal">
                                     Connexion
@@ -219,7 +219,7 @@ if (User::isConnected()) {
                             </div>
                         <?php } ?>
                         <?php if ($isConn) { ?>
-                            <div class="col-sm-5 col-8 text-pop">
+                            <div class="col-sm-5 col-8 mt-3 text-pop">
                                 
                                 <?php 
                                 echo "Bonjour,&nbsp" . ($user->nick) ;
@@ -230,7 +230,7 @@ if (User::isConnected()) {
                            
                             <div class="col-sm-4 col-8 offset-2 ">
                                 
-                                    <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
+                                    <a type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou" href="php/connection.php?deconnect=true">
                                         Deconnexion
                                     </a>
                             </div>
