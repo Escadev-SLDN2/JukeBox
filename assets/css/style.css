@@ -144,6 +144,7 @@ table {
 .logo {
     max-width: 35%;
     min-width: 30% !important;
+    z-index: 1;
 }
 
 .table td , .table th {
