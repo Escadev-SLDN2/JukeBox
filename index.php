@@ -89,7 +89,7 @@ if (User::isConnected()) {
                 </div>
                 <!-- Titre -->
                
-                <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
+                <div class="col-sm-3 ml-3 ml-md-0 text-light d-flex align-items-center">
                     <h1 id="titre" class="mt-2">ESCABOX</h1>
                 </div>
                 
@@ -228,7 +228,7 @@ if (User::isConnected()) {
                                 
                             </div>
                            
-                            <div class="col-5 ">
+                            <div class="col-4 offset-2 ">
                                 
                                     <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
                                         Deconnexion
