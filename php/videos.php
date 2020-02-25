@@ -1,9 +1,4 @@
 <?php
-// Affichage des erreurs détaillées :
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 // Récupération des données 
 require_once "bdd.php";
 
@@ -101,3 +96,12 @@ function delvideos(int $id)
         }
     }
 }
+
+//renvoi un array contenant la liste des videos dans la bdd
+function findAllVideoYtId()
+    {
+        $pdo = DBConnect();
+        $sql = "SELECT id_yt FROM videos";
+        $answer = $pdo->query($sql, PDO::FETCH_NUM);
+        return array_column($answer->fetchAll(),'0');
+    }

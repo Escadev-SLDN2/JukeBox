@@ -1,8 +1,11 @@
 <?php
 require_once "php/users.php";
+require_once "php/videos.php";
 $isConn = false;
 $alertType = "d-none";
 $users = User::findAll();
+$videos = findAllVideoYtId();
+shuffle($videos);
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 $vid = $_GET ['vid'];
@@ -828,11 +831,12 @@ if (User::isConnected()) {
             player = new YT.Player('video-placeholder', {
                 width: '100%',
                 height: 400,
-                videoId: 'osP5IkxsQ0g',
+                videoId: '<?php echo array_shift($videos); ?>',
                 playerVars: {
                     autoplay: 1,
-                    playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM',
+                    playlist: '<?php echo implode(",",$videos); ?>',
                     loop: 1
+
                 },
 
             });
