@@ -831,7 +831,8 @@ if (User::isConnected()) {
                 videoId: 'osP5IkxsQ0g',
                 playerVars: {
                     autoplay: 1,
-                    playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM'
+                    playlist: 'zQ4LiyFF8RU,mdEy1m6vtsM',
+                    loop: 1
                 },
 
             });
