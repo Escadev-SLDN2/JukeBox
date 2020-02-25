@@ -15,6 +15,13 @@ body {
     color: #cdcbcb !important;
 }
 
+.text-pop {
+    color: #cdcbcb;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
 .connectLabel {
     text-align: center;
     background-color: #a9000c;

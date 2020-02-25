@@ -9,11 +9,17 @@ shuffle($videos);
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 $vid = $_GET ['vid'];
+
+if (User::isConnected()) {
+    $isConn = true;
+    $user = $_SESSION['user'];
+}
+
 if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté";
+            $alertMsg = "Vous êtes bien connecté.&nbsp Bonjour, &nbsp".$user->nick;
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien déconnecté";
         } else if ($vid == "1") {
@@ -44,10 +50,7 @@ if (!empty($msg)) {
     }
 }
 
-if (User::isConnected()) {
-    $isConn = true;
-    $user = $_SESSION['user'];
-}
+
 
 ?>
 
@@ -84,7 +87,7 @@ if (User::isConnected()) {
 
     <!-- Header -->
     <header>
-        <div class="container-fluid bg-dark mb-5">
+        <div class="container-fluid bg-dark py-1 mb-3">
             <div class="row">
                 <!-- Logo -->
                 <div class="col-2 text-light d-block align-items-start justify-content-center">
@@ -92,11 +95,10 @@ if (User::isConnected()) {
                 </div>
                 <!-- Titre -->
                
-                <div class="col-sm-6 ml-4 ml-md-0 text-light d-flex align-items-center">
-                    <h1 id="titre" class="mt-2">ESCABOX</h1>
+                <div class="col-sm-3 ml-3 ml-md-0 text-light d-flex align-items-center">
+                    <h1 id="titre" class="my-3">ESCABOX</h1>
                 </div>
-               
-
+                
                 <!-- Inscription et Connexion
           Ici devrait se trouver le bouton Déconnexion pour les utilisateurs connectés et l'Administrateur -->
                 <div class="col py-2 text-right">
@@ -104,7 +106,7 @@ if (User::isConnected()) {
                     <div class="row mb-1">
                         <?php if (!$isConn) { ?>
                             <div class="col-5">
-                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
+                                <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
                                     Inscription
                                 </button>
                                 <!--POPUP-->
@@ -171,7 +173,7 @@ if (User::isConnected()) {
 
                             <div class="col-5">
 
-                                <button type="button" class="btn btn-danger ml-5 pl-3 boubou <?php if ($isConn) {
+                                <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou <?php if ($isConn) {
                                                                                                     echo "d-none";
                                                                                                 } ?> " data-toggle="modal" data-target="#connexionModal">
                                     Connexion
@@ -223,10 +225,21 @@ if (User::isConnected()) {
                             </div>
                         <?php } ?>
                         <?php if ($isConn) { ?>
-                            <div class="col-5 offset-5">
-                                <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
-                                    Déconnexion
-                                </a>
+                            <div class="col-sm-5 col-8 mt-3 text-pop">
+                                
+                                <?php 
+                                echo "Bonjour,&nbsp" . ($user->nick) ;
+                            
+                                ?>
+                                
+                            </div>
+                           
+                            <div class="col-sm-4 col-8 offset-2 ">
+                                
+                                    <a type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou" href="php/connection.php?deconnect=true">
+                                        Déconnexion
+                                    </a>
+
                             </div>
                         <?php } ?>
                     </div>
