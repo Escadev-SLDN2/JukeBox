@@ -225,7 +225,7 @@ if (!empty($msg)) {
                             </div>
                         <?php } ?>
                         <?php if ($isConn) { ?>
-                            <div class="col-sm-5 col-8 mt-3 text-pop">
+                            <div class="col-sm-5 col-8 mt-2 text-pop">
                                 
                                 <?php 
                                 echo "Bonjour,&nbsp" . ($user->nick) ;
