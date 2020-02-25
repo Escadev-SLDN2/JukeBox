@@ -9,7 +9,7 @@ shuffle($videos);
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 $vid = $_GET ['vid'];
-
+$i = 0;
 if (User::isConnected()) {
     $isConn = true;
     $user = $_SESSION['user'];
@@ -550,116 +550,32 @@ if (!empty($msg)) {
                                 <div class="row ">
                                     <div class="col-md-12 bg-secondary">
                                         <div id="Carousel" class="carousel slide" data-interval="false" data-wrap="false">
-                                        
-                                            <!-- Carousel items -->
                                             <div class="carousel-inner pt-3">
-                                                <div class="item carousel-item">
+<?php $isFirst = true; foreach($videos as $id_yt){ ?>
+<?php if($i == 0){ ?>
+                                                <div class="item <?php if($isFirst){echo "active"; $isFirst = false;} ?> carousel-item">
                                                     <div class="row">
-                                                        
-                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
+<?php } ?>
+                                                        <div class="col-6 col-md-3 ">
+                                                            <a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;"></a>
                                                             <div class="row">
                                                                 <div class="col offset-1 offset-md-0 text-center">
-                                                                    titre-page0
+                                                                    titre-page0<?php echo "i:".$i."\n";?>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <!--.row-->
-                                                </div>
-                                                <!--thumbnail-->
-                                                <div class="item active carousel-item ">
-                                                    <div class="row">
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre-page1
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
                                                     
-                                                    <!--.row-->
-                                                </div>
-                                                <!--thumbnail-->
-                                                <div class="item carousel-item">
-                                                    <div class="row">
-
-                                                        <div class="col-6 col-md-3"><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre-page2
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6 col-md-3 "><a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/osP5IkxsQ0g/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    titre
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--.row-->
+<?php if($i == 3){ ?>
                                                     </div>
-                                                    <!--.item-->
                                                 </div>
+<?php } ?>
+<?php if($i == 3){$i = 0;} else{$i++;} ?>
+<?php } ?>
+<?php if($i != 0){ ?>
+                                                    </div>
+                                                </div>
+<?php } ?>
+                                                
                                                 <!--controls-->
 
                                                 <a class="carousel-control-prev d-flex justify-content-start" href="#Carousel" role="button" data-slide="prev">
