@@ -105,7 +105,7 @@ if (!empty($msg)) {
 
                     <div class="row mb-1">
                         <?php if (!$isConn) { ?>
-                            <div class="col-5">
+                            <div class="col-3 offset-5">
                                 <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou " data-toggle="modal" data-target="#inscriptionModal">
                                     Inscription
                                 </button>
@@ -171,7 +171,7 @@ if (!empty($msg)) {
 
                             <!--pop up 2-->
 
-                            <div class="col-5">
+                            <div class="col-3">
 
                                 <button type="button" class="btn btn-danger ml-5 pl-3 my-3 boubou <?php if ($isConn) {
                                                                                                     echo "d-none";
