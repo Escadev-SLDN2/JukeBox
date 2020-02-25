@@ -6,11 +6,17 @@ $users = User::findAll();
 $msg = $_GET['msg'];
 $conn = $_GET['conn'];
 $vid = $_GET ['vid'];
+
+if (User::isConnected()) {
+    $isConn = true;
+    $user = $_SESSION['user'];
+}
+
 if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté.&nbsp Bonjour, &nbsp";
+            $alertMsg = "Vous êtes bien connecté.&nbsp Bonjour, &nbsp".$user->nick;
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
@@ -41,10 +47,7 @@ if (!empty($msg)) {
     }
 }
 
-if (User::isConnected()) {
-    $isConn = true;
-    $user = $_SESSION['user'];
-}
+
 
 ?>
 
@@ -249,7 +252,7 @@ if (User::isConnected()) {
         <div class="alert <?php echo $alertType; ?> alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>
-                <?php echo $alertMsg; echo ($user->nick) ?></strong>
+                <?php echo $alertMsg; ?></strong>
         </div>
 
         <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
