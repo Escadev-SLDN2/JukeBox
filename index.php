@@ -10,7 +10,7 @@ if (!empty($msg)) {
     if ($msg == "success") {
         $alertType = "alert-success";
         if ($conn == "1") {
-            $alertMsg = "Vous êtes bien connecté." ;
+            $alertMsg = "Vous êtes bien connecté.Bonjour, &nbsp";
         } else if ($conn == "-1") {
             $alertMsg = "Vous êtes bien deconnecté";
         } else if ($vid == "1") {
@@ -249,7 +249,7 @@ if (User::isConnected()) {
         <div class="alert <?php echo $alertType; ?> alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>
-                <?php echo $alertMsg; echo " Bonjour, &nbsp" . ($user->nick) ; ?></strong>
+                <?php echo $alertMsg; echo ($user->nick) ?></strong>
         </div>
 
         <!-- Conteneur Visionneuse, Passer, Vote et Ajout de musique-->
