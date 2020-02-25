@@ -102,7 +102,7 @@ function delvideos(int $id)
     }
 }
 
-renvoi un array contenant la liste des videos dans la bdd
+//renvoi un array contenant la liste des videos dans la bdd
 function findAllVideoYtId()
     {
         $pdo = DBConnect();
