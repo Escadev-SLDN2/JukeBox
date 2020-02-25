@@ -219,7 +219,7 @@ if (User::isConnected()) {
                             </div>
                         <?php } ?>
                         <?php if ($isConn) { ?>
-                            <div class="col-5 text-pop">
+                            <div class="col-sm-5 col-8 text-pop">
                                 
                                 <?php 
                                 echo "Bonjour," . ($user->nick) ;
@@ -228,7 +228,7 @@ if (User::isConnected()) {
                                 
                             </div>
                            
-                            <div class="col-4 offset-2 ">
+                            <div class="col-sm-4 col-8 offset-2 ">
                                 
                                     <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
                                         Deconnexion
