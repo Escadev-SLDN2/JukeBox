@@ -15,7 +15,7 @@ if (!empty($msg)) {
         if ($conn == "1") {
             $alertMsg = "Vous êtes bien connecté";
         } else if ($conn == "-1") {
-            $alertMsg = "Vous êtes bien deconnecté";
+            $alertMsg = "Vous êtes bien déconnecté";
         } else if ($vid == "1") {
             $alertMsg = "La vidéo a bien été ajoutée";
         } else {
@@ -120,7 +120,7 @@ if (User::isConnected()) {
                                             </div>
                                             <!--body du POPUP-->
                                             <div class="modal-body bg-secondary">
-                                                <form class="form" action="php/inscription.php" method="POST" role="form" autocomplete="off">
+                                                <form class="form" action="php/inscription.php" method="POST" role="form">
                                                     <div class="container">
 
                                                         <div class="form-group row justify-content-between">
@@ -188,7 +188,7 @@ if (User::isConnected()) {
                                             </div>
                                             <!--body du POPUP-->
                                             <div class="modal-body bg-secondary">
-                                                <form class="form" action="php/connection.php" method="POST" role="form" autocomplete="off">
+                                                <form class="form" action="php/connection.php" method="POST" role="form">
                                                     <div class="container">
 
 
@@ -225,7 +225,7 @@ if (User::isConnected()) {
                         <?php if ($isConn) { ?>
                             <div class="col-5 offset-5">
                                 <a type="button" class="btn btn-danger ml-5 pl-3 boubou" href="php/connection.php?deconnect=true">
-                                    Deconnexion
+                                    Déconnexion
                                 </a>
                             </div>
                         <?php } ?>
@@ -289,7 +289,7 @@ if (User::isConnected()) {
                                             <!-- Contenu Passer -->
                                             <div class="row">
                                                 <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                    <button id="next">Passer</button>
+                                                    <button id="next"><i class="fas fa-step-forward"></i></button>
                                                 </div>
                                             </div>
 
@@ -323,7 +323,7 @@ if (User::isConnected()) {
 
                             <!-- Ajout -->
                             <div class="container adding_music_container">
-                                <form class="form" action="php/ajout.php" method="POST" role="form" autocomplete="off">
+                                <form class="form" action="php/ajout.php" method="POST" role="form">
 
                                     <!--Header Ajout -->
                                     <div class="row">
@@ -834,7 +834,9 @@ if (User::isConnected()) {
                 videoId: '<?php echo array_shift($videos); ?>',
                 playerVars: {
                     autoplay: 1,
-                    playlist: '<?php echo implode(",",$videos); ?>'
+                    playlist: '<?php echo implode(",",$videos); ?>',
+                    loop: 1
+
                 },
 
             });
