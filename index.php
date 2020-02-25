@@ -286,7 +286,7 @@ if (User::isConnected()) {
                                             <!-- Contenu Passer -->
                                             <div class="row">
                                                 <div class="col bg-secondary py-4 d-flex align-items-center justify-content-around">
-                                                    <button id="next">Passer</button>
+                                                    <button id="next"><i class="fas fa-fast-forward"></i></button>
                                                 </div>
                                             </div>
 
