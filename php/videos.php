@@ -107,7 +107,7 @@ function findAllVideoYtId()
     }
 
 function getVideoTitle(string $yt_id){
-    $videoInfos = file_get_contents("http://youtube.com/get_video_info?video_id=".$yt_id);
+    $videoInfos = file_get_contents("https://youtube.com/get_video_info?video_id=".$yt_id);
     parse_str($videoInfos, $infoArray);
     return json_decode($infoArray['player_response'])->videoDetails->title;
 }
