@@ -557,7 +557,7 @@ if (!empty($msg)) {
                                                     <div class="row">
 <?php } ?>
                                                         <div class="col-6 col-md-3 ">
-                                                            <a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;"></a>
+                                                            <a href="#" class="thumbnail"><img src="https://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;"></a>
                                                             <div class="row">
                                                                 <div class="col offset-1 offset-md-0 text-center">
                                                                     <?php echo getVideoTitle($id_yt)."\n";?>
