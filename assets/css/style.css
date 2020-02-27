@@ -1,76 +1,186 @@
-* {
-    font-family: 'sans', sans-serif;
-}
-
 body {
     background-color: #587276;
+    font-family: sans-serif;
 }
 
-
-.logo {
-    margin-top: -75px;
+.bg-secondary {
+    background-color: #cdcbcb !important;
 }
 
-
-.btn-primary {
-    background-color: #cdcbcb;
-    color: black; 
-    min-width: 120px;
-    border-color: #cdcbcb;
-    font-size: 50%;
-
-    
+.bg-dark {
+    background-color: #221f1f !important;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active, 
-.btn-primary:not(:disabled):not(.disabled):active, 
-.show .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #a9000c !important; 
-    border-color: #a9000c !important;
+.text-light {
+    color: #cdcbcb !important;
 }
 
-.btn-primary:hover , .btn-primary:focus {
-    background-color: #a9000c !important; 
-    border-color: #a9000c !important;
-    box-shadow: none !important;
-}
-
-.password {
-    margin-top: 20px;
-}
-.dropdown-menu {
-    size: 100px;
-    padding: 15%;
-    background-color: #cdcbcb ;
+.text-pop {
+    color: #cdcbcb;
+    font-size: 35px;
+    font-weight: bold;
 
 }
-.connectpannel {
-    background-color: #CDCDCD;
-    border: 1px solid black;
-    border-radius: 2px;
-}
-.buttonv {
-    text-align: center;
-    background-color: #A9000C;
-    border-radius: 2px;
-    border-color: #221F1F;
-    color: white;
-    border: none;
-    min-width: 150%;
-    align-items: center;
-}
+
 .connectLabel {
     text-align: center;
-    background-color: #A9000C;
+    background-color: #a9000c;
     border-radius: 2px;
-    border-color: #221F1F;
-    color: white;
-    border: none;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
 }
 
-.playlist-vid {
-    border-color: black;
-    border-style: solid;
-    background-color: black;
+.connectpannel {
+    background-color: #cdcdcd;
+    border: 1px solid #221f1f;
+    border-radius: 2px;
+}
+
+.buttonv {
+    text-align: center;
+    background-color: #a9000c;
+    border-radius: 2px;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
+}
+
+.connectInput {
+    border: 1px solid #221f1f;
+    border-radius: 2px;
+}
+
+.buttonSignup:hover {
+    background-color: #cdcbcb !important;
+}
+
+/* Suggestion : attribuer class btn-secondary et btn-danger en fonction des différents boutons  */
+.btn-secondary {
+    color: #000000;
+    background-color: #cdcbcb;
+    border: 1px solid #a9000c;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #a9000c;
+    border-color: #a9000c;
+    box-shadow: none;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
+}
+
+.btn-toggle {
+    color: #000000;
+    background-color: #cdcbcb;
+    border: 1px solid #a9000c;
+}
+
+.btn-toggle.active {
+    background-color: #a9000c!important;
+    border-color: #a9000c;
+    box-shadow: none;
+    border: 1px solid #221f1f;
+    color: #cdcbcb;
+}
+
+.btn-danger {
+    color: #cdcbcb;
+    background-color: #a9000c;
+    border-color: #a9000c;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    color: black;
+    background-color: #cdcbcb;
+}
+
+.btn-dark {
+    color: #cdcbcb;
+    background-color: #221f1f;
+    border-color: #221f1f;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    color: black;
+    background-color: #cdcbcb;
+}
+
+.form-control,
+.modial-dialog {
+    border: 1px black solid;
+}
+
+/* Adding music section */
+.adding_music_container label {
+    color: #cdcbcb;
+    background-color: #a9000c;
+}
+
+.fa-thumbs-down {
+    color: #a9000c;
+}
+
+.fa-thumbs-up {
+    color: #2ee709;
+}
+
+.close {
+    color: #cdcbcb;
+}
+
+.boubou {
+    width: 100%;
+}
+
+.itl-ajout {
+    border-radius: 5px;
+    background-color:  #221f1f !important ;
+}
+
+table {
+    width:100%;
+    margin-bottom: 0rem !important;
+}
+
+.text {
+    width: 100%;
+}
+
+.logo {
+    max-width: 35%;
+    min-width: 30% !important;
+    z-index: 1;
+}
+
+.table td , .table th {
+    vertical-align: middle;
+}
+
+
+.tableFixHead { 
+    overflow-y: auto; height: 250px;
+}
+
+.tableFixHead thead th {
+    position: sticky; top: 0;
+}
+
+th { 
+    background:#cdcbcb;
+}
+
+
+.btn-give-admin {
+    padding: 0 2rem;
+}
+
+.fluid {
+    padding: 0px;
+}
+
+/* TITRE DU HEADER - ESCABOX */ 
+#titre {
+    letter-spacing: -0.04em;
 }
