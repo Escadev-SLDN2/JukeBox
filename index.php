@@ -82,10 +82,11 @@ if (!empty($msg)) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 
-<body onLoad="size()">
+<body>
 
     <!-- Header -->
     <header>
@@ -752,20 +753,11 @@ if (!empty($msg)) {
 
             });
         }
-        let thumbnailNbr;
-        function size(){
-            let width=document.documentElement.clientWidth
-            if(width<576){
-                thumbnailNbr = 1;
-            }else if(width<992){
-                thumbnailNbr = 3;
-            }else {
-                thumbnailNbr = 4;
-            }
+        
         let carousel = new Glide(".glide", {
             type: 'slide',
             startAt: 0,
-            perView : thumbnailNbr,
+            perView : 4,
         });
         carousel.mount();
 
@@ -782,9 +774,7 @@ if (!empty($msg)) {
         function changeVideo(id){
             player.playVideoAt(id);
         }
-        
 
-        }
     </script>
     
 </body>
