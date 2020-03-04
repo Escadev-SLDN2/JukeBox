@@ -85,7 +85,7 @@ if (!empty($msg)) {
 </head>
 
 
-<body>
+<body onLoad="size()">
 
     <!-- Header -->
     <header>
@@ -556,7 +556,7 @@ if (!empty($msg)) {
                                                 <ul class="glide__slides">
 <?php foreach($videos as $id_yt){ ?>
                                                     <li class="glide__slide">
-                                                        <img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;" onClick="changeVideo(<?php echo $i; ?>)">
+                                                        <img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;" <?php if($isConn) echo "onClick='changeVideo(".$i.")'"; ?>>
                                                         <div class="row">
                                                             <div class="col offset-1 offset-md-0 text-center">
                                                                 <?php echo getVideoTitle($id_yt)."\n";?>
@@ -567,7 +567,7 @@ if (!empty($msg)) {
                                                 </ul>
                                             </div>
                                             <div class="glide__arrows" data-glide-el="controls">
-                                                <button class="glide__arrow glide__arrow--left" style="border: none" data-glide-dir="<"><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></button>
+                                                <button class="glide__arrow glide__arrow--left" style="border: none; outline: none;" data-glide-dir="<"><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></button>
                                                 <button class="glide__arrow glide__arrow--right" style="border: none" data-glide-dir=">"><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></button>
                                             </div>
                                         </div>                                                
@@ -752,10 +752,20 @@ if (!empty($msg)) {
 
             });
         }
+        let thumbnailNbr;
+        function size(){
+            let width=document.documentElement.clientWidth
+            if(width<576){
+                thumbnailNbr = 1;
+            }else if(width<992){
+                thumbnailNbr = 3;
+            }else {
+                thumbnailNbr = 4;
+            }
         let carousel = new Glide(".glide", {
             type: 'slide',
             startAt: 0,
-            perView : 4
+            perView : thumbnailNbr,
         });
         carousel.mount();
 
@@ -771,6 +781,9 @@ if (!empty($msg)) {
             
         function changeVideo(id){
             player.playVideoAt(id);
+        }
+        
+
         }
     </script>
     
