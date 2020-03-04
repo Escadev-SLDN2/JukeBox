@@ -554,16 +554,16 @@ if (!empty($msg)) {
                                          <div class="glide">
                                             <div class="glide__track" data-glide-el="track">
                                                 <ul class="glide__slides">
-<?php $isFirst = true; foreach($videos as $id_yt){ ?>
+<?php foreach($videos as $id_yt){ ?>
                                                     <li class="glide__slide">
-                                                        <img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;">
+                                                        <img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;" onClick="changeVideo(<?php echo $i; ?>)">
                                                         <div class="row">
                                                             <div class="col offset-1 offset-md-0 text-center">
                                                                 <?php echo getVideoTitle($id_yt)."\n";?>
                                                             </div>
                                                         </div>
                                                     </li>
-<?php } ?>
+<?php $i++; } ?>
                                                 </ul>
                                             </div>
                                             <div class="glide__arrows" data-glide-el="controls">
@@ -765,9 +765,12 @@ if (!empty($msg)) {
         let previousVideo= 0;
         function onPlayerStateChange(event) {
             if(event.data == 3 && player.getPlaylistIndex()!=previousVideo){
-               document.getElementById("titre").innerHTML = "={"+player.getPlaylistIndex()+"}";
                carousel.go("="+player.getPlaylistIndex());
             }
+        }
+            
+        function changeVideo(id){
+            player.playVideoAt(id);
         }
     </script>
     
