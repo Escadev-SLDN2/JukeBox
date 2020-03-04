@@ -184,3 +184,7 @@ th {
 #titre {
     letter-spacing: -0.04em;
 }
+
+.glide__slides {
+    margin: 1rem 0;
+}

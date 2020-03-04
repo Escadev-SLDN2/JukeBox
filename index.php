@@ -79,6 +79,8 @@ if (!empty($msg)) {
 
     <!-- Ici se trouvent les liens vers les feuilles de styles -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -527,8 +529,8 @@ if (!empty($msg)) {
         
 
         <!-- Carousel vidéo (Visiteur) -->
-       
-            <section>
+
+        <section>
                 <div class="container mb-3 mt-3">
                     <div class="row">
                         <div class="col">
@@ -549,46 +551,26 @@ if (!empty($msg)) {
 
                                 <div class="row ">
                                     <div class="col-md-12 bg-secondary">
-                                        <div id="Carousel" class="carousel slide" data-interval="false" data-wrap="false">
-                                            <div class="carousel-inner pt-3">
+                                         <div class="glide">
+                                            <div class="glide__track" data-glide-el="track">
+                                                <ul class="glide__slides">
 <?php $isFirst = true; foreach($videos as $id_yt){ ?>
-<?php if($i == 0){ ?>
-                                                <div class="item <?php if($isFirst){echo "active"; $isFirst = false;} ?> carousel-item">
-                                                    <div class="row">
-<?php } ?>
-                                                        <div class="col-6 col-md-3 ">
-                                                            <a href="#" class="thumbnail"><img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;"></a>
-                                                            <div class="row">
-                                                                <div class="col offset-1 offset-md-0 text-center">
-                                                                    <?php echo getVideoTitle($id_yt)."\n";?>
-                                                                </div>
+                                                    <li class="glide__slide">
+                                                        <img src="http://img.youtube.com/vi/<?php echo $id_yt ?>/0.jpg" alt="Image" style="max-width:100%;">
+                                                        <div class="row">
+                                                            <div class="col offset-1 offset-md-0 text-center">
+                                                                <?php echo getVideoTitle($id_yt)."\n";?>
                                                             </div>
                                                         </div>
-                                                    
-<?php if($i == 3){ ?>
-                                                    </div>
-                                                </div>
+                                                    </li>
 <?php } ?>
-<?php if($i == 3){$i = 0;} else{$i++;} ?>
-<?php } ?>
-<?php if($i != 0){ ?>
-                                                    </div>
-                                                </div>
-<?php } ?>
-                                                
-                                                <!--controls-->
-
-                                                <a class="carousel-control-prev d-flex justify-content-start" href="#Carousel" role="button" data-slide="prev">
-                                                    <span><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next d-flex justify-content-end" href="#Carousel" role="button" data-slide="next">
-                                                    <span><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                                <!--.Carousel-->
+                                                </ul>
                                             </div>
-                                        </div>
+                                            <div class="glide__arrows" data-glide-el="controls">
+                                                <button class="glide__arrow glide__arrow--left" style="border: none" data-glide-dir="<"><i style="font-size: 60px" class="fas fa-chevron-circle-left text-danger" aria-hidden="true"></i></button>
+                                                <button class="glide__arrow glide__arrow--right" style="border: none" data-glide-dir=">"><i class="fas fa-4x fa-chevron-circle-right text-danger" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>                                                
                                     </div>
                                 </div>
                             </div>
@@ -596,8 +578,6 @@ if (!empty($msg)) {
                     </div>
                 </div>
             </section>
-       
-
 
                 <!-- Gestion des vidéos et playlist (Admin) -->
 
@@ -753,6 +733,7 @@ if (!empty($msg)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/86d37fbec9.js" crossorigin="anonymous"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script>
         var player;
 
@@ -760,6 +741,7 @@ if (!empty($msg)) {
             player = new YT.Player('video-placeholder', {
                 width: '100%',
                 height: 400,
+                events: { 'onStateChange': onPlayerStateChange },
                 videoId: '<?php echo array_shift($videos); ?>',
                 playerVars: {
                     autoplay: 1,
@@ -770,12 +752,25 @@ if (!empty($msg)) {
 
             });
         }
+        let carousel = new Glide(".glide", {
+            type: 'slide',
+            startAt: 0,
+            perView : 4
+        });
+        carousel.mount();
 
         $('#next').on('click', function() {
             player.nextVideo()
         });
+        let previousVideo= 0;
+        function onPlayerStateChange(event) {
+            if(event.data == 3 && player.getPlaylistIndex()!=previousVideo){
+               document.getElementById("titre").innerHTML = "={"+player.getPlaylistIndex()+"}";
+               carousel.go("="+player.getPlaylistIndex());
+            }
+        }
     </script>
-
+    
 </body>
 
 </html>
