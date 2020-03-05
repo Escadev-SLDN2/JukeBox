@@ -768,6 +768,7 @@ if (!empty($msg)) {
         function onPlayerStateChange(event) {
             if(event.data == 3 && player.getPlaylistIndex()!=previousVideo){
                carousel.go("="+player.getPlaylistIndex());
+                previousVideo = player.getPlaylistIndex();
             }
         }
             
