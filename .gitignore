@@ -2,5 +2,6 @@
 php/config.conf
 .vscode
 .idea
-.workspace
-.codelite
+*.workspace
+*.codelite
+*.phprj
